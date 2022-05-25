@@ -96,8 +96,13 @@
 	8.1: Deploy the Machine
 
 	8.2: What is the name of the Windows 10 operating system?
-	The command to get all operating systems on the domain is "Get-NetComputer -fulldata | select operatingsystem"
+	Get-NetComputer -fulldata | select operatingsystem
  
 	![image](https://user-images.githubusercontent.com/14150485/170375589-eac9b500-41e8-4b88-99d3-61860979117b.png)
 
+	8.3: What is the second "Admin" name?
+	
+	![image](https://user-images.githubusercontent.com/14150485/170376331-f3b4a525-b114-4d4f-b638-c663cb7ad857.png)
+
+	Admin2
 ```
