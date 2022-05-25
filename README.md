@@ -118,6 +118,7 @@
 	<br />
 	b) SSH or RDP into the machine (or use the browser-based instance)
 	<br />
+	<br />
 	Username: Administrator
 	<br />
 	Password: password123@
@@ -162,3 +163,9 @@
 	```
 	![image](https://user-images.githubusercontent.com/14150485/170382503-59715782-8e61-4277-ad31-f777f11f2677.png)
 
+<br />
+
+9. Conclusion
+	```
+	I understand the basics of Active Directory
+	```
