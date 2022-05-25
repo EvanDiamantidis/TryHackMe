@@ -167,7 +167,9 @@ Hyper-V Administrators
 Get-ADUser -Identity SQLService -Properties * | Select PasswordLastSet
 ```
 ![image](https://user-images.githubusercontent.com/14150485/170382503-59715782-8e61-4277-ad31-f777f11f2677.png)
-
+```
+5/13/2020 8:26:58 PM
+```
 <br />
 <br />
 
