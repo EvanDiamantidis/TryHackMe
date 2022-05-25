@@ -8,10 +8,12 @@
 
 ```
 1. Introduction
+
 	1.1: I understand what Active Directory is and why it is used.
 ```
 ```
 2. Physical Active Directory
+
 	2.1: What database does the AD DS contain?
 	NTDS.dit
 
@@ -23,6 +25,7 @@
 ```
 ```
 3. The Forest
+
 	3.1: What is the term for a hierarchy of domains in a network?
 	Tree
 
@@ -34,6 +37,7 @@
 ```
 ```
 4. Users + Groups
+
 	4.1: Which type of groups specify user permissions?
 	Security groups
 
@@ -51,6 +55,7 @@
 ```
 ```
 5. Trusts + Policies
+
 	5.1: What type of trust flows from a trusting domain to a trusted domain?
 	Directional
 
@@ -59,6 +64,7 @@
 ```
 ```
 6. Active Directory Domain Services + Authentication 
+
 	6.1: What type of authentication uses tickets?
 	Kerberos
 
@@ -67,6 +73,7 @@
 ```
 ```
 7. AD in the Cloud
+
 	7.1: What is the Azure AD equivalent of LDAP?
 	Rest APIs
 
@@ -78,6 +85,7 @@
 ```
 ```
 8. Hands-On Lab
+
 	a) Deploy the Machine
 	b) SSH or RDP into the machine (or use the browser-based instance)
 
@@ -90,5 +98,6 @@
 	8.2: What is the name of the Windows 10 operating system?
 	The command to get all operating systems on the domain is "Get-NetComputer -fulldata | select operatingsystem"
  
-![image](https://user-images.githubusercontent.com/14150485/170374907-0a949148-ab0a-40e0-ae9c-7a4c4d76f2f3.png)
+	![image](https://user-images.githubusercontent.com/14150485/170375589-eac9b500-41e8-4b88-99d3-61860979117b.png)
+
 ```
