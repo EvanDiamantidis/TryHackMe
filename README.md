@@ -4,6 +4,7 @@ Evan Diamantidis | May 25th, 2022
 1. Introduction
 	1.1: I understand what Active Directory is and why it is used.
 ```
+```
 2. Physical Active Directory
 	2.1: What database does the AD DS contain?
 	NTDS.dit
@@ -13,7 +14,8 @@ Evan Diamantidis | May 25th, 2022
 
 	2.3: What type of machine can be a domain controller?
 	Windows server
-
+```
+```
 3. The Forest
 	3.1: What is the term for a hierarchy of domains in a network?
 	Tree
@@ -23,7 +25,8 @@ Evan Diamantidis | May 25th, 2022
 
 	3.3: What is the term for containers for groups, computers, users, printers, and other OUs?
 	Organizational unit
-
+```
+```
 4. Users + Groups
 	4.1: Which type of groups specify user permissions?
 	Security groups
@@ -39,21 +42,24 @@ Evan Diamantidis | May 25th, 2022
 
 	4.5: Which group has their passwords replicated to read-only domain controllers?
 	Allowed RODC Password Replication Group
-
+```
+```
 5. Trusts + Policies
 	5.1: What type of trust flows from a trusting domain to a trusted domain?
 	Directional
 
 	5.2: What type of trusts expands to include other trusted domains?
 	Transitive
-
+```
+```
 6. Active Directory Domain Services + Authentication 
 	6.1: What type of authentication uses tickets?
 	Kerberos
 
 	6.2: What domain service can create, validate, and revoke public key certificates?
 	Certificate services
-
+```
+```
 7. AD in the Cloud
 	7.1: What is the Azure AD equivalent of LDAP?
 	Rest APIs
@@ -63,7 +69,8 @@ Evan Diamantidis | May 25th, 2022
 
 	7.3: What is the Windows Server AD equivalent of Guests?
 	Trusts
-
+```
+```
 8. Hands-On Lab
 	a) Deploy the Machine
 	b) SSH or RDP into the machine (or use the browser-based instance)
@@ -78,4 +85,4 @@ Evan Diamantidis | May 25th, 2022
 	The command to get all operating systems on the domain is "Get-NetComputer -fulldata | select operatingsystem"
  
 ![image](https://user-images.githubusercontent.com/14150485/170374907-0a949148-ab0a-40e0-ae9c-7a4c4d76f2f3.png)
-
+```
