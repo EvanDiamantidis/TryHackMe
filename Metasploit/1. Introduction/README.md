@@ -33,7 +33,27 @@ Singles
 Singles
 ```
 
+<br />
+<br />
+
+# 3. Msfconsole
+
+3.1: How would you search for a module related to Apache?
+```
+search apache
+```
+
+3.2: Who provided the auxiliary/scanner/ssh/ssh_login module?
+```
+info auxiliary/scanner/ssh/ssh_login
+```
+![image](https://user-images.githubusercontent.com/14150485/170449506-54bdbef2-7072-459a-ad5e-456ee73dabee.png)
+
+```
+todb
+```
 
 <br />
 <br />
 
+# 4. Working with modules
