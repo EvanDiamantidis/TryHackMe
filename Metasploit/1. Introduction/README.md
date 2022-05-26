@@ -57,3 +57,23 @@ todb
 <br />
 
 # 4. Working with modules
+
+4.1: How would you set the LPORT value to 6666?
+```
+set LPORT 6666
+```
+4.2: How would you set the global value for RHOSTS  to 10.10.19.23 ?
+```
+setg RHOSTS 10.10.19.23
+```
+4.3: What command would you use to clear a set payload?
+```
+unset PAYLOAD
+```
+4.4: What command do you use to proceed with the exploitation phase?
+```
+exploit
+```
+
+<br />
+<br />
