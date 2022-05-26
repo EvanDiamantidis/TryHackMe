@@ -159,9 +159,9 @@ Admin2
 ```
 8.4: Which group has a capital "V" in the group name?
 ```
-Get-ADGroup -Filter {samAccountName -like '*V*'} | Select samAccountName
+Get-ADGroup -Filter * | Where-Object {$_.samAccountName -clike '*V*'} | Select samAccountName
 ```
-![image](https://user-images.githubusercontent.com/14150485/170382267-2b43fee7-8a38-43e0-b51c-5d4ad7ad18e3.png)
+![image](https://user-images.githubusercontent.com/14150485/170454254-8209e591-82a4-469e-8c8f-035f8548d624.png)
 ```
 Hyper-V Administrators
 ```
