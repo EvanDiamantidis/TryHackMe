@@ -9,6 +9,9 @@
 # 1. Introduction
 	
 1.1: I understand what Active Directory is and why it is used.
+```
+No answer needed
+```
 
 <br />
 <br />
@@ -174,6 +177,8 @@ Get-ADUser -Identity SQLService -Properties * | Select PasswordLastSet
 <br />
 
 # 9. Conclusion
+
+9.1: I understand the basics of Active Directory
 ```
-I understand the basics of Active Directory
+No answer needed
 ```
