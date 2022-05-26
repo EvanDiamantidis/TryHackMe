@@ -153,7 +153,7 @@ Windows 10 Enterprise Evaluation
 ```
 Get-ADUser -Filter {samAccountName -like '*admin*'} | Select samAccountName
 ```
-![image](https://user-images.githubusercontent.com/14150485/170381931-fc1e8aa9-2ad5-491c-8a92-6d803fccdd4a.png)
+![screenshot](https://user-images.githubusercontent.com/14150485/170381931-fc1e8aa9-2ad5-491c-8a92-6d803fccdd4a.png)
 ```
 Admin2
 ```
@@ -161,7 +161,7 @@ Admin2
 ```
 Get-ADGroup -Filter * | Where-Object {$_.samAccountName -clike '*V*'} | Select samAccountName
 ```
-![image](https://user-images.githubusercontent.com/14150485/170454254-8209e591-82a4-469e-8c8f-035f8548d624.png)
+![screenshot](https://user-images.githubusercontent.com/14150485/170454508-cf4c56ca-25cc-4400-856a-6c96c84419a9.png)
 ```
 Hyper-V Administrators
 ```
@@ -169,7 +169,7 @@ Hyper-V Administrators
 ```
 Get-ADUser -Identity SQLService -Properties * | Select PasswordLastSet
 ```
-![image](https://user-images.githubusercontent.com/14150485/170382503-59715782-8e61-4277-ad31-f777f11f2677.png)
+![screenshot](https://user-images.githubusercontent.com/14150485/170382503-59715782-8e61-4277-ad31-f777f11f2677.png)
 ```
 5/13/2020 8:26:58 PM
 ```
