@@ -77,7 +77,7 @@ No answer needed
 
 1.3: What is this machine vulnerable to? (Answer in the form of: ms??-???, ex: ms08-067)
 ```
-
+MS17-010
 ```
 
 <br />
