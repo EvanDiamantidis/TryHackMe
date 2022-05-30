@@ -1,2 +1,2 @@
 # TryHackMe
-A collection of notes on various TryHackMe rooms.
+A collection of ad-hoc notes on various TryHackMe rooms.
