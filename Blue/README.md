@@ -428,7 +428,6 @@ flag{sam_database_elevated_access}
 There are multiple ways of varying complexity that we can employ to approach this task, however our knowledge, common sense and curiosity should suffice here.
 
 <br />
-<br />
 
 The question is hinting us at "Administrators" and *things* they save. As we saw in task [4.1](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Blue#41-within-our-elevated-meterpreter-shell-run-the-command-hashdump-this-will-dump-all-of-the-passwords-on-the-machine-as-long-as-we-have-the-correct-privileges-to-do-so-what-is-the-name-of-the-non-default-user), there are 3 accounts on this machine - Administrator, Guest and Jon. Navigating to the "C:\Users\\" folder, however, we only see a "Jon" folder along with the default ones, such as "All Users", "Default", "Public", etc.
 
