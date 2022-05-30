@@ -214,7 +214,7 @@ Trustno1
 ```
 search -f secrets.txt
 ```
-The file is located in the "C:\Program Files (x86)\Windows Multimedia Platform\" folder.
+The file is located in the "C:\Program Files (x86)\Windows Multimedia Platform\\" folder.
 
 ![image](https://user-images.githubusercontent.com/14150485/170663807-4eceae66-9e14-47f5-b626-484aa333e454.png)
 ```
@@ -236,7 +236,7 @@ KDSvbsw3849!
 search -f realsecret.txt
 ```
 
-The "realsecret.txt" file is located under the "C:\inetpub\wwwroot\" folder.
+The "realsecret.txt" file is located under the "C:\inetpub\wwwroot\\" folder.
 
 ![image](https://user-images.githubusercontent.com/14150485/170664342-1fa9a5af-84bb-4a5f-9382-77f1cd16bb58.png)
 ```
