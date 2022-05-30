@@ -6,9 +6,9 @@
 
 <br />
 
-# 1. Introduction to Meterpreter
+## 1. Introduction to Meterpreter
 
-1.1: No answer needed
+### 1.1: No answer needed
 ```
 No answer needed
 ```
@@ -16,9 +16,9 @@ No answer needed
 <br />
 <br />
 
-# 2. Meterpreter Flavors
+## 2. Meterpreter Flavors
 	
-2.1: No answer needed.
+### 2.1: No answer needed.
 
 ```
 No answer needed
@@ -26,9 +26,9 @@ No answer needed
 <br />
 <br />
 
-# 3. Meterpreter Commands
+## 3. Meterpreter Commands
 
-3.1: No answer needed.
+### 3.1: No answer needed.
 ```
 No answer needed
 ```
@@ -36,9 +36,9 @@ No answer needed
 <br />
 <br />
 
-# 4. Post-Exploitation with Meterpreter
+## 4. Post-Exploitation with Meterpreter
 
-4.1: No answer needed.
+### 4.1: No answer needed.
 ```
 No answer needed
 ```
@@ -46,10 +46,10 @@ No answer needed
 <br />
 <br />
 
-# 5. Post-Exploitation Challenge
+## 5. Post-Exploitation Challenge
 
 
-5.1: What is the computer name?
+### 5.1: What is the computer name?
 
 We will be using nmap to gather information on the target system.
 ```
@@ -122,8 +122,9 @@ The computer name is "ACME-TEST"
 ```
 ACME-TEST
 ```
+<br />
 
-5.2: What is the target domain?
+### 5.2: What is the target domain?
 
 To get this information we need to push the current meterpreter shell to the background for a second so we can use the "post/windows/gather/enum_domain" module.
 ```
@@ -152,8 +153,9 @@ The output shows the domain name.
 ```
 FLASH
 ```
+<br />
 
-5.3: What is the name of the share likely created by the user? 
+### 5.3: What is the name of the share likely created by the user? 
 
 As per the hint, module "post/windows/gather/enum_shares" will get us this information.
 ```
@@ -170,8 +172,9 @@ Looks like there are 3 shares available, the one created by the user is likely i
 ```
 speedster
 ```
+<br />
 
-5.4: What is the NTLM hash of the jchambers user?
+### 5.4: What is the NTLM hash of the jchambers user?
 
 Resume the meterpreter session running in the background.
 ```
@@ -198,8 +201,9 @@ hashdump
 ```
 69596c7aa1e8daee17f8e78870e25a5c
 ```
+<br />
 
-5.5: What is the cleartext password of the jchambers user?
+### 5.5: What is the cleartext password of the jchambers user?
 
 A simple hash check on CrackStation should suffice.
 
@@ -208,8 +212,9 @@ A simple hash check on CrackStation should suffice.
 ```
 Trustno1
 ```
+<br />
 
-5.6: Where is the "secrets.txt"  file located?
+### 5.6: Where is the "secrets.txt"  file located?
 
 ```
 search -f secrets.txt
@@ -220,8 +225,9 @@ The file is located in the "C:\Program Files (x86)\Windows Multimedia Platform\\
 ```
 C:\Program Files (x86)\Windows Multimedia Platform\
 ```
+<br />
 
-5.7: What is the Twitter password revealed in the "secrets.txt" file?
+### 5.7: What is the Twitter password revealed in the "secrets.txt" file?
 ```
 cat secrets.txt
 ```
@@ -230,8 +236,9 @@ cat secrets.txt
 ```
 KDSvbsw3849!
 ```
+<br />
 
-5.8: Where is the "realsecret.txt" file located? 
+### 5.8: Where is the "realsecret.txt" file located? 
 ```
 search -f realsecret.txt
 ```
@@ -242,8 +249,9 @@ The "realsecret.txt" file is located under the "C:\inetpub\wwwroot\\" folder.
 ```
 C:\inetpub\wwwroot\
 ```
+<br />
 
-5.9: What is the real secret? 
+### 5.9: What is the real secret? 
 ```
 cat realsecret.txt
 ```
@@ -254,5 +262,4 @@ Well, looks like "The Flash is the fastest man alive" - No secret there!
 ```
 The Flash is the fastest man alive
 ```
-
-
+<br />
