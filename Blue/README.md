@@ -12,7 +12,7 @@
 
 <br />
 
-Nmap will help us gather some information about our target. For the purposes of this box, since task 1.3 is asking *what this machine is vulnerable to*, we will be adding the "-sS --script=vuln" argument to our nmap scan. 
+Nmap will help us gather some information about our target. For the purposes of this box, since task 1.3 is asking *what this machine is vulnerable to*, we will be adding the "-sS --script=vuln" argument to our nmap scan:
 ```
 nmap -sC -sV -sS --script=vuln -oN nmap/initial REMOTE_IP
 ```
