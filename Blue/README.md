@@ -1,4 +1,4 @@
-**# Blue**
+# **Blue**
 
 > Evan Diamantidis | May 30th, 2022
 
@@ -6,9 +6,13 @@
 
 <br />
 
-**# 1. Recon**
+# **1. Recon**
+
+<br />
 
 **1.1:** ***Scan the machine. (If you are unsure how to tackle this, I recommend checking out the Nmap room)***
+
+<br />
 
 Nmap will help us gather some information about our target. For the purposes of this box, since task 1.3 is asking *what this machine is vulnerable to*, we will be adding the "-sS --script=vuln" argument to our nmap scan. The "initial" output file under the "nmap" folder shows the following:
 ```
@@ -96,7 +100,9 @@ MS17-010
 <br />
 <br />
 
-**# 2. Gain Access**
+# **2. Gain Access**
+
+<br />
 	
 **2.1:** ***Start Metasploit***
 ```
@@ -106,6 +112,8 @@ No answer needed
 <br />
 
 **2.2:** ***Find the exploitation code we will run against the machine. What is the full path of the code? (Ex: exploit/........)***
+
+<br />
 
 Searching Metasploit for "MS17-010" will show the relevant modules we could use to attack the machine.
 ```
@@ -129,6 +137,8 @@ exploit/windows/smb/ms17_010_eternalblue
 <br />
 
 **2.3:** ***Show options and set the one required value. What is the name of this value? (All caps for submission)***
+
+<br />
 
 Running the "show options" command shows us which values we need to set before we can successfully execute the exploit:
 ```
@@ -164,6 +174,8 @@ No answer needed
 
 **2.5:** ***Confirm that the exploit has run correctly. You may have to press enter for the DOS shell to appear. Background this shell (CTRL + Z). If this failed, you may have to reboot the target VM. Try running it again before a reboot of the target.***
 
+<br />
+
 And we're in!
 
 ![image](https://user-images.githubusercontent.com/14150485/170935109-606cc4c8-8f74-4c7b-b877-1af20ef8a9bf.png)
@@ -174,9 +186,13 @@ No answer needed
 <br />
 <br />
 
-**# 3. Escalate**
+# **3. Escalate**
+
+<br />
 
 **3.1:** ***If you haven't already, background the previously gained shell (CTRL + Z). Research online how to convert a shell to meterpreter shell in metasploit. What is the name of the post module we will use? (Exact path, similar to the exploit we previously selected)***
+
+<br />
 
 We push the current shell to the background:
 ```
@@ -204,6 +220,8 @@ post/multi/manage/shell_to_meterpreter
 
 **3.2:** ***Select this (use MODULE_PATH). Show options, what option are we required to change?***
 
+<br />
+
 Listing the options for this module, we will be required to update the "SESSION" attribute with our active session ID.
 
 ![image](https://user-images.githubusercontent.com/14150485/170936412-866b08d9-ade7-4d1f-89d9-8f0f05aa6044.png)
@@ -216,6 +234,8 @@ SESSION
 <br />
 
 **3.3:** ***Set the required option, you may need to list all of the sessions to find your target here.***
+
+<br />
 
 We can view our active session ID using the "sessions" command.
 ```
@@ -237,6 +257,8 @@ No answer needed
 
 **3.4:** ***Run! If this doesn't work, try completing the exploit from the previous task once more.***
 
+<br />
+
 Running the exploit should inform us that the module was successfully executed.
 
 ![image](https://user-images.githubusercontent.com/14150485/170937967-4df7d691-5e88-4531-b2af-c8b784afdc25.png)
@@ -248,6 +270,8 @@ No answer needed
 <br />
 
 **3.5:** ***Once the meterpreter shell conversion completes, select that session for use.***
+
+<br />
 
 We can switch to our active session using the following command:
 ```
@@ -263,6 +287,8 @@ No answer needed
 
 **3.6:** ***Verify that we have escalated to NT AUTHORITY\SYSTEM. Run getsystem to confirm this. Feel free to open a dos shell via the command 'shell' and run 'whoami'. This should return that we are indeed system. Background this shell afterwards and select our meterpreter session for usage again.***
 
+<br />
+
 As instructed, using the "shell" and "whoami" commands will show us the current privileges on the target system.
 
 ![image](https://user-images.githubusercontent.com/14150485/170939937-37bc0838-71ad-484d-b583-9f750bdc6b92.png)
@@ -274,6 +300,8 @@ No answer needed
 <br />
 
 **3.7:** ***List all of the processes running via the 'ps' command. Just because we are system doesn't mean our process is. Find a process towards the bottom of this list that is running at NT AUTHORITY\SYSTEM and write down the process id (far left column).***
+
+<br />
 
 For this, we need to move back to the meterpreter shell using "Ctrl + Z".
 ```
@@ -293,6 +321,8 @@ No answer needed
 
 **3.8:** ***Migrate to this process using the 'migrate PROCESS_ID' command where the process id is the one you just wrote down in the previous step. This may take several attempts, migrating processes is not very stable. If this fails, you may need to re-run the conversion process or reboot the machine and start once again. If this happens, try a different process next time.***
 
+<br />
+
 We might need to try multiple processes for this until we can successfully migrate to one.
 ```
 migrate PROCESSID
@@ -306,9 +336,13 @@ No answer needed
 <br />
 <br />
 
-**# 4. Cracking**
+# **4. Cracking**
 
-**4.1:** ***Within our elevated meterpreter shell, run the command 'hashdump'. This will dump all of the passwords on the machine as long as we have the correct privileges to do so. What is the name of the non-default user? 
+<br />
+
+**4.1:** ***Within our elevated meterpreter shell, run the command 'hashdump'. This will dump all of the passwords on the machine as long as we have the correct privileges to do so. What is the name of the non-default user?***
+
+<br />
 
 This one is simple, we just need to run the "hashdump" commmand to get the hashes.
 ```
@@ -324,7 +358,9 @@ Jon
 
 <br />
 
-**4.2:** ***Copy this password hash to a file and research how to crack it. What is the cracked password?
+**4.2:** ***Copy this password hash to a file and research how to crack it. What is the cracked password?***
+
+<br />
 
 Since this is a Windows machine, we can expect to see NT hashes (also known as NTLM). We can confirm this by checking the hash against a hash identifier at https://hashes.com/en/tools/hash_identifier.
 
@@ -344,9 +380,13 @@ alqfna22
 <br />
 <br />
 
-# 5. Find flags!
+# **5. Find flags!**
+
+<br />
 
 **5.1:** ***Flag1? This flag can be found at the system root.***
+
+<br />
 
 Easy one - The top folder on Windows systems is "C:\\", as also subtly hinted on the question.
 
@@ -367,6 +407,8 @@ flag{access_the_machine}
 <br />
 
 **5.2:** ***Flag2? This flag can be found at the location where passwords are stored within Windows.***
+
+<br />
 
 *Errata: Windows really doesn't like the location of this flag and can occasionally delete it. It may be necessary in some cases to terminate/restart the machine and rerun the exploit to find this flag. This relatively rare, however, it can happen. 
 
@@ -390,6 +432,8 @@ flag{sam_database_elevated_access}
 ```
 
 **5.3:** ***Flag3? This flag can be found in an excellent location to loot. After all, Administrators usually have pretty interesting things saved.***
+
+<br />
 
 There are multiple ways of varying complexity that we can employ to approach this task, however our most powerful and useful weapons are knowledge, logic and, of course, our curiosity!
 <br />
@@ -417,6 +461,8 @@ Congrats, you pwned Blue!
 
 # *** **SPOILER** ***
 
+<br />
+
 There is a way we can actually find all flags with the use of a simple command, and that would simply be searching the machine for any files including the word "flag" in their name.
 
 ```
@@ -426,4 +472,6 @@ search -f *flag*.txt
 ![image](https://user-images.githubusercontent.com/14150485/170983401-d5d4f3a9-9516-4401-b5d2-9b4c063077bc.png)
 
 Although it is the most efficient solution to this challenge, it can be counter-productive to the process since our aim is to learn as much as we can about the use of Meterpreter, shell and session switching, as well as Windows filesystems. That said, knowing how and when to take advantage of Meterpreter commands is good knowledge in itself.
+
+<br />
 
