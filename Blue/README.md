@@ -452,7 +452,7 @@ Congrats, you just pwned Blue!
 
 # *** **SPOILER** ***
 
-There is a way we can actually find all flags with the use of a simple command, simply by searching the machine for any text files that include the word "flag" in the file name.
+There is a way we can actually get all the flags with the use of a single command, simply by searching the machine for any text files that include the word "flag" in the file name.
 
 ```
 search -f *flag*.txt
