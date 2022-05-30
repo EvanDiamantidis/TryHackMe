@@ -410,7 +410,7 @@ flag{access_the_machine}
 
 <br />
 
-*Errata: Windows really doesn't like the location of this flag and can occasionally delete it. It may be necessary in some cases to terminate/restart the machine and rerun the exploit to find this flag. This relatively rare, however, it can happen. 
+*Errata: Windows really doesn't like the location of this flag and can occasionally delete it. It may be necessary in some cases to terminate/restart the machine and rerun the exploit to find this flag. This relatively rare, however, it can happen.*
 
 On Windows systems, local user account details are stored in "C:\Windows\system32\config\\". Navigating to this folder and listing its contents confirms the existence of the "flag2.txt" file.
 ```
@@ -435,7 +435,7 @@ flag{sam_database_elevated_access}
 
 <br />
 
-There are multiple ways of varying complexity that we can employ to approach this task, however our most powerful and useful weapons are knowledge, logic and, of course, our curiosity!
+There are multiple ways of varying complexity that we can employ to approach this task, however we will be employing our most powerful and useful weapons - Knowledge, logic and, of course, our curiosity!
 <br />
 <br />
 The question is hinting us at "Administrators" and *things* they save. As we saw in task 4.2, there are 3 accounts on this machine - Administrator, Guest and Jon. Navigating to the "C:\Users\\" folder, however, we only see a "Jon" folder along with the default ones, such as "All Users", "Default", "Public", etc.
