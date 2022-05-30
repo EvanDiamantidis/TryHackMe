@@ -12,7 +12,12 @@
 
 <br />
 
-Nmap will help us gather some information about our target. For the purposes of this box, since task 1.3 is asking *what this machine is vulnerable to*, we will be adding the "-sS --script=vuln" argument to our nmap scan. The "initial" output file under the "nmap" folder shows the following:
+Nmap will help us gather some information about our target. For the purposes of this box, since task 1.3 is asking *what this machine is vulnerable to*, we will be adding the "-sS --script=vuln" argument to our nmap scan. 
+```
+nmap -sC -sV -sS --script=vuln -oN nmap/initial REMOTE_IP
+```
+
+The "initial" output file under the "nmap" folder shows the following:
 ```
 # Nmap 7.92 scan initiated Mon May 30 07:24:31 2022 as: nmap -sC -sV -sS --script=vuln -oN nmap/initial 10.10.239.152
 Nmap scan report for 10.10.239.152
@@ -244,7 +249,7 @@ sessions
 
 We can now proceed to update the value:
 ```
-set SESSION SESSION_NUMBER
+set SESSION SESSION_ID
 ```
 That's it, we should now be ready to run the exploit.
 
@@ -274,7 +279,7 @@ No answer needed
 
 We can switch to our active session using the following command:
 ```
-sessions -i SESSION_NUMBER
+sessions -i SESSION_ID
 ```
 ![image](https://user-images.githubusercontent.com/14150485/170939666-6af9a594-23be-457a-97a0-1bf67a2ee72c.png)
 
@@ -324,7 +329,7 @@ No answer needed
 
 We might need to try multiple processes for this until we can successfully migrate to one.
 ```
-migrate PROCESS_ID
+migrate PID
 ```
 ![image](https://user-images.githubusercontent.com/14150485/170947190-405b831f-0220-4ecf-baf2-097dd9c8e46a.png)
 
@@ -365,7 +370,7 @@ Since this is a Windows machine, we can expect to see NT hashes (also known as N
 
 Now that we have confirmed this to be an NTLM hash we can easily proceed to crack it using John The Ripper. To do so, create a file at a location of your choice and paste the hash into it. Then let John do what he does best!
 ```
-john --format=NT --wordlist=ROCKYOU_PATH/rockyou.txt HASH_FILE
+john --format=NT --wordlist=/PATH/rockyou.txt HASH_FILE
 ```
 
 ![image](https://user-images.githubusercontent.com/14150485/170951262-ecea0adc-561b-46e9-a305-aa518cb7361d.png)
