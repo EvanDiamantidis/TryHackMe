@@ -10,7 +10,7 @@
 
 1.1: Scan the machine. (If you are unsure how to tackle this, I recommend checking out the Nmap room)
 
-Nmap will help us gather some information about our target. For the purposes of this box, since question 1.3 is asking what this machine is vulnerable to, we will be adding the "-sS --script=vuln" argument to our nmap scan. The "initial" output file under the "nmap" folder shows the following:
+Nmap will help us gather some information about our target. For the purposes of this box, since task 1.3 is asking *what this machine is vulnerable to*, we will be adding the "-sS --script=vuln" argument to our nmap scan. The "initial" output file under the "nmap" folder shows the following:
 ```
 # Nmap 7.92 scan initiated Mon May 30 07:24:31 2022 as: nmap -sC -sV -sS --script=vuln -oN nmap/initial 10.10.239.152
 Nmap scan report for 10.10.239.152
@@ -297,7 +297,7 @@ Jon
 
 4.2: Copy this password hash to a file and research how to crack it. What is the cracked password?
 
-Since this is a Windows machine, hashes are most likely to be NTLM. With that said, we can check the hash at https://hashes.com/en/tools/hash_identifier.
+Since this is a Windows machine, we can expect to see NT hashes (also known as NTLM). We can confirm this by checking the hash against a hash identifier at https://hashes.com/en/tools/hash_identifier.
 
 ![image](https://user-images.githubusercontent.com/14150485/170950699-7aedfbef-129d-4232-8ff4-a6f5ae7fd715.png)
 
@@ -319,7 +319,7 @@ alqfna22
 
 5.1: Flag1? This flag can be found at the system root.
 
-Easy one - The top folder on Windows systems is "C:\", as also subtly hinted on the question.
+Easy one - The top folder on Windows systems is "C:\\", as also subtly hinted on the question.
 
 ![image](https://user-images.githubusercontent.com/14150485/170952503-4048ea2c-61b8-4da7-b13b-ce77f8a05085.png)
 
@@ -339,7 +339,7 @@ flag{access_the_machine}
 
 *Errata: Windows really doesn't like the location of this flag and can occasionally delete it. It may be necessary in some cases to terminate/restart the machine and rerun the exploit to find this flag. This relatively rare, however, it can happen. 
 
-On Windows systems, local user account details are stored in "C:\Windows\system32\config\". Navigating to this folder and listing its contents confirms the existence of the "flag2.txt" file.
+On Windows systems, local user account details are stored in "C:\Windows\system32\config\\". Navigating to this folder and listing its contents confirms the existence of the "flag2.txt" file.
 ```
 cd Windows\\System32\\config\\
 ls
@@ -363,11 +363,13 @@ flag{sam_database_elevated_access}
 There are multiple ways of varying complexity that we can employ to approach this task, however our most powerful and useful weapons are knowledge, logic and, of course, our curiosity!
 <br />
 <br />
-The question is hinting us at "Administrators" and *things* they save. As we saw in task 4.2, there are 3 accounts on this machine - Administrator, Guest and Jon. Navigating to the "C:\Users" folder, however, we only see a "Jon" folder along with the default ones, such as "All Users", "Default", "Public", etc.
+The question is hinting us at "Administrators" and *things* they save. As we saw in task 4.2, there are 3 accounts on this machine - Administrator, Guest and Jon. Navigating to the "C:\Users\\" folder, however, we only see a "Jon" folder along with the default ones, such as "All Users", "Default", "Public", etc.
 
 ![image](https://user-images.githubusercontent.com/14150485/170963756-4b26ea7f-8b4f-489f-9614-838230530b07.png)
 
-Interesting, as this means we are most likely to find something in there! *Administrators usually have pretty interesting things saved*, and it just so happens that we are looking for a flag which, more often than not, is a string saved in a document file. This should prompt us to have a look under the "Documents" folder and see if we can find anything useful.
+Interesting, as this means we are most likely to find something in there! 
+<br />
+*Administrators usually have pretty interesting things saved*, and it just so happens that we are looking for a flag which, more often than not, is a string saved in a document file. This should prompt us to have a look under the "Documents" folder and see if we can find anything useful.
 
 ![image](https://user-images.githubusercontent.com/14150485/170968141-00d71b0d-707f-43cc-9083-e90075c4dc56.png)
 
@@ -392,5 +394,5 @@ search -f *flag*.txt
 
 ![image](https://user-images.githubusercontent.com/14150485/170983401-d5d4f3a9-9516-4401-b5d2-9b4c063077bc.png)
 
-Even though it is the quickest and most effective way of solving the challenge, I find it a little counter-productive to the process since our aim is to learn as much as we can about the use of Meterpreter/shell switching and Windows filesystems. That said, knowing how to search for specific files is good knowledge in itself.
+Although it is the quickest and most effective way of solving the challenge, it can be counter-productive to the process since our aim is to learn as much as we can about the use of Meterpreter, shell and session switching, as well as Windows filesystems. That said, knowing how to take advantage of meterpreter commands for is good knowledge in itself.
 
