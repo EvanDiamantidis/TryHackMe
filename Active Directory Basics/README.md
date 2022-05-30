@@ -22,10 +22,14 @@ No answer needed
 ```
 NTDS.dit
 ```
+<br />
+
 ### 2.2: Where is the NTDS.dit stored?
 ```
 %systemroot%\NTDS
 ```
+<br />
+
 ### 2.3: What type of machine can be a domain controller?
 ```
 Windows server
@@ -40,11 +44,13 @@ Windows server
 ```
 Tree
 ```
+<br />
 
 ### 3.2: What is the term for the rules for object creation?
 ```
 Domain schema
 ```
+<br />
 
 ### 3.3: What is the term for containers for groups, computers, users, printers, and other OUs?
 ```
@@ -60,21 +66,25 @@ Organizational unit
 ```
 Security groups
 ```
+<br />
 
 ### 4.2: Which group contains all workstations and servers joined to the domain?
 ```
 Domain computers
 ```
+<br />
 
 ### 4.3: Which group can publish certificates to the directory?
 ```
 Cert publishers
 ```
+<br />
 
 ### 4.4: Which user can make changes to a local machine but not to a domain controller?
 ```
 Local administrator
 ```
+<br />
 
 ### 4.5: Which group has their passwords replicated to read-only domain controllers?
 ```
@@ -90,6 +100,7 @@ Allowed RODC Password Replication Group
 ```
 Directional
 ```
+<br />
 
 ### 5.2: What type of trusts expands to include other trusted domains?
 ```
@@ -104,6 +115,7 @@ Transitive
 ```
 Kerberos
 ```
+<br />
 
 ### 6.2: What domain service can create, validate, and revoke public key certificates?
 ```
@@ -119,11 +131,13 @@ Certificate services
 ```
 Rest APIs
 ```
+<br />
 
 ### 7.2: What is the Azure AD equivalent of Domains and Forests?
 ```
 Tenants
 ```
+<br />
 
 ### 7.3: What is the Windows Server AD equivalent of Guests?
 ```
@@ -134,27 +148,19 @@ Trusts
 <br />
 
 ## 8. Hands-On Lab
-
-a) Deploy the Machine
-<br />
-
-b) SSH or RDP into the machine (or use the browser-based instance)
-<br />
-<br />
-
+```
 Username: Administrator
-<br />
-
+```
+```
 Password: password123@
-<br />
-
-Domain: CONTROLLER.local
-<br />
+```
 <br />
 
 ### 8.1: Deploy the Machine
+```
+No answer needed
+```
 
-<br />
 <br />
 
 ### 8.2: What is the name of the Windows 10 operating system?
@@ -165,6 +171,7 @@ Get-NetComputer -fulldata | select operatingsystem
 ```
 Windows 10 Enterprise Evaluation
 ```
+<br />
 
 ### 8.3: What is the second "Admin" name?
 ```
@@ -174,6 +181,7 @@ Get-ADUser -Filter {samAccountName -like '*admin*'} | Select samAccountName
 ```
 Admin2
 ```
+<br />
 
 ### 8.4: Which group has a capital "V" in the group name?
 ```
@@ -183,6 +191,7 @@ Get-ADGroup -Filter * | Where-Object {$_.samAccountName -clike '*V*'} | Select s
 ```
 Hyper-V Administrators
 ```
+<br />
 
 ### 8.5: When was the password last set for the SQLService user?
 ```
@@ -201,3 +210,4 @@ Get-ADUser -Identity SQLService -Properties * | Select PasswordLastSet
 ```
 No answer needed
 ```
+<br />
