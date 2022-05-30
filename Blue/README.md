@@ -8,7 +8,7 @@
 
 ## 1. Recon
 
-### **1.1:** ***Scan the machine. (If you are unsure how to tackle this, I recommend checking out the Nmap room)***
+### 1.1: Scan the machine. (If you are unsure how to tackle this, I recommend checking out the Nmap room)
 
 <br />
 
@@ -83,14 +83,14 @@ No answer needed
 
 <br />
 
-### **1.2:** ***How many ports are open with a port number under 1000?***
+### 1.2: How many ports are open with a port number under 1000?
 ```
 3
 ```
 
 <br />
 
-### **1.3:** ***What is this machine vulnerable to? (Answer in the form of: ms??-???, ex: ms08-067)***
+### 1.3: What is this machine vulnerable to? (Answer in the form of: ms??-???, ex: ms08-067)
 ```
 MS17-010
 ```
@@ -100,14 +100,14 @@ MS17-010
 
 ## 2. Gain Access
 	
-### **2.1:** ***Start Metasploit***
+### 2.1: Start Metasploit
 ```
 No answer needed
 ```
 
 <br />
 
-### **2.2:** ***Find the exploitation code we will run against the machine. What is the full path of the code? (Ex: exploit/........)***
+### 2.2: Find the exploitation code we will run against the machine. What is the full path of the code? (Ex: exploit/........)
 
 <br />
 
@@ -132,7 +132,7 @@ exploit/windows/smb/ms17_010_eternalblue
 
 <br />
 
-### **2.3:** ***Show options and set the one required value. What is the name of this value? (All caps for submission)***
+### 2.3: Show options and set the one required value. What is the name of this value? (All caps for submission)
 
 <br />
 
@@ -153,7 +153,7 @@ RHOSTS
 
 <br />
 
-### **2.4:** ***Usually it would be fine to run this exploit as is however, for the sake of learning, you should do one more thing before exploiting the target. Enter the following command and press enter:***
+### 2.4: Usually it would be fine to run this exploit as is however, for the sake of learning, you should do one more thing before exploiting the target. Enter the following command and press enter:
 
 <br />
 
@@ -168,7 +168,7 @@ No answer needed
 
 <br />
 
-### **2.5:** ***Confirm that the exploit has run correctly. You may have to press enter for the DOS shell to appear. Background this shell (CTRL + Z). If this failed, you may have to reboot the target VM. Try running it again before a reboot of the target.***
+### 2.5: Confirm that the exploit has run correctly. You may have to press enter for the DOS shell to appear. Background this shell (CTRL + Z). If this failed, you may have to reboot the target VM. Try running it again before a reboot of the target.
 
 <br />
 
@@ -184,7 +184,7 @@ No answer needed
 
 ## **3. Escalate**
 
-### **3.1:** ***If you haven't already, background the previously gained shell (CTRL + Z). Research online how to convert a shell to meterpreter shell in metasploit. What is the name of the post module we will use? (Exact path, similar to the exploit we previously selected)***
+### 3.1: If you haven't already, background the previously gained shell (CTRL + Z). Research online how to convert a shell to meterpreter shell in metasploit. What is the name of the post module we will use? (Exact path, similar to the exploit we previously selected)
 
 <br />
 
@@ -212,7 +212,7 @@ post/multi/manage/shell_to_meterpreter
 
 <br />
 
-### **3.2:** ***Select this (use MODULE_PATH). Show options, what option are we required to change?***
+### 3.2: Select this (use MODULE_PATH). Show options, what option are we required to change?
 
 <br />
 
@@ -227,7 +227,7 @@ SESSION
 
 <br />
 
-### **3.3:** ***Set the required option, you may need to list all of the sessions to find your target here.***
+### 3.3: Set the required option, you may need to list all of the sessions to find your target here.
 
 <br />
 
@@ -249,7 +249,7 @@ No answer needed
 
 <br />
 
-### **3.4:** ***Run! If this doesn't work, try completing the exploit from the previous task once more.***
+### 3.4: Run! If this doesn't work, try completing the exploit from the previous task once more.
 
 <br />
 
@@ -263,7 +263,7 @@ No answer needed
 
 <br />
 
-### **3.5:** ***Once the meterpreter shell conversion completes, select that session for use.***
+### 3.5: Once the meterpreter shell conversion completes, select that session for use.
 
 <br />
 
@@ -279,7 +279,7 @@ No answer needed
 
 <br />
 
-### **3.6:** ***Verify that we have escalated to NT AUTHORITY\SYSTEM. Run getsystem to confirm this. Feel free to open a dos shell via the command 'shell' and run 'whoami'. This should return that we are indeed system. Background this shell afterwards and select our meterpreter session for usage again.***
+### 3.6: Verify that we have escalated to NT AUTHORITY\SYSTEM. Run getsystem to confirm this. Feel free to open a dos shell via the command 'shell' and run 'whoami'. This should return that we are indeed system. Background this shell afterwards and select our meterpreter session for usage again.
 
 <br />
 
@@ -293,7 +293,7 @@ No answer needed
 
 <br />
 
-### **3.7:** ***List all of the processes running via the 'ps' command. Just because we are system doesn't mean our process is. Find a process towards the bottom of this list that is running at NT AUTHORITY\SYSTEM and write down the process id (far left column).***
+### 3.7: List all of the processes running via the 'ps' command. Just because we are system doesn't mean our process is. Find a process towards the bottom of this list that is running at NT AUTHORITY\SYSTEM and write down the process id (far left column).
 
 <br />
 
@@ -313,7 +313,7 @@ No answer needed
 
 <br />
 
-### **3.8:** ***Migrate to this process using the 'migrate PROCESS_ID' command where the process id is the one you just wrote down in the previous step. This may take several attempts, migrating processes is not very stable. If this fails, you may need to re-run the conversion process or reboot the machine and start once again. If this happens, try a different process next time.***
+### 3.8: Migrate to this process using the 'migrate PROCESS_ID' command where the process id is the one you just wrote down in the previous step. This may take several attempts, migrating processes is not very stable. If this fails, you may need to re-run the conversion process or reboot the machine and start once again. If this happens, try a different process next time.
 
 <br />
 
@@ -332,7 +332,7 @@ No answer needed
 
 ## **4. Cracking**
 
-### **4.1:** ***Within our elevated meterpreter shell, run the command 'hashdump'. This will dump all of the passwords on the machine as long as we have the correct privileges to do so. What is the name of the non-default user?***
+### 4.1: Within our elevated meterpreter shell, run the command 'hashdump'. This will dump all of the passwords on the machine as long as we have the correct privileges to do so. What is the name of the non-default user?
 
 <br />
 
@@ -350,7 +350,7 @@ Jon
 
 <br />
 
-### **4.2:** ***Copy this password hash to a file and research how to crack it. What is the cracked password?***
+### 4.2: Copy this password hash to a file and research how to crack it. What is the cracked password?
 
 <br />
 
@@ -374,7 +374,7 @@ alqfna22
 
 ## **5. Find flags!**
 
-### **5.1:** ***Flag1? This flag can be found at the system root.***
+### 5.1: Flag1? This flag can be found at the system root.
 
 <br />
 
@@ -396,7 +396,7 @@ flag{access_the_machine}
 
 <br />
 
-### **5.2:** ***Flag2? This flag can be found at the location where passwords are stored within Windows.***
+### 5.2: Flag2? This flag can be found at the location where passwords are stored within Windows.
 
 <br />
 
@@ -421,7 +421,7 @@ cat flag2.txt
 flag{sam_database_elevated_access}
 ```
 
-### **5.3:** ***Flag3? This flag can be found in an excellent location to loot. After all, Administrators usually have pretty interesting things saved.***
+### 5.3: Flag3? This flag can be found in an excellent location to loot. After all, Administrators usually have pretty interesting things saved.
 
 <br />
 
