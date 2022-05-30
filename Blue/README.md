@@ -460,7 +460,7 @@ search -f *flag*.txt
 
 ![image](https://user-images.githubusercontent.com/14150485/170983401-d5d4f3a9-9516-4401-b5d2-9b4c063077bc.png)
 
-Although this is the most efficient solution to the challenge, it might be counter-productive to the process, seeing as our aim is to learn as much as we can about the use of Metasploit, Meterpreter, shell and session switching, as well as Windows filesystems. That said, knowing how and when to take advantage of Meterpreter commands is excellent knowledge in itself.
+Although this is the most efficient solution to the challenge, it might be counter-productive to the process, seeing as our aim should be to conduct our own research based on the hints provided for each flag with an aim to learn as much as we can about the use of Metasploit, Meterpreter, shell and session switching, as well as Windows filesystems in general. That said, knowing how and when to take advantage of Meterpreter commands is excellent knowledge in itself.
 
 <br />
 
