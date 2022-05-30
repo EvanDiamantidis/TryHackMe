@@ -394,5 +394,5 @@ search -f *flag*.txt
 
 ![image](https://user-images.githubusercontent.com/14150485/170983401-d5d4f3a9-9516-4401-b5d2-9b4c063077bc.png)
 
-Although it is the most efficient solution to this challenge, it can be counter-productive to the process since our aim is to learn as much as we can about the use of Meterpreter, shell and session switching, as well as Windows filesystems. That said, knowing how to take advantage of meterpreter commands for is good knowledge in itself.
+Although it is the most efficient solution to this challenge, it can be counter-productive to the process since our aim is to learn as much as we can about the use of Meterpreter, shell and session switching, as well as Windows filesystems. That said, knowing how and when to take advantage of Meterpreter commands is good knowledge in itself.
 
