@@ -428,7 +428,7 @@ flag{sam_database_elevated_access}
 There are multiple ways of varying complexity that we can employ to approach this task, however we will be employing our most powerful and useful weapons - Knowledge, logic and, of course, our curiosity!
 <br />
 <br />
-The question is hinting us at "Administrators" and *things* they save. As we saw in task [4.1](https://github.com/EvanDiamantidis/TryHackMe/edit/main/Blue/README.md#4-cracking), there are 3 accounts on this machine - Administrator, Guest and Jon. Navigating to the "C:\Users\\" folder, however, we only see a "Jon" folder along with the default ones, such as "All Users", "Default", "Public", etc.
+The question is hinting us at "Administrators" and *things* they save. As we saw in task [4.1](https://github.com/EvanDiamantidis/TryHackMe/blob/main/Blue/README.md#41-within-our-elevated-meterpreter-shell-run-the-command-hashdump-this-will-dump-all-of-the-passwords-on-the-machine-as-long-as-we-have-the-correct-privileges-to-do-so-what-is-the-name-of-the-non-default-user), there are 3 accounts on this machine - Administrator, Guest and Jon. Navigating to the "C:\Users\\" folder, however, we only see a "Jon" folder along with the default ones, such as "All Users", "Default", "Public", etc.
 
 ![image](https://user-images.githubusercontent.com/14150485/170963756-4b26ea7f-8b4f-489f-9614-838230530b07.png)
 
