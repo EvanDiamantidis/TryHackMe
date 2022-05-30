@@ -332,8 +332,6 @@ No answer needed
 
 ## **4. Cracking**
 
-<br />
-
 ### **4.1:** ***Within our elevated meterpreter shell, run the command 'hashdump'. This will dump all of the passwords on the machine as long as we have the correct privileges to do so. What is the name of the non-default user?***
 
 <br />
@@ -375,8 +373,6 @@ alqfna22
 <br />
 
 ## **5. Find flags!**
-
-<br />
 
 ### **5.1:** ***Flag1? This flag can be found at the system root.***
 
@@ -454,8 +450,6 @@ Congrats, you pwned Blue!
 <br />
 
 # *** **SPOILER** ***
-
-<br />
 
 There is a way we can actually find all flags with the use of a simple command, and that would simply be searching the machine for any files including the word "flag" in their name.
 
