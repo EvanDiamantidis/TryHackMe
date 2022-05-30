@@ -277,7 +277,7 @@ No answer needed
 
 <br />
 
-We can switch to our active session using the following command:
+We can switch sessions using the following command:
 ```
 sessions -i SESSION_ID
 ```
