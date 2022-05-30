@@ -435,17 +435,17 @@ The question is hinting us at "Administrators" and *things* they save. As we saw
 
 Interesting, as this means we are most likely to find something in there! 
 <br />
-*Administrators usually have pretty interesting things saved*, and it just so happens that we are looking for a flag which, more often than not, is a string saved in a document file. This should prompt us to have a look under the "Documents" folder and see if we can find anything useful.
+*Administrators usually have pretty interesting things saved*, and it just so happens that we are looking for a flag which, more often than not, is a string saved in a text file. This should prompt us to have a look under the "Documents" folder and see if we can find anything useful.
 
 ![image](https://user-images.githubusercontent.com/14150485/170968141-00d71b0d-707f-43cc-9083-e90075c4dc56.png)
 
-The "flag3.txt" file is in here!
+The "flag3.txt" file is in here, indeed!
 
 ```
 flag{admin_documents_can_be_valuable}
 ```
 
-Congrats, you pwned Blue!
+Congrats, you just pwned Blue!
 
 <br />
 <br />
