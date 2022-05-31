@@ -151,7 +151,7 @@ show options
 ```
 set RHOSTS REMOTE_IP
 ```
-Although this is not mentioned on the task, seeing as the exploit can successfully run without this setting, I found that updating the LHOST value with the local IP resolved some issues executing the exploit successfully.
+Although this is not mentioned in this task, seeing as the exploit can successfully run without this setting, I found that updating the LHOST value with the local IP resolved some issues executing the exploit successfully.
 ```
 set LHOST LOCAL_IP
 ```
