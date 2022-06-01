@@ -444,6 +444,7 @@ flag2.txt
 ```
 flag{sam_database_elevated_access}
 ```
+<br />
 
 ### 5.3: Flag3? This flag can be found in an excellent location to loot. After all, Administrators usually have pretty interesting things saved.
 
