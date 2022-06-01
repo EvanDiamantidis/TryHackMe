@@ -406,7 +406,10 @@ cat flag1.txt
 
 ![image](https://user-images.githubusercontent.com/14150485/171124905-8eaac059-c5a6-4ea3-bd6b-30ffb6e4d38d.png)
 
+<br />
+
 flag1.txt
+---------
 ```
 flag{access_the_machine}
 ```
@@ -434,7 +437,10 @@ cat flag2.txt
 
 ![image](https://user-images.githubusercontent.com/14150485/171125234-a9a7e9d6-2d94-4478-a75d-654d9d33d040.png)
 
+<br />
+
 flag2.txt
+---------
 ```
 flag{sam_database_elevated_access}
 ```
@@ -461,10 +467,14 @@ The "flag3.txt" file is in here, indeed!
 
 ![image](https://user-images.githubusercontent.com/14150485/171125747-04106d65-0700-4dc5-a901-eaec3f419f78.png)
 
+<br />
+
 flag3.txt
+---------
 ```
 flag{admin_documents_can_be_valuable}
 ```
+<br />
 
 Congrats, you just pwned Blue!
 
