@@ -15,8 +15,8 @@ No answer needed
 
 Let's gather some information about our target with nmap. The "initial" output file under the "nmap" folder shows the following:
 ```
-# Nmap 7.92 scan initiated Thu Jun  2 09:00:07 2022 as: nmap -sC -sV -oN nmap/initial 10.10.165.122
-Nmap scan report for 10.10.165.122
+# Nmap 7.92 scan initiated Thu Jun  2 09:00:07 2022 as: nmap -sC -sV -oN nmap/initial 10.10.248.34
+Nmap scan report for 10.10.248.34
 Host is up (0.0087s latency).
 Not shown: 994 closed tcp ports (reset)
 PORT     STATE SERVICE VERSION
@@ -54,6 +54,15 @@ Service detection performed. Please report any incorrect results at https://nmap
 # Nmap done at Thu Jun  2 09:00:16 2022 -- 1 IP address (1 host up) scanned in 8.28 seconds
 ```
 
+<br />
+
+The credentials we will be using to connect via SSH are:
+```
+Username: user
+```
+```
+Password: password321
+```
 <br />
 
 ### 1.2: Run the "id" command. What is the result?
