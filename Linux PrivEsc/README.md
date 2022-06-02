@@ -57,60 +57,70 @@ Service detection performed. Please report any incorrect results at https://nmap
 <br />
 
 The credentials we will be using to connect via SSH are:
+
+Username: ```user```
+<br />
+Password: ```password321```
+
+<br />
+
+There was an error in my attempt to SSH directly to the target machine remotely without any additional options using the standard SSH command:
 ```
-Username: user
+ssh USERNAME@TARGET_IP
 ```
+![image](https://user-images.githubusercontent.com/14150485/171621390-963177a3-7270-4187-b137-3db5283d1817.png)
+
+The solution I found over at [AskUbuntu](https://askubuntu.com/questions/836048/ssh-returns-no-matching-host-key-type-found-their-offer-ssh-dss) is to simply add the *-oHostKeyAlgorithms=+ssh-dss* option:
 ```
-Password: password321
+ssh -oHostKeyAlgorithms=+ssh-dss USERNAME@TARGET_IP
 ```
+![image](https://user-images.githubusercontent.com/14150485/171622487-e57fbb6b-955b-4594-92b9-dc1beb887fcf.png)
+
+Please note that you can SSH to the target machine without any additional options using a TryHackMe AttackBox.
+
 <br />
 
 ### 1.2: Run the "id" command. What is the result?
 ```
 id
 ```
+![image](https://user-images.githubusercontent.com/14150485/171623189-030512f6-f76e-4ae0-bf92-25b4004a665c.png)
 
-<br />
-
-### 1.3: What is this machine vulnerable to? (Answer in the form of: ms??-???, ex: ms08-067)
+The result is:
 ```
-MS17-010
+uid=1000(user) gid=1000(user) groups=1000(user),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev)
 ```
 
+
 <br />
 <br />
 
-## 2. Gain Access
+## 2. Service Exploits
 	
-### 2.1: Start Metasploit
+### 2.1: Read and follow along with the above.
 ```
 No answer needed
 ```
 
 <br />
-
-### 2.2: Find the exploitation code we will run against the machine. What is the full path of the code? (Ex: exploit/........)
-
 <br />
 
-Searching Metasploit for "MS17-010" will show the relevant modules we could use to attack the machine.
-```
-search MS17-010
-```
-![image](https://user-images.githubusercontent.com/14150485/171114110-e0c005f4-9378-4351-a843-6a417c0e65b6.png)
-
-EternalBlue is a well-known SMB exploit which we have also used in other rooms:
-```
-use 0
-```
-Altenatively:
-```
-use exploit/windows/smb/ms17_010_eternalblue
-```
-The answer is therefore:
-```
-exploit/windows/smb/ms17_010_eternalblue
+## 3. Weak File Permissions - Readable /etc/shadow
+	
+### 3.1: What is the root user's password hash?
 ```
 
+```
 <br />
 
+### 3.2: What hashing algorithm was used to produce the root user's password hash?
+```
+
+```
+<br />
+
+### 3.3: What is the root user's password?
+```
+
+```
+<br />
