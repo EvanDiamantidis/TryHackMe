@@ -72,7 +72,7 @@ ssh USERNAME@TARGET_IP
 
 The solution I found over at [AskUbuntu](https://askubuntu.com/questions/836048/ssh-returns-no-matching-host-key-type-found-their-offer-ssh-dss) is to simply add the *-oHostKeyAlgorithms=+ssh-dss* option:
 ```
-ssh -oHostKeyAlgorithms=+ssh-dss USERNAME@TARGET_IP
+ssh -o HostKeyAlgorithms=ssh-dss USERNAME@TARGET_IP
 ```
 ![image](https://user-images.githubusercontent.com/14150485/171622487-e57fbb6b-955b-4594-92b9-dc1beb887fcf.png)
 
