@@ -86,7 +86,7 @@ id
 ```
 ![image](https://user-images.githubusercontent.com/14150485/171623189-030512f6-f76e-4ae0-bf92-25b4004a665c.png)
 
-The result is:
+The answer is:
 ```
 uid=1000(user) gid=1000(user) groups=1000(user),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev)
 ```
