@@ -96,6 +96,12 @@ uid=1000(user) gid=1000(user) groups=1000(user),24(cdrom),25(floppy),29(audio),3
 <br />
 
 ## 2. Service Exploits
+
+This section might be a little advanced for some - It involves compiling the [MySQL 4.x/5.0 (Linux) - User-Defined Function (UDF) Dynamic Library (2)](https://www.exploit-db.com/exploits/1518) exploit, which is already downloaded as ```raptor_udf2.c``` under the ```/home/user/tools/mysql-udf``` directory on the target machine. This exploit allows us to take advantage of User Defined Functions (UDFs) to run system commands with root privileges using the MySQL service.
+
+<br />
+
+I strongly recommend following along the step by step instructions and researching the exploit and commands being used in parallel as part of your learning process.
 	
 ### 2.1: Read and follow along with the above.
 ```
