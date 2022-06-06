@@ -585,21 +585,15 @@ sudo LD_PRELOAD=/tmp/preload.so iftop
 
 ![image](https://user-images.githubusercontent.com/14150485/172238459-7f95fa1f-6fec-432c-b888-1549c43ec4e7.png)
 
-Same thing happens when we run `find` with `sudo` permissions using the aforementioned `LD_PRELOAD` value:
-
-```
-sudo LD_PRELOAD=/tmp/preload.so find
-```
-
-![image](https://user-images.githubusercontent.com/14150485/172238616-da5869a5-f35c-4391-a072-8f18a50408e7.png)
-
-The same applies to `apache2`:
+The same applies to `apache2` when ran with `sudo` permissions using the aforementioned `LD_PRELOAD` value:
 
 ```
 sudo LD_PRELOAD=/tmp/preload.so apache2
 ```
 
 ![image](https://user-images.githubusercontent.com/14150485/172240755-276f7f6a-7d64-4a77-9ce7-533ebf973b6e.png)
+
+<br />
 
 Time to see if we can use `sudo` with `apache2` to get a root shell, utilizing the `LD_LIBRARY_PATH` this time.
 
