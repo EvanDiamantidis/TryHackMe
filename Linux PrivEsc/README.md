@@ -97,6 +97,8 @@ uid=1000(user) gid=1000(user) groups=1000(user),24(cdrom),25(floppy),29(audio),3
 
 ## 2. Service Exploits
 
+<br />
+
 This section might be a little advanced for some - It involves compiling the [MySQL 4.x/5.0 (Linux) - User-Defined Function (UDF) Dynamic Library (2)](https://www.exploit-db.com/exploits/1518) exploit, which is already downloaded as `raptor_udf2.c` under the `/home/user/tools/mysql-udf` directory on the target machine. This exploit allows us to take advantage of User Defined Functions (UDFs) to run system commands with root privileges using the MySQL service.
 
 <br />
@@ -328,10 +330,6 @@ Searching through the list of programs we just got using the `sudo -l` command o
 apache2
 ```
 
-### 6.3: Consider how you might use this program with sudo to gain root privileges without a shell escape sequence.
-
-<br />
-
 Apart from `apache2`, the rest can be used in one way or another for privilege escalation purposes on this machine.
 <br />
 I will be listing `sudo` examples for each exploit below - More detailed information can be found at https://gtfobins.github.io, which is also the source I used for these notes.
@@ -538,7 +536,13 @@ Successfully escalated to root!
 
 ![image](https://user-images.githubusercontent.com/14150485/172017178-17bcd1aa-41dc-40d2-981d-fd65a24f3a76.png)
 
+
+
+### 6.3: Consider how you might use this program with sudo to gain root privileges without a shell escape sequence.
+
 <br />
+
+
 
 ```
 No answer needed
