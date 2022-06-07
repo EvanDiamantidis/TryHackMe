@@ -56,7 +56,6 @@
 ### [9: Cron Jobs - PATH Environment Variable](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#9-cron-jobs---path-environment-variable-1)
 #### [&nbsp; 9.1: What is the value of the PATH variable in /etc/crontab?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#91-what-is-the-value-of-the-path-variable-in-etccrontab)
 
-
 <br />
 <br />
 
