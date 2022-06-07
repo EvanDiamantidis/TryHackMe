@@ -48,14 +48,24 @@
 
 <br />
 
-### [7. AD in the Cloud](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#7-ad-in-the-cloud)
+### [7. AD in the Cloud](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#7-ad-in-the-cloud-1)
 #### [&nbsp; 7.1: What is the Azure AD equivalent of LDAP?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#71-what-is-the-azure-ad-equivalent-of-ldap)
 #### [&nbsp; 7.2: What is the Azure AD equivalent of Domains and Forests?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#72-what-is-the-azure-ad-equivalent-of-domains-and-forests)
 #### [&nbsp; 7.3: What is the Windows Server AD equivalent of Guests?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#73-what-is-the-windows-server-ad-equivalent-of-guests)
 
 <br />
 
+### [8. Hands-On Lab](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#8-hands-on-lab)
+#### [&nbsp; 8.1: Deploy the Machine](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#81-deploy-the-machine)
+#### [&nbsp; 8.2: What is the name of the Windows 10 operating system?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#82-what-is-the-name-of-the-windows-10-operating-system)
+#### [&nbsp; 8.3: What is the second "Admin" name?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#83-what-is-the-second-admin-name)
+#### [&nbsp; 8.4: Which group has a capital "V" in the group name?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#84-which-group-has-a-capital-v-in-the-group-name)
+#### [&nbsp; 8.5: When was the password last set for the SQLService user?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#85-when-was-the-password-last-set-for-the-sqlservice-user)
+
 <br />
+
+### [9. Conclusion](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#9-conclusion)
+#### [&nbsp; 9.1: I understand the basics of Active Directory](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#91-i-understand-the-basics-of-active-directory)
 
 
 ## 1. Introduction
