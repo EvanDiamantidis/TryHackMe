@@ -55,7 +55,7 @@
 
 <br />
 
-### [8. Hands-On Lab](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#8-hands-on-lab)
+### [8. Hands-On Lab](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#8-hands-on-lab-1)
 #### [&nbsp; 8.1: Deploy the Machine](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#81-deploy-the-machine)
 #### [&nbsp; 8.2: What is the name of the Windows 10 operating system?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#82-what-is-the-name-of-the-windows-10-operating-system)
 #### [&nbsp; 8.3: What is the second "Admin" name?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#83-what-is-the-second-admin-name)
@@ -64,7 +64,7 @@
 
 <br />
 
-### [9. Conclusion](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#9-conclusion)
+### [9. Conclusion](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#9-conclusion-1)
 #### [&nbsp; 9.1: I understand the basics of Active Directory](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#91-i-understand-the-basics-of-active-directory)
 
 
