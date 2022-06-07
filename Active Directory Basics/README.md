@@ -67,6 +67,8 @@
 ### [9. Conclusion](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#9-conclusion-1)
 #### [&nbsp; 9.1: I understand the basics of Active Directory](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#91-i-understand-the-basics-of-active-directory)
 
+<br />
+<br />
 
 ## 1. Introduction
 	
