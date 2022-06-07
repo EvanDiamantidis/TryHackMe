@@ -13,7 +13,7 @@
 
 <br />
 
-### [2. Physical Active Directoryn](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#2-physical-active-directory-1)
+### [2. Physical Active Directory](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#2-physical-active-directory)
 #### [&nbsp; 2.1: What database does the AD DS contain?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#21-what-database-does-the-ad-ds-contain)
 #### [&nbsp; 2.2: Where is the NTDS.dit stored?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#22-where-is-the-ntdsdit-stored)
 #### [&nbsp; 2.3: What type of machine can be a domain controller?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#23-what-type-of-machine-can-be-a-domain-controller)
@@ -34,8 +34,19 @@
 #### [&nbsp; 4.4: Which user can make changes to a local machine but not to a domain controller?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#44-which-user-can-make-changes-to-a-local-machine-but-not-to-a-domain-controller) 
 #### [&nbsp; 4.5: Which group has their passwords replicated to read-only domain controllers?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#45-which-group-has-their-passwords-replicated-to-read-only-domain-controllers) 
 
+<br />
+
+### [Trusts + Policies](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#5-trusts--policies-1)
+#### [&nbsp; 5.1: What type of trust flows from a trusting domain to a trusted domain?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#51-what-type-of-trust-flows-from-a-trusting-domain-to-a-trusted-domain)
+#### [&nbsp; 5.2: What type of trusts expands to include other trusted domains?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#52-what-type-of-trusts-expands-to-include-other-trusted-domains)
+
 
 <br />
+
+<br />
+
+<br />
+
 
 ## 1. Introduction
 	
