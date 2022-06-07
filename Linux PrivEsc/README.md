@@ -311,7 +311,7 @@ nano /etc/shadow
 
 ![image](https://user-images.githubusercontent.com/14150485/172007071-fc8ee104-118f-47c4-8d3c-326a8db4bdba.png)
 
-To test the new password we simply save the file and ```exit``` from root back to user level.
+To test the new password we simply save the file and `exit` from root back to user level.
 ```
 su root
 ```
@@ -386,7 +386,7 @@ sudo -l
 
 <br />
 
-Searching through the list of programs we just got using the `sudo -l` command over at https://gtfobins.github.io, there is only one not appearing on the list.
+Searching through the list of programs we just got using the `sudo -l` command over at [GTFOBins](https://gtfobins.github.io), there is only one not appearing on the list.
 
 ```
 apache2
@@ -394,7 +394,7 @@ apache2
 
 Apart from `apache2`, the rest can be used in one way or another for privilege escalation purposes on this machine.
 <br />
-I will be listing `sudo` examples for each exploit below - More detailed information can be found at https://gtfobins.github.io, which is also the source I used for these notes.
+I will be listing `sudo` examples for each exploit below - More detailed information can be found at [GTFOBins](https://gtfobins.github.io), which is also the source I used for these notes.
 
 Remember to exit back after each root escalation before attempting another exploit!
 
@@ -853,7 +853,7 @@ cat /usr/local/bin/compress.sh
 
 ![image](https://user-images.githubusercontent.com/14150485/172453181-b97b7c49-a00e-4d5c-9328-a28fdca19eec.png)
 
-The `tar` command appears to run with a wildcard signified by the asterisk symbol `*`, that can be exploited if not used properly. According to the `crontab` information, it seems that a backup of the `/home/user/` folder is being made every minute. Researching `tar` at https://gtfobins.github.io/gtfobins/tar/ it looks like we can use its command options to spawn an interactive system shell!
+The `tar` command appears to run with a wildcard signified by the asterisk symbol `*`, that can be exploited if not used properly. According to the `crontab` information, it seems that a backup of the `/home/user/` folder is being made every minute. Researching `tar` at [GTFOBins](https://gtfobins.github.io/gtfobins/tar/) it looks like we can use its command options to spawn an interactive system shell!
 
 <br/>
 
@@ -915,3 +915,46 @@ No answer needed
 
 <br/>
 <br/>
+
+### 11: SUID / SGID Executables - Known Exploits
+
+<br/>
+
+Find all the SUID/SGID executables on the Debian VM:
+
+```
+find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172489473-41db594a-a1ef-4879-b041-868c16edd1fa.png)
+
+Per the instructions on the task, we should look for known exploits related to `/usr/sbin/exim-4.84-3`. Searching for `exim 4.84-3` brings up `CVE-2016-1531` on [Exploit-DB](https://www.exploit-db.com/exploits/39535). We can proceed to download the exploit, however before doing so I found it already located under the `/home/user/tools/exim/` directory of the target system:
+
+`locate cve-2016-1531`
+
+![image](https://user-images.githubusercontent.com/14150485/172491693-9d0ed091-9184-422c-9dd1-8d4ba546d5bc.png)
+
+Although the specified location was not available, I was able to `find` a copy of it under the `/home/user/tools/suid/exim/` folder:
+
+`find /home -name 'cve*'`
+
+![image](https://user-images.githubusercontent.com/14150485/172494315-8d4ff762-dced-47d5-8455-35b001c0b547.png)
+
+Running the exploit will spawn a root shell.
+
+`/home/user/tools/suid/exim/cve-2016-1531.sh`
+
+![image](https://user-images.githubusercontent.com/14150485/172493140-bdd047d2-32a8-4560-ba25-bd5b48954928.png)
+
+<br/>
+
+#### 11.1: Read and follow along with the above.
+
+```
+No answer needed
+```
+
+<br/>
+<br/>
+
+
