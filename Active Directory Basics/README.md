@@ -6,6 +6,21 @@
 
 <br />
 
+# Table of contents
+
+### [1. Introduction]()
+#### [&nbsp; 1.1: I understand what Active Directory is and why it is used.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#11-i-understand-what-active-directory-is-and-why-it-is-used)
+
+<br />
+
+### [2. Physical Active Directoryn](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#2-physical-active-directory)
+#### [&nbsp; 2.1: What database does the AD DS contain?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#22-where-is-the-ntdsdit-stored)
+
+
+
+
+<br />
+
 ## 1. Introduction
 	
 ### 1.1: I understand what Active Directory is and why it is used.
