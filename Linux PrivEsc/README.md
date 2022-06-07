@@ -8,47 +8,47 @@
 
 # Table of contents
 
-### [1. Deploy the Vulnerable Debian VM](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#1-deploy-the-vulnerable-debian-vm)
+### [1. Deploy the Vulnerable Debian VM](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#1-deploy-the-vulnerable-debian-vm-1)
 #### [&nbsp; 1.1: Deploy the machine and login to the "user" account using SSH.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#11-deploy-the-machine-and-login-to-the-user-account-using-ssh)
 #### [&nbsp; 1.2: Run the "id" command. What is the result?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#12-run-the-id-command-what-is-the-result)
 
 <br />
 
-### [2. Service Exploits](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#2-service-exploits)
+### [2. Service Exploits](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#2-service-exploits-1)
 #### [&nbsp; 2.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#21-read-and-follow-along-with-the-above)
 
 <br />
 
-### [3. Weak File Permissions - Readable /etc/shadow](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#3-weak-file-permissions---readable-etcshadow)
+### [3. Weak File Permissions - Readable /etc/shadow](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#3-weak-file-permissions---readable-etcshadow-1)
 #### [&nbsp; 3.1: What is the root user's password hash?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#31-what-is-the-root-users-password-hash)
 #### [&nbsp; 3.2: What hashing algorithm was used to produce the root user's password hash?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#32-what-hashing-algorithm-was-used-to-produce-the-root-users-password-hash)
 #### [&nbsp; 3.3: What is the root user's password?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#33-what-is-the-root-users-password)
 
 <br />
 
-### [4. Weak File Permissions - Writable /etc/shadow](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#4-weak-file-permissions---writable-etcshadow)
+### [4. Weak File Permissions - Writable /etc/shadow](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#4-weak-file-permissions---writable-etcshadow-1)
 #### [&nbsp; 4.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#41-read-and-follow-along-with-the-above)
 
 <br />
 
-### [5. Weak File Permissions - Writable /etc/passwd](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#5-weak-file-permissions---writable-etcpasswd)
+### [5. Weak File Permissions - Writable /etc/passwd](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#5-weak-file-permissions---writable-etcpasswd-1)
 #### [&nbsp; 5.1: Run the "id" command as the newroot user. What is the result?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#51-run-the-id-command-as-the-newroot-user-what-is-the-result)
 
 <br />
 
-### [6. Sudo - Shell Escape Sequences](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#6-sudo---shell-escape-sequences)
+### [6. Sudo - Shell Escape Sequences](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#6-sudo---shell-escape-sequences-1)
 #### [&nbsp; 6.1: How many programs is "user" allowed to run via sudo?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#61-how-many-programs-is-user-allowed-to-run-via-sudo)
 #### [&nbsp; 6.2: One program on the list doesn't have a shell escape sequence on GTFOBins. Which is it?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#62-one-program-on-the-list-doesnt-have-a-shell-escape-sequence-on-gtfobins-which-is-it)
 #### [&nbsp; 6.3: Consider how you might use this program with sudo to gain root privileges without a shell escape sequence.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#63-consider-how-you-might-use-this-program-with-sudo-to-gain-root-privileges-without-a-shell-escape-sequence)
 
 <br />
 
-### [7. Sudo - Environment Variables](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#7-sudo---environment-variables)
+### [7. Sudo - Environment Variables](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#7-sudo---environment-variables-1)
 #### [&nbsp; 7.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#71-read-and-follow-along-with-the-above)
 
 <br />
 
-### [8. Cron Jobs - File Permissions](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#8-cron-jobs---file-permissions)
+### [8. Cron Jobs - File Permissions](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#8-cron-jobs---file-permissions-1)
 #### [&nbsp; 8.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#81-read-and-follow-along-with-the-above)
 
 <br />
