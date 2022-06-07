@@ -15,8 +15,24 @@
 
 ### [2. Physical Active Directoryn](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#2-physical-active-directory)
 #### [&nbsp; 2.1: What database does the AD DS contain?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#21-what-database-does-the-ad-ds-contain)
+#### [&nbsp; 2.2: Where is the NTDS.dit stored?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#22-where-is-the-ntdsdit-stored)
+#### [&nbsp; 2.3: What type of machine can be a domain controller?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#23-what-type-of-machine-can-be-a-domain-controller)
 
+<br />
 
+### [3. The Forest](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#3-the-forest)
+#### [&nbsp; 3.1: What is the term for a hierarchy of domains in a network?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#31-what-is-the-term-for-a-hierarchy-of-domains-in-a-network)
+#### [&nbsp; 3.2: What is the term for the rules for object creation?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#32-what-is-the-term-for-the-rules-for-object-creation)
+#### [&nbsp; 3.3: What is the term for containers for groups, computers, users, printers, and other OUs?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#33-what-is-the-term-for-containers-for-groups-computers-users-printers-and-other-ous)
+
+<br />
+
+### [4. Users + Groups](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#4-users--groups)
+#### [&nbsp; 4.1: Which type of groups specify user permissions?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#41-which-type-of-groups-specify-user-permissions)
+#### [&nbsp; 4.2: Which group contains all workstations and servers joined to the domain?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#42-which-group-contains-all-workstations-and-servers-joined-to-the-domain) 
+#### [&nbsp; 4.3: Which group can publish certificates to the directory?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#43-which-group-can-publish-certificates-to-the-directory) 
+#### [&nbsp; 4.4: Which user can make changes to a local machine but not to a domain controller?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#44-which-user-can-make-changes-to-a-local-machine-but-not-to-a-domain-controller) 
+#### [&nbsp; 4.5: Which group has their passwords replicated to read-only domain controllers?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#45-which-group-has-their-passwords-replicated-to-read-only-domain-controllers) 
 
 
 <br />
