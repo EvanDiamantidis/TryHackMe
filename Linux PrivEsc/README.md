@@ -892,6 +892,7 @@ chmod +x shell.elf
 Create the following files in the `/home/user` directory as instructed on the task:
 
 `touch /home/user/--checkpoint=1`
+<br/>
 `touch /home/user/--checkpoint-action=exec=shell.elf`
 
 The files we just created are valid `tar` informative output options, which we can also confirm using the `tar --help` command. Once the `tar` cron job runs, the wildcard `*` will include these files and since both filenames are valid `tar` options they will be recognized and treated as such, rather than filenames.
