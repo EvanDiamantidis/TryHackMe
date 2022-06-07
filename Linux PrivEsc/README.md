@@ -62,6 +62,15 @@
 #### [&nbsp; 10.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#101-read-and-follow-along-with-the-above)
 
 <br />
+
+### [11: SUID / SGID Executables - Known Exploits](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#11-suid--sgid-executables---known-exploits)
+#### [&nbsp; 11.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#111-read-and-follow-along-with-the-above)
+
+<br />
+
+
+
+<br />
 <br />
 
 ## 1. Deploy the Vulnerable Debian VM
