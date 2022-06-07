@@ -58,8 +58,8 @@
 
 <br />
 
-### [10: Cron Jobs - Wildcards](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc/README.md#10-cron-jobs---wildcards-1)
-#### [&nbsp; 10.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc/README.md#101-read-and-follow-along-with-the-above)
+### [10: Cron Jobs - Wildcards](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#10-cron-jobs---wildcards-1)
+#### [&nbsp; 10.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#101-read-and-follow-along-with-the-above)
 
 <br />
 <br />
