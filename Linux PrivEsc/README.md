@@ -237,8 +237,6 @@ su root
 
 ## 4. Weak File Permissions - Writable /etc/shadow
 
-### 4.1: Read and follow along with the above.
-
 <br />
 
 This task is detailing the ease of editing writable `shadow` files to take advantage of passwords we can generate on our own using the `mkpasswd` command:
@@ -262,6 +260,9 @@ su root
 
 ![image](https://user-images.githubusercontent.com/14150485/172006968-bd15e1cc-c571-46db-934a-7c09d226698c.png)
 
+<br />
+
+### 4.1: Read and follow along with the above.
 
 ```
 No answer needed
@@ -279,6 +280,7 @@ Remember to exit out of the root shell before continuing!
 <br />
 
 Similar to the previous task, we can generate our own hashes that we can then use to manipulate writable `passwd` files to our advantage!
+
 ```
 openssl passwd PASSWORD_HERE
 ```
@@ -286,6 +288,7 @@ openssl passwd PASSWORD_HERE
 ![image](https://user-images.githubusercontent.com/14150485/172007767-48fd86a8-0836-4535-a7be-f9b1be8b52da.png)
 
 We can now edit the `passwd` file, replacing the `x` between the first and second colons with the output from the previous command.
+
 ```
 nano /etc/passwd
 ```
@@ -304,13 +307,13 @@ The `id` command releavs the answer to this task:
 uid=0(root) gid=0(root) groups=0(root)
 ```
 
-
 <br />
 <br />
 
 ## 6. Sudo - Shell Escape Sequences
 
 ### 6.1: How many programs is "user" allowed to run via sudo?
+
 ```
 sudo -l
 ```
@@ -326,6 +329,7 @@ sudo -l
 <br />
 
 Searching through the list of programs we just got using the `sudo -l` command over at https://gtfobins.github.io, there is only one not appearing on the list.
+
 ```
 apache2
 ```
@@ -536,7 +540,7 @@ Successfully escalated to root!
 
 ![image](https://user-images.githubusercontent.com/14150485/172017178-17bcd1aa-41dc-40d2-981d-fd65a24f3a76.png)
 
-
+<br />
 
 ### 6.3: Consider how you might use this program with sudo to gain root privileges without a shell escape sequence.
 
@@ -555,7 +559,7 @@ No answer needed
 
 <br />
 
-As explained in this task, running the `sudo -l` command will reveal inherited environment variables, which should be listed as `env_keep`.
+Running the `sudo -l` command will reveal inherited environment variables, which should be listed as `env_keep`.
 
 ```
 sudo -l
