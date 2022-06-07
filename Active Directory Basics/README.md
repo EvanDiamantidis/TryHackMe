@@ -36,9 +36,15 @@
 
 <br />
 
-### [5. Trusts + Policies](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#5-trusts--policies)
+### [5. Trusts + Policies](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#5-trusts--policies-1)
 #### [&nbsp; 5.1: What type of trust flows from a trusting domain to a trusted domain?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#51-what-type-of-trust-flows-from-a-trusting-domain-to-a-trusted-domain)
 #### [&nbsp; 5.2: What type of trusts expands to include other trusted domains?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#52-what-type-of-trusts-expands-to-include-other-trusted-domains)
+
+<br />
+
+### [6. Active Directory Domain Services + Authentication](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#6-active-directory-domain-services--authentication)
+####[&nbsp; 6.1: What type of authentication uses tickets?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#61-what-type-of-authentication-uses-tickets)
+####[&nbsp; 6.2: What domain service can create, validate, and revoke public key certificates?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#62-what-domain-service-can-create-validate-and-revoke-public-key-certificates)
 
 
 <br />
