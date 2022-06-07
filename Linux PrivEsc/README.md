@@ -51,10 +51,8 @@
 ### [8. Cron Jobs - File Permissions](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#8-cron-jobs---file-permissions-1)
 #### [&nbsp; 8.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#81-read-and-follow-along-with-the-above)
 
+
 <br />
-
------------------
-
 <br />
 
 ## 1. Deploy the Vulnerable Debian VM
