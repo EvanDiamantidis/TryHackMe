@@ -9,7 +9,7 @@
 # Table of contents
 
 ### [1. Introduction](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#1-introduction-1)
-#### [&nbsp; 1.1: I understand what Active Directory is and why it is used.]()
+#### [&nbsp; 1.1: I understand what Active Directory is and why it is used.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#11-i-understand-what-active-directory-is-and-why-it-is-used)
 
 <br />
 
