@@ -42,12 +42,16 @@
 
 <br />
 
-### [6. Active Directory Domain Services + Authentication](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#6-active-directory-domain-services--authentication)
-####[&nbsp; 6.1: What type of authentication uses tickets?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#61-what-type-of-authentication-uses-tickets)
-####[&nbsp; 6.2: What domain service can create, validate, and revoke public key certificates?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#62-what-domain-service-can-create-validate-and-revoke-public-key-certificates)
-
+### [6. Active Directory Domain Services + Authentication](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#6-active-directory-domain-services--authentication-1)
+#### [&nbsp; 6.1: What type of authentication uses tickets?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#61-what-type-of-authentication-uses-tickets)
+#### [&nbsp; 6.2: What domain service can create, validate, and revoke public key certificates?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#62-what-domain-service-can-create-validate-and-revoke-public-key-certificates)
 
 <br />
+
+### [7. AD in the Cloud](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#7-ad-in-the-cloud)
+#### [&nbsp; 7.1: What is the Azure AD equivalent of LDAP?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#71-what-is-the-azure-ad-equivalent-of-ldap)
+#### [&nbsp; 7.2: What is the Azure AD equivalent of Domains and Forests?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#72-what-is-the-azure-ad-equivalent-of-domains-and-forests)
+#### [&nbsp; 7.3: What is the Windows Server AD equivalent of Guests?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#73-what-is-the-windows-server-ad-equivalent-of-guests)
 
 <br />
 
