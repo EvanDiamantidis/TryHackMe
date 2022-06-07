@@ -36,7 +36,7 @@
 
 <br />
 
-### [Trusts + Policies](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#5-trusts--policies-1)
+### [5. Trusts + Policies](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#5-trusts--policies)
 #### [&nbsp; 5.1: What type of trust flows from a trusting domain to a trusted domain?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#51-what-type-of-trust-flows-from-a-trusting-domain-to-a-trusted-domain)
 #### [&nbsp; 5.2: What type of trusts expands to include other trusted domains?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#52-what-type-of-trusts-expands-to-include-other-trusted-domains)
 
