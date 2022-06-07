@@ -853,7 +853,7 @@ cat /usr/local/bin/compress.sh
 
 ![image](https://user-images.githubusercontent.com/14150485/172453181-b97b7c49-a00e-4d5c-9328-a28fdca19eec.png)
 
-The `tar` command appears to run with a wildcard signified by the asterisk symbol `*`, that can be exploited if not used properly. According to the `crontab` information, it seems that a backup of the `/home/user/`folder is being made every minute.
+The `tar` command appears to run with a wildcard signified by the asterisk symbol `*`, that can be exploited if not used properly. According to the `crontab` information, it seems that a backup of the `/home/user/` folder is being made every minute.
 
 <br/>
 
