@@ -68,12 +68,26 @@
 
 <br />
 
-### [12: SUID / SGID Executables - Shared Object Injection]()
-#### [&nbsp; 12.1: Read and follow along with the above.]()
+### [12: SUID / SGID Executables - Shared Object Injection](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#12-suid--sgid-executables---shared-object-injection-1)
+#### [&nbsp; 12.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#121-read-and-follow-along-with-the-above)
+
+<br />
 
 
 
+<br />
 
+
+
+<br />
+
+
+
+<br />
+
+
+
+<br />
 
 <br />
 <br />
