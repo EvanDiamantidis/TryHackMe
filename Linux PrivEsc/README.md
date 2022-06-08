@@ -73,11 +73,13 @@
 
 <br />
 
-
+### [13: SUID / SGID Executables - Environment Variables]()
+#### [&nbsp; 13.1: Read and follow along with the above.]() 
 
 <br />
 
-
+### [14: SUID / SGID Executables - Abusing Shell Features (#1)]()
+#### [&nbsp; 14.1: Read and follow along with the above.]() 
 
 <br />
 
