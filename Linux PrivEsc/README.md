@@ -73,13 +73,13 @@
 
 <br />
 
-### [13: SUID / SGID Executables - Environment Variables]()
-#### [&nbsp; 13.1: Read and follow along with the above.]() 
+### [13: SUID / SGID Executables - Environment Variables](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#13-suid--sgid-executables---environment-variables-1)
+#### [&nbsp; 13.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#131-read-and-follow-along-with-the-above) 
 
 <br />
 
-### [14: SUID / SGID Executables - Abusing Shell Features (#1)]()
-#### [&nbsp; 14.1: Read and follow along with the above.]() 
+### [14: SUID / SGID Executables - Abusing Shell Features (#1)](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#14-suid--sgid-executables---abusing-shell-features-1-1)
+#### [&nbsp; 14.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#141-read-and-follow-along-with-the-above) 
 
 <br />
 
