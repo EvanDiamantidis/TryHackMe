@@ -1050,3 +1050,73 @@ No answer needed
 
 <br/>
 <br/>
+
+### 13: SUID / SGID Executables - Environment Variables
+
+The `/usr/local/bin/suid-env` executable can be exploited due to it inheriting the user's `PATH` environment variable and attempting to execute programs without specifying an absolute path.
+
+Executing the file seems to start an `apache2httpd` web server:
+
+```
+/usr/local/bin/suid-env
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172707687-d9b12874-89cf-490d-ae3a-0a8bfc838bda.png)
+
+Let's see if we can find some more information by searching for any `strings` in the executable:
+
+```
+strings /usr/local/bin/suid-env 
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172707867-8cf57ec6-49b7-4c0b-84f1-c02813a19397.png)
+
+The last line appears to start a `service` called `apache2`.  Searching for a file by that name under the `/home/user/` directory definitely gives us something we can use.
+
+```
+find /home -name 'service*'
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172708271-f870202f-225c-42c5-a8c6-731c5e5f7cce.png)
+
+Let's create an executable using the `service` file:
+
+```
+gcc -o service /home/user/tools/suid/service.c
+```
+
+Setting the `PATH` value to the current directory followed by the initial executable will escalate our privileges to root:
+
+```
+PATH=.:$PATH /usr/local/bin/suid-env
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172709388-89c65bc9-886b-4184-88cf-ebb8ad0656ac.png)
+
+<br/>
+
+#### 13.1: Read and follow along with the above.
+
+```
+No answer needed
+```
+
+<br/>
+<br/>
+
+### 14: SUID / SGID Executables - Abusing Shell Features (#1)
+
+
+
+<br/>
+
+#### 14.1: Read and follow along with the above.
+
+```
+No answer needed
+```
+
+<br/>
+<br/>
+
+
