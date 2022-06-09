@@ -83,11 +83,6 @@
 
 <br />
 
-### [14: SUID / SGID Executables - Abusing Shell Features (#1)](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#14-suid--sgid-executables---abusing-shell-features-1-2)
-#### [&nbsp; 14.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#141-read-and-follow-along-with-the-above)
-
-<br />
-
 ### [15: SUID / SGID Executables - Abusing Shell Features (#2)](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#15-suid--sgid-executables---abusing-shell-features-2-1)
 #### [&nbsp; 15.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#151-read-and-follow-along-with-the-above)
 
@@ -1232,7 +1227,7 @@ su root
 
 <br/>
 
-#### 16: What is the full mysql command the user executed?
+#### 16.1: What is the full mysql command the user executed?
 
 <br/>
 
