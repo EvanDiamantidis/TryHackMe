@@ -548,12 +548,13 @@ After executing the command, any user input is not displayed in nano which can m
 
 <br />
 
-The line used in example (a) seems to run successfully:
+The line used in example (a) seems to run successfully out of the box:, 
 
 ![image](https://user-images.githubusercontent.com/14150485/172015286-a65b7835-d9d9-4733-8554-845b915f2adb.png)
 
+Examples (b) and (c) require compiling with Python and LUA respectively, as instructed.
 
-
+<br />
 
 **man**
 -------
