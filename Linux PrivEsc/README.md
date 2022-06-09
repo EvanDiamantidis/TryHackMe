@@ -1477,6 +1477,8 @@ No answer needed
 
 #### 21.1: Experiment with all three tools, running them with different options. Do all of them identify the techniques used in this room?
 
+<br/>
+
 The scripts are located under the `/home/user/tools/privesc-scripts` folder. Running them and examining their outputs we notice that they picked up most of the scenarios we worked on in this room. While scripts are useful and provide detailed information with minimal effort from us, understanding how Linux systems work and how we can manually take advantage of misconfigurations for privilege escalation purposes is key knowledge that takes a significant amount of time, practice and exposure to achieve.
 
 ```
