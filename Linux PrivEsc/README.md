@@ -83,43 +83,43 @@
 
 <br />
 
-### [14: SUID / SGID Executables - Abusing Shell Features (#1)]()
-#### [&nbsp; 14.1: Read and follow along with the above.]()
+### [14: SUID / SGID Executables - Abusing Shell Features (#1)](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#14-suid--sgid-executables---abusing-shell-features-1-2)
+#### [&nbsp; 14.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#141-read-and-follow-along-with-the-above)
 
 <br />
 
-### [15: SUID / SGID Executables - Abusing Shell Features (#2)]()
-#### [&nbsp; 15.1: Read and follow along with the above.]()
+### [15: SUID / SGID Executables - Abusing Shell Features (#2)](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#15-suid--sgid-executables---abusing-shell-features-2-1)
+#### [&nbsp; 15.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#151-read-and-follow-along-with-the-above)
 
 <br />
 
-### [16: Passwords & Keys - History Files]()
-#### [&nbsp; 16.1: What is the full mysql command the user executed?]()
+### [16: Passwords & Keys - History Files](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#16-passwords--keys---history-files-1)
+#### [&nbsp; 16.1: What is the full mysql command the user executed?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#16-what-is-the-full-mysql-command-the-user-executed)
 
 <br />
 
-### [17: Passwords & Keys - History Files]()
-#### [&nbsp; 17.1: What is the full mysql command the user executed?]()
+### [17: Passwords & Keys - History Files](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#17-passwords--keys---config-files)
+#### [&nbsp; 17.1: What is the full mysql command the user executed?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#171-what-file-did-you-find-the-root-users-credentials-in)
 
 <br />
 
-### [18: Passwords & Keys - SSH Keys]()
-#### [&nbsp; 18.1: Read and follow along with the above.]()
+### [18: Passwords & Keys - SSH Keys](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#18-passwords--keys---ssh-keys-1)
+#### [&nbsp; 18.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#181-read-and-follow-along-with-the-above)
 
 <br />
 
-### [19: NFS]()
-#### [&nbsp; 19.1: What is the name of the option that disables root squashing?]()
+### [19: NFS](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#19-nfs-1)
+#### [&nbsp; 19.1: What is the name of the option that disables root squashing?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#191-what-is-the-name-of-the-option-that-disables-root-squashing)
 
 <br />
 
-### [20: Kernel Exploits]()
-#### [&nbsp; 20.1: Read and follow along with the above.]()
+### [20: Kernel Exploits](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#20-kernel-exploits-1)
+#### [&nbsp; 20.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#201-read-and-follow-along-with-the-above)
 
 <br />
 
-### [21: Privilege Escalation Scripts]()
-#### [&nbsp; 21: Experiment with all three tools, running them with different options. Do all of them identify the techniques used in this room?]()
+### [21: Privilege Escalation Scripts](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#21-privilege-escalation-scripts-1)
+#### [&nbsp; 21: Experiment with all three tools, running them with different options. Do all of them identify the techniques used in this room?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#21-privilege-escalation-scripts-1)
 
 <br />
 <br />
