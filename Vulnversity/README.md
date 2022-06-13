@@ -10,9 +10,9 @@
 
 ### [1. Enumeration](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Vulnversity#1-enumeration-1)
 
-### [2. Web server fuzzing](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Vulnversity#2-webserver-fuzzing-1)
+### [2. Web server fuzzing](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Vulnversity#2-web-server-fuzzing-1)
 
-### [3. Privilege escalation]()
+### [3. Privilege escalation](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Vulnversity#3-privilege-escalation-1)
 
 <br />
 <br />
