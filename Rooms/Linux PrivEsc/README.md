@@ -14,7 +14,7 @@
 
 <br />
 
-### [2. Service Exploits](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#2-service-exploits-1)
+### [2. Service Exploits](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#2-service-exploits-1)
 #### [&nbsp; 2.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#21-read-and-follow-along-with-the-above)
 
 <br />
