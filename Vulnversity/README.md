@@ -332,7 +332,7 @@ www-data@vulnuniversity:/home/bill$ vuln=$(mktemp).service
 
 <br />
 
-Then populating it with the contents of the exploit, changing the `id` piece to point to the file we want to read:
+Then populating it with the contents of the exploit, changing the shell command piece to display the contents of the flag file:
 
 ```
 www-data@vulnuniversity:/home/bill$ echo '[Service]
