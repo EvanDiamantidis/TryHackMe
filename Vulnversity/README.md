@@ -370,7 +370,7 @@ drwx------  3 root     root     4096 Jun 13 03:35 systemd-private-9d4c6fdc98ad46
 
 <br />
 
-The contents of which print the `root/root.txt` flag for us:
+The contents of which print the `/root/root.txt` flag for us:
 
 ```
 www-data@vulnuniversity:/home/bill$ cat /tmp/output 
