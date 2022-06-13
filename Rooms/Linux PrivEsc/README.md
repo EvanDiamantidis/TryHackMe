@@ -8,113 +8,113 @@
 
 # Table of contents
 
-### [1. Deploy the Vulnerable Debian VM](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#1-deploy-the-vulnerable-debian-vm-1)
-#### [&nbsp; 1.1: Deploy the machine and login to the "user" account using SSH.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#11-deploy-the-machine-and-login-to-the-user-account-using-ssh)
-#### [&nbsp; 1.2: Run the "id" command. What is the result?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#12-run-the-id-command-what-is-the-result)
+### [1. Deploy the Vulnerable Debian VM](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#1-deploy-the-vulnerable-debian-vm-1)
+#### [&nbsp; 1.1: Deploy the machine and login to the "user" account using SSH.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#11-deploy-the-machine-and-login-to-the-user-account-using-ssh)
+#### [&nbsp; 1.2: Run the "id" command. What is the result?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#12-run-the-id-command-what-is-the-result)
 
 <br />
 
 ### [2. Service Exploits](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#2-service-exploits-1)
-#### [&nbsp; 2.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#21-read-and-follow-along-with-the-above)
+#### [&nbsp; 2.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#21-read-and-follow-along-with-the-above)
 
 <br />
 
-### [3. Weak File Permissions - Readable /etc/shadow](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#3-weak-file-permissions---readable-etcshadow-1)
-#### [&nbsp; 3.1: What is the root user's password hash?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#31-what-is-the-root-users-password-hash)
+### [3. Weak File Permissions - Readable /etc/shadow](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#3-weak-file-permissions---readable-etcshadow-1)
+#### [&nbsp; 3.1: What is the root user's password hash?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#31-what-is-the-root-users-password-hash)
 #### [&nbsp; 3.2: What hashing algorithm was used to produce the root user's password hash?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#32-what-hashing-algorithm-was-used-to-produce-the-root-users-password-hash)
-#### [&nbsp; 3.3: What is the root user's password?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#33-what-is-the-root-users-password)
+#### [&nbsp; 3.3: What is the root user's password?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#33-what-is-the-root-users-password)
 
 <br />
 
-### [4. Weak File Permissions - Writable /etc/shadow](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#4-weak-file-permissions---writable-etcshadow-1)
-#### [&nbsp; 4.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#41-read-and-follow-along-with-the-above)
+### [4. Weak File Permissions - Writable /etc/shadow](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#4-weak-file-permissions---writable-etcshadow-1)
+#### [&nbsp; 4.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#41-read-and-follow-along-with-the-above)
 
 <br />
 
-### [5. Weak File Permissions - Writable /etc/passwd](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#5-weak-file-permissions---writable-etcpasswd-1)
-#### [&nbsp; 5.1: Run the "id" command as the newroot user. What is the result?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#51-run-the-id-command-as-the-newroot-user-what-is-the-result)
+### [5. Weak File Permissions - Writable /etc/passwd](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#5-weak-file-permissions---writable-etcpasswd-1)
+#### [&nbsp; 5.1: Run the "id" command as the newroot user. What is the result?](https://github.com/EvanDiamantidis/Rooms/TryHackMe/tree/main/Linux%20PrivEsc#51-run-the-id-command-as-the-newroot-user-what-is-the-result)
 
 <br />
 
-### [6. Sudo - Shell Escape Sequences](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#6-sudo---shell-escape-sequences-1)
-#### [&nbsp; 6.1: How many programs is "user" allowed to run via sudo?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#61-how-many-programs-is-user-allowed-to-run-via-sudo)
-#### [&nbsp; 6.2: One program on the list doesn't have a shell escape sequence on GTFOBins. Which is it?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#62-one-program-on-the-list-doesnt-have-a-shell-escape-sequence-on-gtfobins-which-is-it)
-#### [&nbsp; 6.3: Consider how you might use this program with sudo to gain root privileges without a shell escape sequence.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#63-consider-how-you-might-use-this-program-with-sudo-to-gain-root-privileges-without-a-shell-escape-sequence)
+### [6. Sudo - Shell Escape Sequences](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#6-sudo---shell-escape-sequences-1)
+#### [&nbsp; 6.1: How many programs is "user" allowed to run via sudo?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#61-how-many-programs-is-user-allowed-to-run-via-sudo)
+#### [&nbsp; 6.2: One program on the list doesn't have a shell escape sequence on GTFOBins. Which is it?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#62-one-program-on-the-list-doesnt-have-a-shell-escape-sequence-on-gtfobins-which-is-it)
+#### [&nbsp; 6.3: Consider how you might use this program with sudo to gain root privileges without a shell escape sequence.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#63-consider-how-you-might-use-this-program-with-sudo-to-gain-root-privileges-without-a-shell-escape-sequence)
 
 <br />
 
-### [7. Sudo - Environment Variables](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#7-sudo---environment-variables-1)
-#### [&nbsp; 7.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#71-read-and-follow-along-with-the-above)
+### [7. Sudo - Environment Variables](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#7-sudo---environment-variables-1)
+#### [&nbsp; 7.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#71-read-and-follow-along-with-the-above)
 
 <br />
 
-### [8. Cron Jobs - File Permissions](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#8-cron-jobs---file-permissions-1)
-#### [&nbsp; 8.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#81-read-and-follow-along-with-the-above)
+### [8. Cron Jobs - File Permissions](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#8-cron-jobs---file-permissions-1)
+#### [&nbsp; 8.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#81-read-and-follow-along-with-the-above)
 
 <br />
 
-### [9: Cron Jobs - PATH Environment Variable](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#9-cron-jobs---path-environment-variable-1)
-#### [&nbsp; 9.1: What is the value of the PATH variable in /etc/crontab?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#91-what-is-the-value-of-the-path-variable-in-etccrontab)
+### [9: Cron Jobs - PATH Environment Variable](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#9-cron-jobs---path-environment-variable-1)
+#### [&nbsp; 9.1: What is the value of the PATH variable in /etc/crontab?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#91-what-is-the-value-of-the-path-variable-in-etccrontab)
 
 <br />
 
-### [10: Cron Jobs - Wildcards](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#10-cron-jobs---wildcards-1)
-#### [&nbsp; 10.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#101-read-and-follow-along-with-the-above)
+### [10: Cron Jobs - Wildcards](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#10-cron-jobs---wildcards-1)
+#### [&nbsp; 10.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#101-read-and-follow-along-with-the-above)
 
 <br />
 
-### [11: SUID / SGID Executables - Known Exploits](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#11-suid--sgid-executables---known-exploits-1)
-#### [&nbsp; 11.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#111-read-and-follow-along-with-the-above)
+### [11: SUID / SGID Executables - Known Exploits](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#11-suid--sgid-executables---known-exploits-1)
+#### [&nbsp; 11.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#111-read-and-follow-along-with-the-above)
 
 <br />
 
-### [12: SUID / SGID Executables - Shared Object Injection](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#12-suid--sgid-executables---shared-object-injection-1)
-#### [&nbsp; 12.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#121-read-and-follow-along-with-the-above)
+### [12: SUID / SGID Executables - Shared Object Injection](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#12-suid--sgid-executables---shared-object-injection-1)
+#### [&nbsp; 12.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#121-read-and-follow-along-with-the-above)
 
 <br />
 
-### [13: SUID / SGID Executables - Environment Variables](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#13-suid--sgid-executables---environment-variables-1)
-#### [&nbsp; 13.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#131-read-and-follow-along-with-the-above) 
+### [13: SUID / SGID Executables - Environment Variables](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#13-suid--sgid-executables---environment-variables-1)
+#### [&nbsp; 13.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#131-read-and-follow-along-with-the-above) 
 
 <br />
 
-### [14: SUID / SGID Executables - Abusing Shell Features (#1)](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#14-suid--sgid-executables---abusing-shell-features-1-1)
-#### [&nbsp; 14.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#141-read-and-follow-along-with-the-above) 
+### [14: SUID / SGID Executables - Abusing Shell Features (#1)](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#14-suid--sgid-executables---abusing-shell-features-1-1)
+#### [&nbsp; 14.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#141-read-and-follow-along-with-the-above) 
 
 <br />
 
-### [15: SUID / SGID Executables - Abusing Shell Features (#2)](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#15-suid--sgid-executables---abusing-shell-features-2-1)
-#### [&nbsp; 15.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#151-read-and-follow-along-with-the-above)
+### [15: SUID / SGID Executables - Abusing Shell Features (#2)](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#15-suid--sgid-executables---abusing-shell-features-2-1)
+#### [&nbsp; 15.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#151-read-and-follow-along-with-the-above)
 
 <br />
 
-### [16: Passwords & Keys - History Files](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#16-passwords--keys---history-files-1)
-#### [&nbsp; 16.1: What is the full mysql command the user executed?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#16-what-is-the-full-mysql-command-the-user-executed)
+### [16: Passwords & Keys - History Files](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#16-passwords--keys---history-files-1)
+#### [&nbsp; 16.1: What is the full mysql command the user executed?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#16-what-is-the-full-mysql-command-the-user-executed)
 
 <br />
 
-### [17: Passwords & Keys - History Files](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#17-passwords--keys---config-files)
-#### [&nbsp; 17.1: What is the full mysql command the user executed?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#171-what-file-did-you-find-the-root-users-credentials-in)
+### [17: Passwords & Keys - History Files](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#17-passwords--keys---config-files)
+#### [&nbsp; 17.1: What is the full mysql command the user executed?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#171-what-file-did-you-find-the-root-users-credentials-in)
 
 <br />
 
-### [18: Passwords & Keys - SSH Keys](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#18-passwords--keys---ssh-keys-1)
-#### [&nbsp; 18.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#181-read-and-follow-along-with-the-above)
+### [18: Passwords & Keys - SSH Keys](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#18-passwords--keys---ssh-keys-1)
+#### [&nbsp; 18.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#181-read-and-follow-along-with-the-above)
 
 <br />
 
-### [19: NFS](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#19-nfs-1)
-#### [&nbsp; 19.1: What is the name of the option that disables root squashing?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#191-what-is-the-name-of-the-option-that-disables-root-squashing)
+### [19: NFS](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#19-nfs-1)
+#### [&nbsp; 19.1: What is the name of the option that disables root squashing?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#191-what-is-the-name-of-the-option-that-disables-root-squashing)
 
 <br />
 
-### [20: Kernel Exploits](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#20-kernel-exploits-1)
-#### [&nbsp; 20.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#201-read-and-follow-along-with-the-above)
+### [20: Kernel Exploits](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#20-kernel-exploits-1)
+#### [&nbsp; 20.1: Read and follow along with the above.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#201-read-and-follow-along-with-the-above)
 
 <br />
 
-### [21: Privilege Escalation Scripts](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#21-privilege-escalation-scripts-1)
-#### [&nbsp; 21: Experiment with all three tools, running them with different options. Do all of them identify the techniques used in this room?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#21-privilege-escalation-scripts-1)
+### [21: Privilege Escalation Scripts](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#21-privilege-escalation-scripts-1)
+#### [&nbsp; 21: Experiment with all three tools, running them with different options. Do all of them identify the techniques used in this room?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#21-privilege-escalation-scripts-1)
 
 <br />
 <br />
