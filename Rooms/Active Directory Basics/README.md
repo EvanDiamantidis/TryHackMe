@@ -8,64 +8,64 @@
 
 # Table of contents
 
-### [1. Introduction](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#1-introduction-1)
-#### [&nbsp; 1.1: I understand what Active Directory is and why it is used.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#11-i-understand-what-active-directory-is-and-why-it-is-used)
+### [1. Introduction](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#1-introduction-1)
+#### [&nbsp; 1.1: I understand what Active Directory is and why it is used.](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#11-i-understand-what-active-directory-is-and-why-it-is-used)
 
 <br />
 
-### [2. Physical Active Directory](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#2-physical-active-directory)
+### [2. Physical Active Directory](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#2-physical-active-directory)
 #### [&nbsp; 2.1: What database does the AD DS contain?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#21-what-database-does-the-ad-ds-contain)
-#### [&nbsp; 2.2: Where is the NTDS.dit stored?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#22-where-is-the-ntdsdit-stored)
-#### [&nbsp; 2.3: What type of machine can be a domain controller?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#23-what-type-of-machine-can-be-a-domain-controller)
+#### [&nbsp; 2.2: Where is the NTDS.dit stored?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#22-where-is-the-ntdsdit-stored)
+#### [&nbsp; 2.3: What type of machine can be a domain controller?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#23-what-type-of-machine-can-be-a-domain-controller)
 
 <br />
 
-### [3. The Forest](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#3-the-forest-1)
-#### [&nbsp; 3.1: What is the term for a hierarchy of domains in a network?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#31-what-is-the-term-for-a-hierarchy-of-domains-in-a-network)
-#### [&nbsp; 3.2: What is the term for the rules for object creation?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#32-what-is-the-term-for-the-rules-for-object-creation)
-#### [&nbsp; 3.3: What is the term for containers for groups, computers, users, printers, and other OUs?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#33-what-is-the-term-for-containers-for-groups-computers-users-printers-and-other-ous)
+### [3. The Forest](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#3-the-forest-1)
+#### [&nbsp; 3.1: What is the term for a hierarchy of domains in a network?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#31-what-is-the-term-for-a-hierarchy-of-domains-in-a-network)
+#### [&nbsp; 3.2: What is the term for the rules for object creation?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#32-what-is-the-term-for-the-rules-for-object-creation)
+#### [&nbsp; 3.3: What is the term for containers for groups, computers, users, printers, and other OUs?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#33-what-is-the-term-for-containers-for-groups-computers-users-printers-and-other-ous)
 
 <br />
 
-### [4. Users + Groups](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#4-users--groups-1)
-#### [&nbsp; 4.1: Which type of groups specify user permissions?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#41-which-type-of-groups-specify-user-permissions)
-#### [&nbsp; 4.2: Which group contains all workstations and servers joined to the domain?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#42-which-group-contains-all-workstations-and-servers-joined-to-the-domain) 
+### [4. Users + Groups](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#4-users--groups-1)
+#### [&nbsp; 4.1: Which type of groups specify user permissions?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#41-which-type-of-groups-specify-user-permissions)
+#### [&nbsp; 4.2: Which group contains all workstations and servers joined to the domain?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#42-which-group-contains-all-workstations-and-servers-joined-to-the-domain) 
 #### [&nbsp; 4.3: Which group can publish certificates to the directory?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#43-which-group-can-publish-certificates-to-the-directory) 
-#### [&nbsp; 4.4: Which user can make changes to a local machine but not to a domain controller?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#44-which-user-can-make-changes-to-a-local-machine-but-not-to-a-domain-controller) 
-#### [&nbsp; 4.5: Which group has their passwords replicated to read-only domain controllers?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#45-which-group-has-their-passwords-replicated-to-read-only-domain-controllers) 
+#### [&nbsp; 4.4: Which user can make changes to a local machine but not to a domain controller?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#44-which-user-can-make-changes-to-a-local-machine-but-not-to-a-domain-controller) 
+#### [&nbsp; 4.5: Which group has their passwords replicated to read-only domain controllers?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#45-which-group-has-their-passwords-replicated-to-read-only-domain-controllers) 
 
 <br />
 
-### [5. Trusts + Policies](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#5-trusts--policies-1)
-#### [&nbsp; 5.1: What type of trust flows from a trusting domain to a trusted domain?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#51-what-type-of-trust-flows-from-a-trusting-domain-to-a-trusted-domain)
-#### [&nbsp; 5.2: What type of trusts expands to include other trusted domains?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#52-what-type-of-trusts-expands-to-include-other-trusted-domains)
+### [5. Trusts + Policies](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#5-trusts--policies-1)
+#### [&nbsp; 5.1: What type of trust flows from a trusting domain to a trusted domain?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#51-what-type-of-trust-flows-from-a-trusting-domain-to-a-trusted-domain)
+#### [&nbsp; 5.2: What type of trusts expands to include other trusted domains?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#52-what-type-of-trusts-expands-to-include-other-trusted-domains)
 
 <br />
 
-### [6. Active Directory Domain Services + Authentication](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#6-active-directory-domain-services--authentication-1)
-#### [&nbsp; 6.1: What type of authentication uses tickets?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#61-what-type-of-authentication-uses-tickets)
-#### [&nbsp; 6.2: What domain service can create, validate, and revoke public key certificates?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#62-what-domain-service-can-create-validate-and-revoke-public-key-certificates)
+### [6. Active Directory Domain Services + Authentication](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#6-active-directory-domain-services--authentication-1)
+#### [&nbsp; 6.1: What type of authentication uses tickets?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#61-what-type-of-authentication-uses-tickets)
+#### [&nbsp; 6.2: What domain service can create, validate, and revoke public key certificates?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#62-what-domain-service-can-create-validate-and-revoke-public-key-certificates)
 
 <br />
 
-### [7. AD in the Cloud](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#7-ad-in-the-cloud-1)
-#### [&nbsp; 7.1: What is the Azure AD equivalent of LDAP?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#71-what-is-the-azure-ad-equivalent-of-ldap)
-#### [&nbsp; 7.2: What is the Azure AD equivalent of Domains and Forests?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#72-what-is-the-azure-ad-equivalent-of-domains-and-forests)
-#### [&nbsp; 7.3: What is the Windows Server AD equivalent of Guests?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#73-what-is-the-windows-server-ad-equivalent-of-guests)
+### [7. AD in the Cloud](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#7-ad-in-the-cloud-1)
+#### [&nbsp; 7.1: What is the Azure AD equivalent of LDAP?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#71-what-is-the-azure-ad-equivalent-of-ldap)
+#### [&nbsp; 7.2: What is the Azure AD equivalent of Domains and Forests?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#72-what-is-the-azure-ad-equivalent-of-domains-and-forests)
+#### [&nbsp; 7.3: What is the Windows Server AD equivalent of Guests?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#73-what-is-the-windows-server-ad-equivalent-of-guests)
 
 <br />
 
-### [8. Hands-On Lab](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#8-hands-on-lab-1)
-#### [&nbsp; 8.1: Deploy the Machine](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#81-deploy-the-machine)
-#### [&nbsp; 8.2: What is the name of the Windows 10 operating system?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#82-what-is-the-name-of-the-windows-10-operating-system)
-#### [&nbsp; 8.3: What is the second "Admin" name?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#83-what-is-the-second-admin-name)
-#### [&nbsp; 8.4: Which group has a capital "V" in the group name?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#84-which-group-has-a-capital-v-in-the-group-name)
-#### [&nbsp; 8.5: When was the password last set for the SQLService user?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#85-when-was-the-password-last-set-for-the-sqlservice-user)
+### [8. Hands-On Lab](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#8-hands-on-lab-1)
+#### [&nbsp; 8.1: Deploy the Machine](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#81-deploy-the-machine)
+#### [&nbsp; 8.2: What is the name of the Windows 10 operating system?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#82-what-is-the-name-of-the-windows-10-operating-system)
+#### [&nbsp; 8.3: What is the second "Admin" name?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#83-what-is-the-second-admin-name)
+#### [&nbsp; 8.4: Which group has a capital "V" in the group name?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#84-which-group-has-a-capital-v-in-the-group-name)
+#### [&nbsp; 8.5: When was the password last set for the SQLService user?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#85-when-was-the-password-last-set-for-the-sqlservice-user)
 
 <br />
 
-### [9. Conclusion](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#9-conclusion-1)
-#### [&nbsp; 9.1: I understand the basics of Active Directory](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#91-i-understand-the-basics-of-active-directory)
+### [9. Conclusion](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#9-conclusion-1)
+#### [&nbsp; 9.1: I understand the basics of Active Directory](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#91-i-understand-the-basics-of-active-directory)
 
 <br />
 <br />
