@@ -95,9 +95,9 @@ Information about the open ports listed below:
 
 <br />
 
-Now that we know which port the http server is running on, the next step is to identify hidden directories. I will be using `dirsearch` for this task, however you can proceed with `gobuster` as instructed.
+Now that we know which port the http server is running on, the next step is to identify hidden directories. We will be using `dirsearch` for this task, however you can proceed with `gobuster`, as per the task instructions.
 
-Make sure to use the correct port for this step, as the web server is not running on a default one on this box.
+Either way, we should ensure we are using the correct port for this step, as the web server is not running on a default one on this box.
 
 ```
 ─root@kali ~  
@@ -149,7 +149,7 @@ Task Completed
 
 <br />
 
-Going through the directory results on our browser we notice that the `/internal/` one in specific has a file upload form that we can use, however attempting to upload a `.php` reverse shell does not seem to work. Same goes for more common file types, such as `.jpg` or `.png` - A good indicator that fuzzing the form with Burp Suite might be more fruitful.
+Going through the directory results on our browser we notice that the `/internal/` one in specific has a file upload form that we can use, however attempting to upload a `.php` reverse shell does not seem to work. Same goes for more common file types, such as `.jpg` or `.png` - A good indicator that fuzzing the form with Burp Suite might prove more fruitful.
 
 Let's capture any file upload request using the BurpSuite proxy and then send the response to Intruder so we can test common file extensions. The Sniper attack type is the most efficient, as it will save us some time by automating the check against the upload form. First, we need to specify the payload position on the form that will be used to test the extensions:
 
@@ -157,21 +157,19 @@ Let's capture any file upload request using the BurpSuite proxy and then send th
 
 <br />
 
-Under Payloads, we choose the wordlist Sniper will iterate through, as well as ensure that URL-encoding is disabled.
+Under Payloads, we choose the wordlist Sniper will iterate through, as well as ensure that URL-encoding is disabled. This is a common file extension check, for the purposes of which I used `extensions-most-common.fuzz.txt`, part of the [SecLists](https://github.com/danielmiessler/SecLists) wordlist suite.
 
 ![image](https://user-images.githubusercontent.com/14150485/173319810-2d9f1f8e-5e47-40f5-8afd-12dacd63acc0.png)
 
 <br />
 
-This is a common file extension check against the upload form, for the purposes of which I used `extensions-most-common.fuzz.txt`, part of the [SecLists](https://github.com/danielmiessler/SecLists) wordlist suite.
-
-The results will all return a `200` status code which is to be expected, seeing as there is a valid server response, however that is not of much use for our purposes - The response length however is definitely a useful hint:
+The results will all return a `200` status code which is to be expected, seeing as there is a valid server response, however that is not of much use for our purposes - The response length however is definitely a useful pointer:
 
 ![image](https://user-images.githubusercontent.com/14150485/173316855-b14d9a13-de8c-448c-949f-19112f627b9a.png)
 
-The `.phtml` extension has a smaller response length, since there is no error returned, and should therefore be allowed on the server.
+The `.phtml` request has a smaller response length, reason being there is no error returned, and should therefore be an allowed file extension on the target server.
 
-Download the reverse shell as instructed on the task, edit the local IP and port values and save the file with a `.phtml` extension before uploading it on the target.
+Download the reverse shell as instructed on the task, edit the local IP and port values and save the file with a `.phtml` extension before uploading it using the form.
 
 <br />
 <br />
@@ -198,7 +196,7 @@ http://TARGET_IP:TARGET_PORT/internal/uploads/
 
 <br />
 
-Clicking on the file establishes connection to the machine.
+Executing the file establishes a connection with the machine.
 
 ```
 ╭─root@kali ~  
@@ -215,7 +213,7 @@ $
 
 <br />
 
-Although not mandatory, my preference is to stabilize shells to avoid accidental loss of access. The target machine seems to have `python` installed which makes this easy for us.
+Although not mandatory, my preference is to stabilize shells when possible to avoid accidental loss of access. The target machine seems to have `python` installed which makes this easy for us.
 
 On the target machine, we run the following command:
 
@@ -233,7 +231,7 @@ Ctrl + Z
 
 <br />
 
-Then use the following command locally:
+Input the following command locally:
 
 ```
 stty raw -echo && fg
@@ -249,7 +247,7 @@ export TERM=xterm-256-color
 
 <br />
 
-Now that we have a stabilized shell, our next step should be to check the `/home` directory for any hints or pointers.
+Now that we have a stabilized shell, our next step is to check the `/home` directory for any hints or pointers.
 
 ```
 www-data@vulnuniversity:/$ cd /home
@@ -258,7 +256,6 @@ total 12
 drwxr-xr-x  3 root root 4096 Jul 31  2019 .
 drwxr-xr-x 23 root root 4096 Jul 31  2019 ..
 drwxr-xr-x  2 bill bill 4096 Jul 31  2019 bill
-www-data@vulnuniversity:/home$ 
 ```
 
 <br />
@@ -275,7 +272,6 @@ drwxr-xr-x 3 root root 4096 Jul 31  2019 ..
 -rw-r--r-- 1 bill bill 3771 Jul 31  2019 .bashrc
 -rw-r--r-- 1 bill bill  655 Jul 31  2019 .profile
 -rw-r--r-- 1 bill bill   33 Jul 31  2019 user.txt
-www-data@vulnuniversity:/home/bill$ 
 ```
 
 <br />
@@ -350,7 +346,6 @@ www-data@vulnuniversity:/home/bill$ systemctl link $vuln
 Created symlink from /etc/systemd/system/tmp.74hJvCHt6u.service to /tmp/tmp.74hJvCHt6u.service.
 www-data@vulnuniversity:/home/bill$ systemctl enable --now $vuln
 Created symlink from /etc/systemd/system/multi-user.target.wants/tmp.74hJvCHt6u.service to /tmp/tmp.74hJvCHt6u.service.
-www-data@vulnuniversity:/home/bill$ 
 ```
 
 <br />
