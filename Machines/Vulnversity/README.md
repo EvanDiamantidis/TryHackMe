@@ -167,6 +167,8 @@ The results will all return a `200` status code which is to be expected, seeing 
 
 ![image](https://user-images.githubusercontent.com/14150485/173316855-b14d9a13-de8c-448c-949f-19112f627b9a.png)
 
+<br />
+
 The `.phtml` request has a smaller response length, reason being there is no error returned, and should therefore be an allowed file extension on the target server.
 
 Download the reverse shell as instructed on the task, edit the local IP and port values and save the file with a `.phtml` extension before uploading it using the form.
