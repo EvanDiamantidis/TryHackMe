@@ -21,7 +21,7 @@
 
 <br />
 
-Let's gather some information about the target system using `nmap`. The command should ideally include options that will provide answers to most, if not all, questions under the Reconnaissance task.
+As the first step in our enumeration process we will be gathering some information about the target system using `nmap`. The command used should ideally include options that will provide answers to most, if not all, questions under the Reconnaissance task.
 
 ```
 # Nmap 7.92 scan initiated Mon Jun 13 08:55:52 2022 as: nmap -sC -sV -sS -n -T5 -oN nmap/initial -p- 10.10.46.142
