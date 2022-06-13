@@ -322,7 +322,7 @@ Looking through the list, the `/bin/systemctl` stands out, as it is a utility re
 
 Researching this on [GTFOBins](https://gtfobins.github.io/) we find a reference to an [exploit](https://gtfobins.github.io/gtfobins/systemctl/) that we can use when `systemctl` has `SUID` permissions.
 
-Our attack vector then is to create a `unit file` which `systemctl` will start for us so we can view the flag included in `/root/root.txt` that we have no access to with our current permissions.
+Our attack vector then is to create a `unit file` which `systemctl` will start for us so we can view the flag included in `/root/root.txt` that we have no direct access to with our current permissions.
 
 Let's start by creating the variable:
 
