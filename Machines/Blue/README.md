@@ -227,7 +227,7 @@ Interesting, as this means we are most likely to find something in there!
 
 <br />
 
-The "flag3.txt" file is in here, indeed!
+The `flag3.txt` file is in here, indeed!
 
 ![image](https://user-images.githubusercontent.com/14150485/173416288-86c9effc-06f7-4bb7-beed-28efeda98470.png)
 
