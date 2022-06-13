@@ -8,9 +8,9 @@
 
 # Table of contents
 
-### [1. Enumeration]()
+### [1. Enumeration](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Vulnversity#1-enumeration-1)
 
-### [2. Webserver fuzzing]()
+### [2. Web server fuzzing](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Vulnversity#2-webserver-fuzzing-1)
 
 ### [3. Privilege escalation]()
 
@@ -91,7 +91,7 @@ Information about the open ports listed below:
 <br />
 
 
-## 2. Webserver fuzzing
+## 2. Web server fuzzing
 
 <br />
 
