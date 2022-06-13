@@ -149,7 +149,7 @@ Task Completed
 
 <br />
 
-Going through the directory results on our browser we notice that the `/internal/` one in specific has a file upload form that we can use, however attempting to upload `.php` reverse shell files does not seem to work. Same goes for more common file types, such as `.jpg` or `.png` - A good indicator that fuzzing the page with Burp Suite might be more fruitful.
+Going through the directory results on our browser we notice that the `/internal/` one in specific has a file upload form that we can use, however attempting to upload `.php` reverse shell files does not seem to work. Same goes for more common file types, such as `.jpg` or `.png` - A good indicator that fuzzing the form with Burp Suite might be more fruitful.
 
 Let's capture any file upload request using the BurpSuite proxy and then send the response to Intruder so we can test common file extensions. The Sniper attack type is the most efficient, as it will save us some time by automating the check against the upload form. First, we need to specify the payload position on the form that will be used to test the extensions:
 
