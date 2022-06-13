@@ -1,4 +1,4 @@
-# Nmap 7.92 scan initiated Mon Jun 13 08:55:52 2022 as: nmap -sC -sV -sS -n -T5 -oN nmap/initial -p- 10.10.46.142 
+# Nmap 7.92 scan initiated Mon Jun 13 08:55:52 2022 as: nmap -sC -sV -sS -n -T5 -oN nmap/initial -p- 10.10.46.142
 Nmap scan report for 10.10.46.142
 Host is up (0.011s latency).
 Not shown: 65529 closed tcp ports (reset)
