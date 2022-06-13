@@ -30,7 +30,7 @@
 ### [4. Users + Groups](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#4-users--groups-1)
 #### [&nbsp; 4.1: Which type of groups specify user permissions?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#41-which-type-of-groups-specify-user-permissions)
 #### [&nbsp; 4.2: Which group contains all workstations and servers joined to the domain?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#42-which-group-contains-all-workstations-and-servers-joined-to-the-domain) 
-#### [&nbsp; 4.3: Which group can publish certificates to the directory?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#43-which-group-can-publish-certificates-to-the-directory) 
+#### [&nbsp; 4.3: Which group can publish certificates to the directory?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#43-which-group-can-publish-certificates-to-the-directory) 
 #### [&nbsp; 4.4: Which user can make changes to a local machine but not to a domain controller?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#44-which-user-can-make-changes-to-a-local-machine-but-not-to-a-domain-controller) 
 #### [&nbsp; 4.5: Which group has their passwords replicated to read-only domain controllers?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#45-which-group-has-their-passwords-replicated-to-read-only-domain-controllers) 
 
