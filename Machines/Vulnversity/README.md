@@ -215,7 +215,7 @@ $
 
 <br />
 
-Although not mandatory, my preference is to stabilize shells when possible to avoid accidental loss of access. The target machine seems to have `python` installed which makes this easy for us.
+Although not mandatory, my preference is to stabilize shells where possible to avoid accidental loss of access. The target machine seems to have `python` installed which makes this easy for us.
 
 On the target machine, we run the following command:
 
