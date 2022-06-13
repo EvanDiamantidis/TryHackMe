@@ -8,15 +8,15 @@
 
 # Table of contents
 
-### [1. Enumeration]()
+### [1. Enumeration](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Blue#1-enumeration-1)
 
-### [2. Access]()
+### [2. Access](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Blue#2-access-1)
 
-### [3. Privilege escalation]()
+### [3. Escalate](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Blue#3-escalate)
 
-### [4. Cracking]()
+### [4. Cracking](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Blue#4-cracking-1)
 
-### [5. Flags]()
+### [5. Find flags!](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Blue#5-find-flags)
 
 <br />
 <br />
