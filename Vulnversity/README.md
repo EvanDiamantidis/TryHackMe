@@ -318,9 +318,9 @@ www-data@vulnuniversity:/home/bill$ find / -perm /4000 -type f -exec ls -ld {} \
 
 <br />
 
-Looking through the list, the `/bin/systemctl` stands out, as it is a utility responsible for examining and controlling the `systemd` system and service manager. In `systemd` services are referred to as `units`, which serve as resources the system administrates via the corresponding `unit files`.
+Looking through the list, the `/bin/systemctl` stands out, as it is a command responsible for examining and controlling the `systemd` system and service manager. In `systemd` services are referred to as `units`, which serve as resources the system administrates via the corresponding `unit files`.
 
-Researching this on [GTFOBins](https://gtfobins.github.io/) we find a reference to an [exploit](https://gtfobins.github.io/gtfobins/systemctl/) that we can use when `systemctl` has `SUID` permissions.
+Researching this command on [GTFOBins](https://gtfobins.github.io/) we find a reference to an [exploit](https://gtfobins.github.io/gtfobins/systemctl/) that we can use when `systemctl` has `SUID` permissions.
 
 Our attack vector then is to create a `unit file` which `systemctl` will start for us so we can view the flag included in `/root/root.txt` that we have no direct access to with our current permissions.
 
