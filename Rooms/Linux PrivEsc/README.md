@@ -21,7 +21,7 @@
 
 ### [3. Weak File Permissions - Readable /etc/shadow](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#3-weak-file-permissions---readable-etcshadow-1)
 #### [&nbsp; 3.1: What is the root user's password hash?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#31-what-is-the-root-users-password-hash)
-#### [&nbsp; 3.2: What hashing algorithm was used to produce the root user's password hash?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Linux%20PrivEsc#32-what-hashing-algorithm-was-used-to-produce-the-root-users-password-hash)
+#### [&nbsp; 3.2: What hashing algorithm was used to produce the root user's password hash?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#32-what-hashing-algorithm-was-used-to-produce-the-root-users-password-hash)
 #### [&nbsp; 3.3: What is the root user's password?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Linux%20PrivEsc#33-what-is-the-root-users-password)
 
 <br />
