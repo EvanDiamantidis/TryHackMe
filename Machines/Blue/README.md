@@ -12,11 +12,11 @@
 
 ### [2. Access](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Blue#2-access-1)
 
-### [3. Escalate](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Blue#3-escalate)
+### [3. Escalate](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Blue#3-escalate-1)
 
 ### [4. Cracking](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Blue#4-cracking-1)
 
-### [5. Find flags!](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Blue#5-find-flags)
+### [5. Find flags!](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Blue#5-find-flags-1)
 
 <br />
 <br />
