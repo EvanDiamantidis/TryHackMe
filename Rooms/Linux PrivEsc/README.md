@@ -1,8 +1,8 @@
 # **Linux PrivEsc**
 
-> Evan Diamantidis | June 2nd, 2022
+<br />
 
---------------------------
+> Evan Diamantidis | June 2nd, 2022
 
 <br />
 
