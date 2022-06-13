@@ -14,7 +14,7 @@
 <br />
 
 ### [2. Physical Active Directory](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#2-physical-active-directory)
-#### [&nbsp; 2.1: What database does the AD DS contain?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Active%20Directory%20Basics#21-what-database-does-the-ad-ds-contain)
+#### [&nbsp; 2.1: What database does the AD DS contain?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#21-what-database-does-the-ad-ds-contain)
 #### [&nbsp; 2.2: Where is the NTDS.dit stored?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#22-where-is-the-ntdsdit-stored)
 #### [&nbsp; 2.3: What type of machine can be a domain controller?](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Rooms/Active%20Directory%20Basics#23-what-type-of-machine-can-be-a-domain-controller)
 
