@@ -95,7 +95,7 @@ Information about the open ports listed below:
 
 <br />
 
-Now that we know which port the webserver is running on, the next step is to identify hidden directories. I will be using `dirsearch` for this task, however you can proceed with `gobuster` as instructed on the task.
+Now that we know which port the webserver is running on, the next step is to identify hidden directories. I will be using `dirsearch` for this task, however you can proceed with `gobuster` as instructed.
 
 Make sure to use the correct port for this step, as the webserver is not running on a default one on this box.
 
