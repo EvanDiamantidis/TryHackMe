@@ -95,9 +95,9 @@ Information about the open ports listed below:
 
 <br />
 
-Now that we know which port the webserver is running on, the next step is to identify hidden directories. I will be using `dirsearch` for this task, however you can proceed with `gobuster` as instructed.
+Now that we know which port the http server is running on, the next step is to identify hidden directories. I will be using `dirsearch` for this task, however you can proceed with `gobuster` as instructed.
 
-Make sure to use the correct port for this step, as the webserver is not running on a default one on this box.
+Make sure to use the correct port for this step, as the web server is not running on a default one on this box.
 
 ```
 ─root@kali ~  
@@ -149,7 +149,7 @@ Task Completed
 
 <br />
 
-Going through the directory results on our browser we notice that the `/internal/` one in specific has a file upload form that we can use, however attempting to upload `.php` reverse shell files does not seem to work. Same goes for more common file types, such as `.jpg` or `.png` - A good indicator that fuzzing the form with Burp Suite might be more fruitful.
+Going through the directory results on our browser we notice that the `/internal/` one in specific has a file upload form that we can use, however attempting to upload a `.php` reverse shell does not seem to work. Same goes for more common file types, such as `.jpg` or `.png` - A good indicator that fuzzing the form with Burp Suite might be more fruitful.
 
 Let's capture any file upload request using the BurpSuite proxy and then send the response to Intruder so we can test common file extensions. The Sniper attack type is the most efficient, as it will save us some time by automating the check against the upload form. First, we need to specify the payload position on the form that will be used to test the extensions:
 
@@ -163,7 +163,7 @@ Under Payloads, we choose the wordlist Sniper will iterate through, as well as e
 
 <br />
 
-This is a common file extension check against the upload form, for the purposes of which I used `extensions-most-common.fuzz.txt`, part of the `SecLists` wordlist suite.
+This is a common file extension check against the upload form, for the purposes of which I used `extensions-most-common.fuzz.txt`, part of the [SecLists](https://github.com/danielmiessler/SecLists) wordlist suite.
 
 The results will all return a `200` status code which is to be expected, seeing as there is a valid server response, however that is not of much use for our purposes - The response length however is definitely a useful hint:
 
@@ -193,7 +193,7 @@ listening on [any] 4524 ...
 The script file we uploaded on the target machine is located under the `/internal/uploads` folder:
 
 ```
-http://10.10.46.142:3333/internal/uploads/
+http://TARGET_IP:TARGET_PORT/internal/uploads/
 ```
 
 <br />
@@ -320,9 +320,9 @@ www-data@vulnuniversity:/home/bill$ find / -perm /4000 -type f -exec ls -ld {} \
 
 Looking through the list, the `/bin/systemctl` stands out, as it is a utility responsible for examining and controlling the `systemd` system and service manager. In `systemd` services are referred to as `units`, which serve as resources the system administrates via the corresponding `unit files`.
 
-Searching for `systemctl` on [GTFOBins](https://gtfobins.github.io/gtfobins/systemctl/) we find a reference to an exploit that we can use when the file has `SUID` permissions.
+Researching this on [GTFOBins](https://gtfobins.github.io/) we find a reference to an [exploit](https://gtfobins.github.io/gtfobins/systemctl/) that we can use when `systemctl` has `SUID` permissions.
 
-Our attack vector then is to create a `unit file` and let `systemctl` start it so we can view the flag included in `/root/root.txt` that we have no access to.
+Our attack vector then is to create a `unit file` which `systemctl` will start for us so we can view the flag included in `/root/root.txt` that we have no access to with our current permissions.
 
 Let's start by creating the variable:
 
