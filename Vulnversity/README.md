@@ -343,7 +343,7 @@ www-data@vulnuniversity:/home/bill$ echo '[Service]
 
 <br />
 
-We have now created a `unit file` that will read the contents of the `/root/root.txt` file and export them to the `/tmp/output` file. The remaining steps according to the exploit is to link the `unit file` with `systemctl` and start it.
+We have now created a `unit file` that will read the contents of `/root/root.txt` and export them to the `/tmp/output` file. The remaining steps according to the exploit is to link the `unit file` with `systemctl` and start it.
 
 ```
 www-data@vulnuniversity:/home/bill$ systemctl link $vuln
