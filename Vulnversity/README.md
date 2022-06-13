@@ -355,7 +355,7 @@ www-data@vulnuniversity:/home/bill$
 
 <br />
 
-Looks like the `/tmp/output` file was indeed created for us:
+Looks like the exploit worked and the `/tmp/output` file has indeed been created:
 
 ```
 www-data@vulnuniversity:/home/bill$ ls -la /tmp
