@@ -164,7 +164,7 @@ In this step we should switch over to an `NT AUTHORITY\SYSTEM` process from the 
 
 Following the instructions on the task, using the `hashdump` command in Meterpreter will list all known user hashes on the target machine.
 
-![image](https://user-images.githubusercontent.com/14150485/173413111-230471f7-f54c-45a2-ae0e-09052ee8fa31.png)
+![image](https://user-images.githubusercontent.com/14150485/173420036-8cec8dcb-388f-4e2f-857d-3279bdf5a88f.png)
 
 <br />
 
