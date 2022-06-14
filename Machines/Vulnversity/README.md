@@ -244,7 +244,7 @@ stty raw -echo && fg
 This should bring us back to the reverse shell where we enter the final command:
 
 ```
-export TERM=xterm-256-color
+export TERM=xterm-256color
 ```
 
 <br />
