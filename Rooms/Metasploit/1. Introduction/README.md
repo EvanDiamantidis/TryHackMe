@@ -1,8 +1,8 @@
 # Metasploit: Introduction 
 
-> Evan Diamantidis | May 26th, 2022
+<br />
 
---------------------------
+> Evan Diamantidis | May 26th, 2022
 
 <br />
 
