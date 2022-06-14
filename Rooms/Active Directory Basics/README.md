@@ -1,8 +1,8 @@
 # Active Directory Basics
 
-> Evan Diamantidis | May 25th, 2022
+<br />
 
---------------------------
+> Evan Diamantidis | May 25th, 2022
 
 <br />
 
