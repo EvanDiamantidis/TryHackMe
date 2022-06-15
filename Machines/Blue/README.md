@@ -233,7 +233,7 @@ The `flag3.txt` file is in here, indeed!
 
 <br />
 
-Congrats, you just pwned Blue!
+We just pwned Blue!
 
 <br />
 <br />
