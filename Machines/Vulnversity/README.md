@@ -381,6 +381,6 @@ a58ff**********************c7fd5
 
 <br />
 
-Congrats, you just pwned Vulnversity!
+We just pwned Vulnversity!
 
 <br />
