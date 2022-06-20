@@ -335,7 +335,7 @@ d**********c*******************9
 
 <br />
 
-SUID files are common and can provide a privilege escalation attack vector when not configured properly. We can check for such files either by using the `find / -perm -u=s -type f 2>/dev/null` command provided on the task, or by getting a detailed list using `find / -perm /4000 -type f -exec ls -la {} \; 2>/dev/null`.
+SUID files are common and can provide a privilege escalation attack vector when not configured properly. We can check for such files either by using the `find / -perm -u=s -type f 2>/dev/null` command provided on the task, or a more detailed list using `find / -perm /4000 -type f -exec ls -la {} \; 2>/dev/null`.
 
 ```
 kenobi@kenobi:/tmp$ find / -perm /4000 -type f -exec ls -la {} \; 2>/dev/null
