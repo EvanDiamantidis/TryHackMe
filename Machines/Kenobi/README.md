@@ -193,7 +193,7 @@ smb: \> exit
 
 <br />
 
-The file found on the share contains information about an SSH key created for a user called `Kenobi`, along with some details on a `ProFTPD` server running on the machine, as we also know from our initial scan.
+The file found on the share contains information about an SSH key created for a user called `kenobi`, along with some details on a `ProFTPD` server running on the machine, as we also know from our initial scan.
 
 Before we proceed to take advantage of `ProFTPD`, let us first have a look at the network file share. Per the task notes, there is an `rpcbind` service running on port 111 which converts remote procedure call (RPC) program numbers into universal addresses. When an RPC service is started, it tells `rpcbind` the address at which it is listening and the RPC program number its prepared to serve. In our case, port 111 is access to a network file system which can enumerate using `nmap` along with the relevant scripts.
 
