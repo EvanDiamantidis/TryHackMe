@@ -122,7 +122,7 @@ Here is the information we gathered:
 
 <br />
 
-Ports 139 and 445 are running `Samba` shares, also known as `smb`, however as noted on this task port 445 uses TCP and is therefore suitable for newer `smb` versions.
+Ports 139 and 445 are running `Samba` shares, also known as `smb`, however as noted on this task port 445 uses TCP and is therefore more suitable for newer `smb` versions.
 
 ![image](https://user-images.githubusercontent.com/14150485/174592034-7b43f31a-fedf-4d8e-bce8-efb942828587.png)
 
