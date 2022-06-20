@@ -8,13 +8,13 @@
 
 # Table of contents
 
-### [1. Initial scan and enumeration]()
+### [1. Initial scan and enumeration](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Kenobi#1-initial-scan-and-enumeration-1)
 
-### [2. Samba enumeration]()
+### [2. Samba enumeration](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Kenobi#2-samba-enumeration-1)
 
-### [3. Exploiting ProFTPD]()
+### [3. Exploiting ProFTPD](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Kenobi#3-exploiting-proftpd-1)
 
-### [4. Privilege escalation]()
+### [4. Privilege escalation](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Kenobi#4-privilege-escalation-1)
 
 
 <br />
