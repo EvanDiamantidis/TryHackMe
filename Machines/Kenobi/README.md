@@ -367,7 +367,7 @@ kenobi@kenobi:/tmp$ find / -perm /4000 -type f -exec ls -la {} \; 2>/dev/null
 
 <br />
 
-There is a particular file on the list that is smaller in size compared to the other ones that we do not see very often. Follow the instructions to run the binary using the `strings` command.
+There is a particular file on the list that we do not see very often and is smaller in size compared to the other ones. Follow the instructions to run the binary using the `strings` command.
 
 ```
 kenobi@kenobi:/tmp$ strings /usr/bin/menu
