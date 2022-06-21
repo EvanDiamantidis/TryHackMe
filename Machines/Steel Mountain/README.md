@@ -16,7 +16,7 @@
 
 ### [4. Initial access without Metasploit](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Steel%20Mountain#4-initial-access-without-metasploit-1)
 
-### [5. Privilege escalation without Metasploit]()
+### [5. Privilege escalation without Metasploit](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Steel%20Mountain#5-privilege-escalation-without-metasploit-1)
 
 
 <br />
@@ -388,6 +388,8 @@ Looks like this is indeed an interactive service which our user has read, write 
 <br />
 
 ## 5. Privilege escalation without Metasploit
+
+<br />
 
 Follow the instructions in Task 3 to create a payload using `msfvenom`.
 
