@@ -340,6 +340,16 @@ dir
 
 <br />
 
+While you are on the desktop folder you can feel free to get the flag for the first challenge.
+
+```
+C:\Users\bill\Desktop>more user.txt
+more user.txt
+***************fcd7c**********d**5
+```
+
+<br />
+
 The results from `WinPEAS` return a list of vulnerable services that we could potentially exploit. The first one on the list seems to allow our user to create files and write data in the service directory.
 
 ![image](https://user-images.githubusercontent.com/14150485/174689954-67058ed2-d09c-48f9-bd2b-5abf480500a8.png)
@@ -496,7 +506,7 @@ dir
 
 C:\Users\Administrator\Desktop>more root.txt
 more root.txt
-9a************c*****9803a****b*0
+9af5**********7c00f**********d***
 ```
 
 <br />
