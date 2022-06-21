@@ -340,7 +340,7 @@ dir
 
 <br />
 
-While you are on the desktop folder you can feel free to get the flag for the first challenge.
+Since we are on the desktop folder we can quickly get the flag for the first challenge before we proceed with the next steps.
 
 ```
 C:\Users\bill\Desktop>more user.txt
