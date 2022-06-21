@@ -480,7 +480,7 @@ SERVICE_NAME: AdvancedSystemCareService9
 
 <br />
 
-The flag to complete this room should be located on this user's desktop folder.
+The flag to complete this room is located on this user's desktop folder.
 
 ```
 C:\Windows\system32>whoami
