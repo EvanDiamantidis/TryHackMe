@@ -1,4 +1,4 @@
-# **[Steel Mountain]([https://tryhackme.com/room/kenobi](https://tryhackme.com/room/steelmountain))**
+# **[Steel Mountain](https://tryhackme.com/room/steelmountain)**
 
 <br />
 
@@ -440,11 +440,13 @@ SERVICE_NAME: AdvancedSystemCareService9
 
 <br />
 
-Once succesfully uploaded make sure to set up an active `netcat` shell listening to the port number specified on the reverse shell.
+The next step is to ensure we set up an active `netcat` shell listening to the port number specified on the reverse shell.
 
 ```
 nc -lvnp LOCAL_PORT
 ```
+
+<br />
 
 Now start the service to establish a connection with our target machine with `netcat`.
 
