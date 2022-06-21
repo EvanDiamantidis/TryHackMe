@@ -320,7 +320,7 @@ Looking through the list, the `/bin/systemctl` stands out, as it is a command re
 
 Researching this command on [GTFOBins](https://gtfobins.github.io/) we find a reference to a [function](https://gtfobins.github.io/gtfobins/systemctl/) we can take advantage of when `systemctl` has `SUID` permissions.
 
-Our attack vector then is to create a `unit file` which `systemctl` will start for us so we can view the flag included in `/root/root.txt` that we have no direct access to with our current permissions.
+Our attack vector then is to create a `unit file` which we can utilize using `systemctl` so we can view the contents of the flag file included in `/root/root.txt` that we have no direct access to given our current permissions.
 
 Let's start by creating the variable:
 
