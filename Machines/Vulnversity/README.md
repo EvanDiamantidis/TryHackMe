@@ -285,7 +285,7 @@ The flag can be found in the `user.txt` file.
 One of the most useful pieces of information for the purposes of privilege escalation that we should always prioritize is searching for files with `/4000` permissions, also known as `SUID` files.
 
 ```
-www-data@vulnuniversity:/home/bill$ find / -perm /4000 -type f -exec ls -ld {} \; 2>/dev/null          
+www-data@vulnuniversity:/home/bill$ find / -perm /4000 -type f -exec ls -la {} \; 2>/dev/null          
 -rwsr-xr-x 1 root root 32944 May 16  2017 /usr/bin/newuidmap
 -rwsr-xr-x 1 root root 49584 May 16  2017 /usr/bin/chfn
 -rwsr-xr-x 1 root root 32944 May 16  2017 /usr/bin/newgidmap
