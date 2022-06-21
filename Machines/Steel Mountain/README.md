@@ -8,13 +8,13 @@
 
 # Table of contents
 
-### [1. Scan and enumeration]()
+### [1. Scan and enumeration](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Steel%20Mountain#1-scan-and-enumeration-1)
 
-### [2. Initial access using Metasploit]()
+### [2. Initial access using Metasploit](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Steel%20Mountain#2-initial-access-using-metasploit-1)
 
-### [3. Privilege escalation using Metasploit]()
+### [3. Privilege escalation using Metasploit](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Steel%20Mountain#3-privilege-escalation-using-metasploit-1)
 
-### [4. Initial access without Metasploit]()
+### [4. Initial access without Metasploit](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Steel%20Mountain#4-initial-access-without-metasploit-1)
 
 ### [5. Privilege escalation without Metasploit]()
 
@@ -383,6 +383,11 @@ Successfully processed 1 files; Failed processing 0 files
 <br />
 
 Looks like this is indeed an interactive service which our user has read, write and execute permissions on, we can therefore proceed to replace it with a reverse shell as mentioned above and restart it.
+
+<br />
+<br />
+
+## 5. Privilege escalation without Metasploit
 
 Follow the instructions in Task 3 to create a payload using `msfvenom`.
 
