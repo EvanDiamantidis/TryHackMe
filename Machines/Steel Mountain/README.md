@@ -350,7 +350,7 @@ more user.txt
 
 <br />
 
-The results from `WinPEAS` return a list of vulnerable services that we could potentially exploit. The first one on the list seems to allow our user to create files and write data in the service directory.
+The results from `WinPEAS` reveal a list of vulnerable services that we could potentially exploit, the first of which seems to allow our user to create files and write data in the service directory.
 
 ![image](https://user-images.githubusercontent.com/14150485/174689954-67058ed2-d09c-48f9-bd2b-5abf480500a8.png)
 
