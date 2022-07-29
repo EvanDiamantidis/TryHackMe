@@ -394,7 +394,7 @@ Successfully processed 1 files; Failed processing 0 files
 
 <br />
 
-Looks like this is indeed an interactive service and our user has read, write and execute permissions on the containing folder, meaning we can proceed to replace it with a reverse shell and restart it.
+Looks like this is indeed an interactive service and our user has read, write and execute permissions on the containing folder, meaning we can exploit it with a reverse shell.
 
 <br />
 <br />
