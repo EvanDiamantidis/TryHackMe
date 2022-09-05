@@ -1,2 +1,2 @@
 # TryHackMe
-A collection of ad-hoc notes on various TryHackMe rooms and machines.
+A collection of ad-hoc notes and walkthroughs on various [TryHackMe](https://tryhackme.com/) rooms and machines.
