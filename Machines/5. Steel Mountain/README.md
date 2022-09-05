@@ -8,15 +8,15 @@
 
 # Table of contents
 
-### [1. Scan and enumeration](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Steel%20Mountain#1-scan-and-enumeration-1)
+### [1. Scan and enumeration](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/5.%20Steel%20Mountain#1-scan-and-enumeration-1)
 
-### [2. Initial access using Metasploit](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Steel%20Mountain#2-initial-access-using-metasploit-1)
+### [2. Initial access using Metasploit](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/5.%20Steel%20Mountain#2-initial-access-using-metasploit-1)
 
-### [3. Privilege escalation using Metasploit](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Steel%20Mountain#3-privilege-escalation-using-metasploit-1)
+### [3. Privilege escalation using Metasploit](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/5.%20Steel%20Mountain#3-privilege-escalation-using-metasploit-1)
 
-### [4. Initial access without Metasploit](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Steel%20Mountain#4-initial-access-without-metasploit-1)
+### [4. Initial access without Metasploit](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/5.%20Steel%20Mountain#4-initial-access-without-metasploit-1)
 
-### [5. Privilege escalation without Metasploit](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Steel%20Mountain#5-privilege-escalation-without-metasploit-1)
+### [5. Privilege escalation without Metasploit](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/5.%20Steel%20Mountain#5-privilege-escalation-without-metasploit-1)
 
 
 <br />
