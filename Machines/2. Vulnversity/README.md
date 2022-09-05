@@ -8,11 +8,11 @@
 
 # Table of contents
 
-### [1. Enumeration](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Vulnversity#1-enumeration-1)
+### [1. Enumeration](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/2.%20Vulnversity#1-enumeration-1)
 
-### [2. Web server directory discovery & fuzzing](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Vulnversity#2-web-server-directory-discovery--fuzzing-1)
+### [2. Web server directory discovery & fuzzing](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/2.%20Vulnversity#2-web-server-directory-discovery--fuzzing-1)
 
-### [3. Privilege escalation](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Vulnversity#3-privilege-escalation-1)
+### [3. Privilege escalation](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/2.%20Vulnversity#3-privilege-escalation-1)
 
 <br />
 <br />
