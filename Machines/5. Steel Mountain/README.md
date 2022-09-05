@@ -128,7 +128,7 @@ If you are a Mr. Robot fan you will most likely have the answer as soon as you l
 
 <br />
 
-**Please note that the next couple of sections in this walkthrough demonstrate how to root the machine using Metasploit. If you are looking for a bit of a challenge without it feel free to jump to [4. Initial access without Metasploit](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/Steel%20Mountain#4-initial-access-without-metasploit-1) for a (mostly) manual exploitation.**
+**Please note that the next couple of sections in this walkthrough demonstrate how to root the machine using Metasploit. If you are looking for a bit of a challenge without it feel free to jump to [4. Initial access without Metasploit](https://github.com/EvanDiamantidis/TryHackMe/tree/main/Machines/5.%20Steel%20Mountain#4-initial-access-without-metasploit-1) for a (mostly) manual exploitation.**
 
 <br />
 <br />
