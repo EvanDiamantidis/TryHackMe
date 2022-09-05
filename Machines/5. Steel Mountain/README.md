@@ -124,7 +124,7 @@ The employee of the month can easily be found by visiting the web page of this m
 
 ![image](https://user-images.githubusercontent.com/14150485/174669753-65d30e4b-d38e-47b4-93b6-f7ac29be9111.png)
 
-If you are a Mr. Robot fan you will most likely have the answer as soon as you land on the page. If not, feel free to inspect the image to get the name - Then make sure you watch Mr. Robot, the show really is one of a kind!
+If you are a Mr. Robot fan you will most likely have the answer as soon as you land on the page. If not, feel free to either reverse image search or inspect the image in the source code to get the name - Then make sure you watch Mr. Robot at some point, this show really is one of a kind!
 
 <br />
 
