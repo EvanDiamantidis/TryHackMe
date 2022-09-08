@@ -248,7 +248,7 @@ There is a way we can actually get all the flag file paths using a single comman
 
 <br />
 
-Although this is the most efficient solution to the challenge, it might be counter-productive to the process - Reason being that we should ideally aim to conduct our own research based on the hints provided for each flag as part of our learning process around the use of Metasploit, Meterpreter, shell and session switching, as well as Windows filesystems in general. That said, knowing how and when to take advantage of Meterpreter commands is essential.
+Although this is the most efficient solution to the challenge, it might be counter-productive to the process - Reason being that we should ideally aim to conduct our own research based on the hints provided for each flag as part of our learning process around the use of Metasploit, Meterpreter, shell and session switching, as well as Windows filesystems in general. That said, understanding the use and benefits of the various Meterpreter commands is essential.
 
 <br />
 
