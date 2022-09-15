@@ -386,7 +386,7 @@ ifconfig
 
 Looking at the results, this file apparently executes commands without using its full path, often a good indication that it might be vulnerable to path hijacking.
 
-Let follow the steps outlined on the task to manipulate our path so we can gain root privileges on the target.
+Let's follow the steps outlined on the task to manipulate our path so we can gain root privileges on the target.
 
 ```
 kenobi@kenobi:/$ cd /tmp
